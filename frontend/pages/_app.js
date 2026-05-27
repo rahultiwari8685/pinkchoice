@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <div>
       <Head>
-        <title>Sanskriti Creations - Printing and Branding Company</title>
+        <title>Pink Choice</title>
       </Head>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>

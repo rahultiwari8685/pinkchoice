@@ -7,7 +7,7 @@ const ProductSectionS4 = ({ addToCartProduct }) => {
   const [activeTab, setActiveTab] = useState("all");
 
   // const API = process.env.NEXT_PUBLIC_API_URL;
-  const API = "https://api.sanskritisutracreations.com";
+  const API = "https://api.pinkchoice.in";
 
   // ✅ GET PRODUCTS
   const getProducts = async () => {
