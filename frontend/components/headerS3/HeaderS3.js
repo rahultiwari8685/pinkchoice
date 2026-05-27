@@ -53,7 +53,7 @@ const HeaderS3 = (props) => {
               <div className="header-left">
                 <div className="logo">
                   <Link onClick={ClickHandler} href="/" className="header-logo">
-                    <Image src={Logo} alt="logo-img" />
+                    <Image src={Logo} alt="logo-img" width={150} height={50} />
                   </Link>
                 </div>
               </div>
