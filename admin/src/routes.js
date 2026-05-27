@@ -2,10 +2,9 @@ import React from 'react'
 
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
 const Product = React.lazy(() => import('./views/pages/product/Product'))
-const Reports = React.lazy(() => import('./views/pages/reports/Reports'))
+
 const Plans = React.lazy(() => import('./views/pages/plans/Plans'))
 const Polls = React.lazy(() => import('./views/pages/polls/Polls'))
-const Subscription = React.lazy(() => import('./views/pages/subscription/Subscriptions'))
 const Customers = React.lazy(() => import('./views/pages/customers/Customers'))
 const UpdateProduct = React.lazy(() => import('./views/pages/product/UpdateProduct'))
 const ProductList = React.lazy(() => import('./views/pages/product/ProductList'))
