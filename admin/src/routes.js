@@ -22,11 +22,10 @@ const routes = [
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
 
   { path: '/product', name: 'Product', element: Product },
-  { path: '/reports', name: 'Reports', element: Reports },
+
   { path: '/customers', name: 'Customers', element: Customers },
   { path: '/plans', name: 'Plans', element: Plans },
   { path: '/polls', name: 'Polls', element: Polls },
-  { path: '/subscription', name: 'Subscription', element: Subscription },
   { path: '/UpdateProduct/:id', name: 'Update Product', element: UpdateProduct },
   { path: '/ProductList', name: 'Product List', element: ProductList },
   { path: '/orders', name: 'Orders', element: Orders },
