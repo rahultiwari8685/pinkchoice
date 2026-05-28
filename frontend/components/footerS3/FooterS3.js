@@ -54,7 +54,7 @@ const FooterS3 = () => {
               <div className="single-footer-widget">
                 <div className="widget-head">
                   <Link onClick={ClickHandler} href="/home">
-                    <Image src={Logo} alt="logo-img" />
+                    <Image src={Logo} alt="logo-img" width={150} height={50} />
                   </Link>
                 </div>
                 <div className="footer-content">
