@@ -5,7 +5,7 @@ import Services from "../../api/Services";
 import Fi1 from "/public/images/footer/dot.png";
 import Fi2 from "/public/images/footer/footer-shape-1.png";
 import Fi3 from "/public/images/footer/footer-shape-2.png";
-import Logo from "/public/images/logo/black-logo.svg";
+import Logo from "/public/images/logo/Pink_Choice.jpg";
 import Fi4 from "/public/images/QRcode.png";
 import Fi5 from "/public/images/apple.png";
 import Fi6 from "/public/images/play-store.png";
@@ -163,7 +163,7 @@ const Footer = () => {
             <p className="fadeInLeft color-2">
               Copyright <span>@2026</span>{" "}
               <Link onClick={ClickHandler} href="/">
-                Sanskriti Creations
+                PinkChoice
               </Link>{" "}
               All Rights Reserved
             </p>

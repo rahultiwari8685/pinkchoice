@@ -4,7 +4,7 @@ import Services from "../../api/Services";
 import Shape1 from "/public/images/footer/line-shape.png";
 import Shape2 from "/public/images/footer/star.png";
 import Shape3 from "/public/images/mail.png";
-import Logo from "/public/images/logo/sanskriti_dark.svg";
+import Logo from "/public/images/logo/Pink_Choice.jpg";
 import Image from "next/image";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
@@ -156,12 +156,12 @@ const FooterS3 = () => {
                   <ul className="contact-list">
                     <li>
                       <Link onClick={ClickHandler} href="#" className="link">
-                        contact@sanskriticreation.com
+                        contact@pinkchoice.in
                       </Link>
                     </li>
                     <li>
                       <Link onClick={ClickHandler} href="tel:+919889910094">
-                        +91 9889910094
+                        +91 8808540402
                       </Link>
                     </li>
                   </ul>
