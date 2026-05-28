@@ -21,15 +21,12 @@ const ProductSinglePage = (props) => {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // 🔥 FETCH PRODUCT FROM API
   useEffect(() => {
     if (!id) return;
 
     const fetchProduct = async () => {
       try {
-        const res = await fetch(
-          `https://api.sanskritisutracreations.com/api/products/${id}`,
-        );
+        const res = await fetch(`https://pinkchoice.in/api/products/${id}`);
         const data = await res.json();
 
         if (data.success) {

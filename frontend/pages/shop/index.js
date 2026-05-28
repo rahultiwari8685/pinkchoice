@@ -8,7 +8,7 @@ import CtaSectionS2 from "../../components/CtaSectionS2/CtaSectionS2";
 import CursorMaus from "../../components/CursorMaus/CursorMaus";
 
 const ShopPage = () => {
-  const API = "https://api.sanskritisutracreations.com";
+  const API = "https://pinkchoice.in";
 
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);

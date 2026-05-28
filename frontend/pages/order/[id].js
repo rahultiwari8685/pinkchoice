@@ -16,7 +16,7 @@ const OrderPage = () => {
   useEffect(() => {
     if (!id) return;
 
-    fetch(`https://api.sanskritisutracreations.com/api/products/${id}`)
+    fetch(`https://pinkchoice.in/api/products/${id}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) setProduct(data.data);
