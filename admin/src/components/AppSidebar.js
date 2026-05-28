@@ -42,14 +42,14 @@ const AppSidebar = () => {
           <span
             className="text-white"
             style={{
-              fontSize: '1.25rem',
+              fontSize: '1.50rem',
               fontWeight: 700,
               letterSpacing: '1px',
               fontFamily: 'Segoe UI, sans-serif',
               textTransform: 'uppercase',
             }}
           >
-            Sanskriti Admin
+            PinkChoice
           </span>
         </div>
 
