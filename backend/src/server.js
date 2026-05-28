@@ -1,6 +1,8 @@
 import cors from "cors";
 import dotenv from "dotenv";
 dotenv.config();
+import path from "path";
+import { fileURLToPath } from "url";
 
 import express from "express";
 import mongoose from "mongoose";
@@ -21,6 +23,9 @@ import rateLimit from "express-rate-limit";
 import orderRoutes from "./routes/orderRoutes.js";
 
 const app = express();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
@@ -59,7 +64,9 @@ app.use((req, res, next) => {
 
 app.use(express.json({ limit: "1mb" }));
 
-app.use("/uploads", express.static("uploads"));
+// app.use("/uploads", express.static("uploads"));
+
+app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
 app.use("/api/users", userRoutes);
 app.use("/api/categories", categoryRoutes);
