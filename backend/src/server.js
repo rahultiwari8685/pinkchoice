@@ -33,7 +33,11 @@ const limiter = rateLimit({
 
 app.use(limiter);
 
-const allowedOrigins = ["https://pinkchoice.in", "https://admin.pinkchoice.in"];
+const allowedOrigins = [
+  "https://pinkchoice.in",
+  "https://admin.pinkchoice.in",
+  "https://api.pinkchoice.in",
+];
 
 app.use((req, res, next) => {
   const origin = req.headers.origin;
