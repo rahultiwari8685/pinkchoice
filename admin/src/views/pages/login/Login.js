@@ -146,7 +146,7 @@ const styles = {
   },
 
   leftPane: {
-    width: '53%',
+    width: '30%',
     background:
       "url('https://cdn.dribbble.com/users/1355613/screenshots/15657654/media/2da52d3a3d55c97c2abb83378574b88e.png') center/cover no-repeat",
     position: 'relative',
@@ -182,7 +182,7 @@ const styles = {
   },
 
   rightPane: {
-    width: '47%',
+    width: '70%',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',

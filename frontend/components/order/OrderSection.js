@@ -33,13 +33,10 @@ const OrderSection = ({ productId, product }) => {
     try {
       setLoading(true);
 
-      const res = await fetch(
-        "https://api.sanskritisutracreations.com/api/orders",
-        {
-          method: "POST",
-          body: formData,
-        },
-      );
+      const res = await fetch("https://pinkchoice.in/api/orders", {
+        method: "POST",
+        body: formData,
+      });
 
       const data = await res.json();
 
@@ -70,7 +67,6 @@ const OrderSection = ({ productId, product }) => {
 
         <form onSubmit={handleSubmit}>
           <div className="row g-4">
-            {/* LEFT SIDE */}
             <div className="col-md-5 col-lg-4">
               <div className="checkout-radio">
                 <p className="primary-text">Product Options</p>
@@ -104,7 +100,6 @@ const OrderSection = ({ productId, product }) => {
               </div>
             </div>
 
-            {/* RIGHT SIDE */}
             <div className="col-md-7 col-lg-8">
               <div className="checkout-single-wrapper">
                 <div className="checkout-single boxshado-single">
@@ -148,7 +143,6 @@ const OrderSection = ({ productId, product }) => {
                   </div>
                 </div>
 
-                {/* SUBMIT */}
                 <div className="checkout-single checkout-single-bg">
                   <div className="mt-4">
                     <button className="theme-btn" disabled={loading}>
