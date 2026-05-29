@@ -11,7 +11,6 @@ const orderSchema = new mongoose.Schema(
     phone: String,
     size: String,
     color: String,
-    logo: String,
   },
   { timestamps: true },
 );

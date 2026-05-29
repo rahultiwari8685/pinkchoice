@@ -11,7 +11,6 @@ export const createOrder = async (req, res) => {
       phone,
       size,
       color,
-      logo: req.file ? req.file.filename : "",
     });
 
     await order.save();
@@ -33,7 +32,7 @@ export const createOrder = async (req, res) => {
 export const getAllOrders = async (req, res) => {
   try {
     const orders = await Order.find()
-      .populate("productId", "title price thumbnail") // 🔥 product details
+      .populate("productId", "title price")
       .sort({ createdAt: -1 }); // latest first
 
     res.status(200).json({

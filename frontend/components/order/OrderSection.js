@@ -9,15 +9,10 @@ const OrderSection = ({ productId, product }) => {
     color: "",
   });
 
-  const [logo, setLogo] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleFile = (e) => {
-    setLogo(e.target.files[0]);
   };
 
   const handleSubmit = async (e) => {
@@ -27,8 +22,6 @@ const OrderSection = ({ productId, product }) => {
     formData.append("productId", productId);
 
     Object.keys(form).forEach((key) => formData.append(key, form[key]));
-
-    if (logo) formData.append("logo", logo);
 
     try {
       setLoading(true);
@@ -55,22 +48,32 @@ const OrderSection = ({ productId, product }) => {
   };
 
   return (
-    <section className="checkout-section section-padding section-bg-2">
-      <div className="container">
-        {/* 🔥 PRODUCT SUMMARY */}
-        {product && (
-          <div className="mb-4 p-3 bg-white shadow-sm rounded">
-            <h4>🛒 Ordering: {product.title}</h4>
-            <p>Price: ₹{product.price}</p>
-          </div>
-        )}
+    <div className="container py-5">
+      <div className="row justify-content-center">
+        <div className="col-lg-10">
+          <div className="card border-0 shadow-lg rounded-4 overflow-hidden">
+            <div className="row g-0">
+              {/* Product Info */}
+              <div className="col-md-4 bg-light p-4">
+                <h3 className="fw-bold mb-3">Order Summary</h3>
 
-        <form onSubmit={handleSubmit}>
-          <div className="row g-4">
-            <div className="col-md-5 col-lg-4">
-              <div className="checkout-radio">
-                <p className="primary-text">Product Options</p>
+                {product && (
+                  <>
+                    <img
+                      src={product.thumbnail}
+                      alt={product.title}
+                      className="img-fluid rounded mb-3"
+                    />
 
+                    <h5>{product.title}</h5>
+
+                    <h3 className="text-primary">₹{product.price}</h3>
+                  </>
+                )}
+
+                <hr />
+
+                <label className="form-label">Size</label>
                 <select
                   name="size"
                   className="form-control mb-3"
@@ -83,79 +86,73 @@ const OrderSection = ({ productId, product }) => {
                   <option>Large</option>
                 </select>
 
+                <label className="form-label">Color</label>
                 <input
                   type="text"
                   name="color"
-                  placeholder="Color"
-                  className="form-control mb-3"
+                  className="form-control"
+                  placeholder="Enter Color"
                   onChange={handleChange}
                 />
-
-                <input
-                  type="file"
-                  placeholder="Upload Logo"
-                  className="form-control"
-                  onChange={handleFile}
-                />
               </div>
-            </div>
 
-            <div className="col-md-7 col-lg-8">
-              <div className="checkout-single-wrapper">
-                <div className="checkout-single boxshado-single">
-                  <h4>Customer Details</h4>
+              {/* Customer Details */}
+              <div className="col-md-8 p-5">
+                <h3 className="fw-bold mb-4">Customer Information</h3>
 
-                  <div className="checkout-single-form">
-                    <div className="row g-4">
-                      <div className="col-lg-6">
-                        <input
-                          type="text"
-                          color="primary"
-                          name="name"
-                          placeholder="Full Name"
-                          onChange={handleChange}
-                          required
-                        />
-                      </div>
-
-                      <div className="col-lg-6">
-                        <input
-                          type="email"
-                          name="email"
-                          color="primary"
-                          placeholder="Email"
-                          onChange={handleChange}
-                          required
-                        />
-                      </div>
-
-                      <div className="col-lg-12">
-                        <input
-                          type="text"
-                          name="phone"
-                          color="primary"
-                          placeholder="Phone Number"
-                          onChange={handleChange}
-                          required
-                        />
-                      </div>
-                    </div>
+                <div className="row">
+                  <div className="col-md-6 mb-3">
+                    <label className="form-label">Full Name</label>
+                    <input
+                      type="text"
+                      name="name"
+                      className="form-control"
+                      placeholder="John Doe"
+                      onChange={handleChange}
+                      required
+                    />
                   </div>
-                </div>
 
-                <div className="checkout-single checkout-single-bg">
-                  <div className="mt-4">
-                    <button className="theme-btn" disabled={loading}>
-                      {loading ? "Submitting..." : "📦 Place Order"}
+                  <div className="col-md-6 mb-3">
+                    <label className="form-label">Email Address</label>
+                    <input
+                      type="email"
+                      name="email"
+                      className="form-control"
+                      placeholder="john@example.com"
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+
+                  <div className="col-12 mb-4">
+                    <label className="form-label">Phone Number</label>
+                    <input
+                      type="text"
+                      name="phone"
+                      className="form-control"
+                      placeholder="+91 9876543210"
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+
+                  <div className="col-12">
+                    <button
+                      type="submit"
+                      className="btn btn-primary btn-lg w-100"
+                      disabled={loading}
+                    >
+                      {loading ? "Submitting..." : "Place Order"}
                     </button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </form>
+        </div>
       </div>
-    </section>
+    </div>
   );
 };
 
