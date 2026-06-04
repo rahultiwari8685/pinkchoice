@@ -34,10 +34,7 @@ const ContactFormBlog = () => {
             <div className="input-group m-b30">
                 <textarea name="dzMessage" rows={4} required className="form-control m-b10"></textarea>
             </div>
-            {/* <div className="input-recaptcha m-b30">
-                <div className="g-recaptcha" data-sitekey="6LefsVUUAAAAADBPsLZzsNnETChealv6PYGzv3ZN" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
-                <input className="form-control d-none" style="display:none;" data-recaptcha="true" required data-error="Please complete the Captcha" />
-            </div> */}
+            
             <div>
                 <button name="submit" type="submit" value="submit" className="btn w-100 btn-white btnhover">SUBMIT</button>
             </div>

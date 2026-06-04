@@ -71,3 +71,12 @@
 		padding-#{$dz-pos-right}: 10px;
 	} 	  
 }
+
+
+.post-both-sidebar{
+	.wp-block-gallery {
+		margin-#{$dz-pos-left}: 0 !important;
+		margin-#{$dz-pos-right}: 0 !important;
+		width:100% !important;
+	}
+}

@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import HomePage from "./(pages)/(home)/home/page";
+import HomePage from "./(home)/home/page";
 
 export const metadata : Metadata = {
   title: "Pixio: Shop & eCommerce NextJs Template | DexignZone",
@@ -11,8 +11,7 @@ export default function Home() {
     <div >
       <main>
           <HomePage />  
-      </main>
-    
+      </main>    
     </div>
   );
 }

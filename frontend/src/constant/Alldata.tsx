@@ -95,20 +95,20 @@ export const FeaturedNowSliderData = [
 
 //Home great and short list
 export const GreatSavindData = [
-    { image: IMAGES.ShopPorductPng1, name: 'Athletic Mesh Sports Leggings' },
-    { image: IMAGES.ShopPorductPng2, name: 'Athletic Mesh Sports Leggings', star: "star" },
-    { image: IMAGES.ShopPorductPng3, name: 'Athletic Mesh Sports Leggings' },
+    { image: IMAGES.ShopPorductPng1, name: 'Cozy Knit Cardigan Sweater' },
+    { image: IMAGES.ShopPorductPng2, name: 'Sophisticated Swagger Suit', star: "star" },
+    { image: IMAGES.ShopPorductPng3, name: 'Classic Denim Skinny Jeans' },
     { image: IMAGES.ShopPorductPng4, name: 'Athletic Mesh Sports Leggings' },
 ];
 
 //Sponsored Slider
 export const SponsoredSliderData = [
-    { image: IMAGES.CompanyImg1, time: 0.6, image2: IMAGES.CompanyLogo1 },
-    { image: IMAGES.CompanyImg2, time: 0.8, image2: IMAGES.CompanyLogo2, store: 'store' },
-    { image: IMAGES.CompanyImg1, time: 1.0, image2: IMAGES.CompanyLogo3 },
-    { image: IMAGES.CompanyImg3, time: 1.2, image2: IMAGES.CompanyLogo4, store: 'store' },
-    { image: IMAGES.CompanyImg1, time: 1.4, image2: IMAGES.CompanyLogo1 },
-    { image: IMAGES.CompanyImg2, time: 1.5, image2: IMAGES.CompanyLogo3, store: 'store' },
+    { image: IMAGES.CompanyImg1, time: 0.6, image2: IMAGES.CompanyLogo1, title:"Outdoor Shoes" },
+    { image: IMAGES.CompanyImg2, time: 0.8, image2: IMAGES.CompanyLogo2, store: 'store' , title:"Best Cloths"},
+    { image: IMAGES.CompanyImg1, time: 1.0, image2: IMAGES.CompanyLogo3 , title:"Sports Shoes"},
+    { image: IMAGES.CompanyImg3, time: 1.2, image2: IMAGES.CompanyLogo4, store: 'store', title:"Modern Jewellery" },
+    { image: IMAGES.CompanyImg1, time: 1.4, image2: IMAGES.CompanyLogo1, title:"Running Shoes" },
+    { image: IMAGES.CompanyImg2, time: 1.5, image2: IMAGES.CompanyLogo3, store: 'store', title:"Sports Shoes" },
 ];
 
 // Trading
@@ -1152,7 +1152,7 @@ export const shopStyleData : shopStyletype[] = [
     { image : IMAGES.shopproduct2, inputtype: "favoriteCheck2", price: "$94.00", name:'Checkered Slim Collar Casual Shirt'},
     { image : IMAGES.shopproduct3, inputtype: "favoriteCheck3", price: "$35.00", name:'Solid Cut Away Collar Casual Shirt'},
     { image : IMAGES.shopproduct4, inputtype: "favoriteCheck4", price: "$45.00", name:'Athletic Mesh Sports Leggings'},
-    { image : IMAGES.shopproduct5, inputtype: "favoriteCheck5", price: "$70.00", name:'Vintage Denim Overalls Shorts'},
+    { image : IMAGES.shopproduct5, inputtype: "favoriteCheck5", price: "$70.00", name:'Denim Overalls Shorts'},
     { image : IMAGES.shopproduct6, inputtype: "favoriteCheck6", price: "$36.00", name:'Plaid Wool Winter Coat'},
     { image : IMAGES.shopproduct7, inputtype: "favoriteCheck7", price: "$75.00", name:'Comfy Lounge Jogger Pants'},
     { image : IMAGES.shopproduct8, inputtype: "favoriteCheck8", price: "$90.00", name:'Water-Resistant Windbreaker Jacket'},

@@ -47,7 +47,7 @@ const SponsoredSlider = () => {
                             }
                         </div>
                         <div className="dz-content">
-                            <h6 className="title">Outdoor Shoes	</h6>
+                            <h6 className="title">{item.title}</h6>
                             <span className="sale-title">Min. 30% Off</span>
                         </div>		
                     </div>

@@ -20558,6 +20558,7 @@ select.btn-group .dropdown-toggle .caret:before {
   border: none;
   color: var(--title);
   border: 1px solid var(--secondary);
+  padding-right: 8.78rem;
 }
 .shop-form .form-group input::placeholder {
   color: var(--title);
@@ -30444,6 +30445,12 @@ select {
     padding-right: 10px;
   }
 }
+.post-both-sidebar .wp-block-gallery {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: 100% !important;
+}
+
 .dz-card .dz-media img {
   width: 100%;
 }
@@ -33251,6 +33258,31 @@ video#video-background {
   display: inline-block;
 }
 
+.select-dropdown .dropdown-menu {
+  min-width: 135px;
+}
+
+.value-select .form-select,
+.value-select select {
+  background-color: #fff;
+}
+
+@media only screen and (max-width: 575px) {
+  .grid-media .btn, .grid-media .woocommerce #respond input#submit, .woocommerce #respond .grid-media input#submit,
+  .grid-media .woocommerce a.button,
+  .woocommerce .grid-media a.button,
+  .grid-media .woocommerce button.button,
+  .woocommerce .grid-media button.button,
+  .grid-media .woocommerce input.button,
+  .woocommerce .grid-media input.button,
+  .grid-media .woocommerce #place_order,
+  .woocommerce .grid-media #place_order, .grid-media .woocommerce-cart .wc-proceed-to-checkout a.checkout-button, .woocommerce-cart .wc-proceed-to-checkout .grid-media a.checkout-button, .grid-media .woocommerce-cart-form .table tr .button, .woocommerce-cart-form .table tr .grid-media .button, .grid-media .woocommerce #review_form #respond .form-submit input, .woocommerce #review_form #respond .form-submit .grid-media input, .grid-media .woocommerce .widget_shopping_cart .buttons a, .woocommerce .widget_shopping_cart .buttons .grid-media a,
+  .grid-media .woocommerce.widget_shopping_cart .buttons a,
+  .woocommerce.widget_shopping_cart .buttons .grid-media a, .grid-media .wp-block-button__link {
+    height: 40px !important;
+    width: 40px !important;
+  }
+}
 .product-style1 .product-box {
   background-color: #eee;
 }
@@ -36969,6 +37001,11 @@ del {
   .animation-btn {
     display: none;
   }
+}
+
+.galley-swiper-box .galley-thumb-swiper .swiper-slide-thumb-active {
+  outline: 2px solid #fff;
+  outline-offset: -12px;
 }
 
 .companies-section {
@@ -41830,19 +41867,14 @@ pre {
   }
 }
 
+.post-audio {
+  border: 2px solid #000;
+  overflow: hidden;
+}
 .post-audio iframe {
-  height: 510px;
   width: 100%;
-}
-@media only screen and (max-width: 767px) {
-  .post-audio iframe {
-    height: 350px;
-  }
-}
-@media only screen and (max-width: 575px) {
-  .post-audio iframe {
-    height: 250px;
-  }
+  height: 120px;
+  margin-bottom: -5px;
 }
 
 @media only screen and (max-width: 575px) {
@@ -45714,6 +45746,10 @@ body .working-location img {
   font-weight: 400;
 }
 
+.check-tbl > :not(caption) > * > * {
+  background-color: transparent;
+}
+
 /* WooCommerce END */
 .dz-box.product {
   margin-bottom: 30px !important;
@@ -49421,8 +49457,11 @@ table.wishlist_table {
     margin: 0;
   }
 }
+.modal.status-modal .modal-dialog {
+  margin-top: 0;
+}
 .modal.status-modal .btn-close {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   width: 44px;
@@ -50815,21 +50854,23 @@ a {
   margin-top: 0;
   top: -1px;
 }
-.header-nav .nav > li.open .mega-menu,
-.header-nav .nav > li.open .sub-menu {
-  display: block;
-  opacity: 1;
-  -webkit-transition: none;
-  -ms-transition: none;
-  transition: none;
-}
-.header-nav .nav > li.open .open .mega-menu,
-.header-nav .nav > li.open .open .sub-menu {
-  display: block;
-  opacity: 1;
-  -webkit-transition: none;
-  -ms-transition: none;
-  transition: none;
+@media only screen and (max-width: 991px) {
+  .header-nav .nav > li.open .mega-menu,
+  .header-nav .nav > li.open .sub-menu {
+    display: block;
+    opacity: 1;
+    -webkit-transition: none;
+    -ms-transition: none;
+    transition: none;
+  }
+  .header-nav .nav > li.open .open .mega-menu,
+  .header-nav .nav > li.open .open .sub-menu {
+    display: block;
+    opacity: 1;
+    -webkit-transition: none;
+    -ms-transition: none;
+    transition: none;
+  }
 }
 @media only screen and (max-width: 1480px) {
   .header-nav .nav > li:nth-last-child(4) .sub-menu .sub-menu, .header-nav .nav > li:nth-last-child(3) .sub-menu .sub-menu, .header-nav .nav > li:nth-last-child(2) .sub-menu .sub-menu, .header-nav .nav > li:last-child .sub-menu .sub-menu {
@@ -51979,20 +52020,22 @@ a {
   top: -1px;
   pointer-events: unset;
 }
-.header-nav.w3menu .nav > li.open .mega-menu,
-.header-nav.w3menu .nav > li.open .sub-menu {
-  display: block;
-  opacity: 1;
-  -webkit-transition: none;
-  -ms-transition: none;
-  transition: none;
-}
-.header-nav.w3menu .nav > li.open .open > .mega-menu, .header-nav.w3menu .nav > li.open .open > .sub-menu {
-  display: block;
-  opacity: 1;
-  -webkit-transition: none;
-  -ms-transition: none;
-  transition: none;
+@media only screen and (max-width: 991px) {
+  .header-nav.w3menu .nav > li.open .mega-menu,
+  .header-nav.w3menu .nav > li.open .sub-menu {
+    display: block;
+    opacity: 1;
+    -webkit-transition: none;
+    -ms-transition: none;
+    transition: none;
+  }
+  .header-nav.w3menu .nav > li.open .open > .mega-menu, .header-nav.w3menu .nav > li.open .open > .sub-menu {
+    display: block;
+    opacity: 1;
+    -webkit-transition: none;
+    -ms-transition: none;
+    transition: none;
+  }
 }
 @media only screen and (max-width: 1480px) {
   .header-nav.w3menu .nav > li:nth-last-child(4) .sub-menu .sub-menu, .header-nav.w3menu .nav > li:nth-last-child(3) .sub-menu .sub-menu, .header-nav.w3menu .nav > li:nth-last-child(2) .sub-menu .sub-menu, .header-nav.w3menu .nav > li:last-child .sub-menu .sub-menu {
@@ -52728,6 +52771,7 @@ a {
   border-radius: 0;
   min-width: 185px !important;
   max-height: 350px !important;
+  overflow-y: scroll;
 }
 .search-input .btn, .search-input .wp-block-button__link, .search-input .woocommerce .widget_shopping_cart .buttons a, .woocommerce .widget_shopping_cart .buttons .search-input a,
 .search-input .woocommerce.widget_shopping_cart .buttons a,
@@ -52870,6 +52914,26 @@ a {
     width: 50px;
     line-height: 50px;
   }
+}
+
+.form-control.text-hide, .woocommerce #review_form #respond input.text-hide[type=text],
+.woocommerce #review_form #respond textarea.text-hide,
+.woocommerce #review_form #respond input.text-hide[type=email], .woocommerce-cart-form .table tr td.actions .coupon .text-hide.input-text, .woocommerce-cart-form .table tr .quantity input.text-hide, .woocommerce .woocommerce-checkout.checkout form .form-row textarea.text-hide,
+.woocommerce .woocommerce-checkout.checkout form .form-row select.text-hide,
+.woocommerce .woocommerce-checkout.checkout form .form-row input.text-hide, .woocommerce-EditAccountForm.edit-account input.text-hide[type=text],
+.woocommerce-EditAccountForm.edit-account input.text-hide[type=email],
+.woocommerce-EditAccountForm.edit-account input.text-hide[type=password],
+.login input.text-hide[type=text], .login input.text-hide[type=password],
+.woocommerce-ResetPassword.lost_reset_password input.text-hide[type=text],
+.checkout.woocommerce-checkout input.text-hide[type=text],
+.checkout.woocommerce-checkout input.text-hide[type=email],
+.checkout.woocommerce-checkout input.text-hide[type=tel],
+.checkout.woocommerce-checkout .text-hide.select2-choice,
+.checkout.woocommerce-checkout textarea.text-hide,
+.woocommerce form .form-row input.text-hide.input-text,
+.woocommerce form .form-row .text-hide.select2-selection,
+.woocommerce form .form-row .text-hide.select2-choice {
+  padding-right: 10rem;
 }
 
 .dzdrop-menu .nav > li.has-mega-menu {
@@ -53061,6 +53125,26 @@ a {
 
 .offcanvas-backdrop {
   z-index: 99999;
+}
+
+.form-control.text-hide, .woocommerce #review_form #respond input.text-hide[type=text],
+.woocommerce #review_form #respond textarea.text-hide,
+.woocommerce #review_form #respond input.text-hide[type=email], .woocommerce-cart-form .table tr td.actions .coupon .text-hide.input-text, .woocommerce-cart-form .table tr .quantity input.text-hide, .woocommerce .woocommerce-checkout.checkout form .form-row textarea.text-hide,
+.woocommerce .woocommerce-checkout.checkout form .form-row select.text-hide,
+.woocommerce .woocommerce-checkout.checkout form .form-row input.text-hide, .woocommerce-EditAccountForm.edit-account input.text-hide[type=text],
+.woocommerce-EditAccountForm.edit-account input.text-hide[type=email],
+.woocommerce-EditAccountForm.edit-account input.text-hide[type=password],
+.login input.text-hide[type=text], .login input.text-hide[type=password],
+.woocommerce-ResetPassword.lost_reset_password input.text-hide[type=text],
+.checkout.woocommerce-checkout input.text-hide[type=text],
+.checkout.woocommerce-checkout input.text-hide[type=email],
+.checkout.woocommerce-checkout input.text-hide[type=tel],
+.checkout.woocommerce-checkout .text-hide.select2-choice,
+.checkout.woocommerce-checkout textarea.text-hide,
+.woocommerce form .form-row input.text-hide.input-text,
+.woocommerce form .form-row .text-hide.select2-selection,
+.woocommerce form .form-row .text-hide.select2-choice {
+  padding-right: 4rem;
 }
 
 .dz-search-area {

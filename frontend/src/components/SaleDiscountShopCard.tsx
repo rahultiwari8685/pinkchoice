@@ -17,7 +17,11 @@ const SaleDiscountShopCard = ({name, image, star} : propsValue) => {
             </div>
             <div className="dz-content">
                 <div>
-                    <span className="sale-title">up to 79% off</span>
+                    {star === "star" ?
+                        <span className="sale-title text-success">Free delivery</span>
+                        :
+                        <span className="sale-title">up to 79% off</span>
+                    }
                     <h6 className="title"><Link href="/shop-list">{name}</Link></h6>
                 </div>
                 <h6 className="price">

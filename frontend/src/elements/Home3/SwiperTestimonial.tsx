@@ -14,7 +14,7 @@ const TestimonialSliderData : SliderDatatype[] = [
     {image: IMAGES.ShopPorductPng1, name:'Woman Dress'},
     {image: IMAGES.ShopPorductPng2, name:'Kid Dress'},
     {image: IMAGES.ShopPorductPng3, name:'Woman Dress'},
-    {image: IMAGES.ShopPorductPng4, name:'Woman Dress'},
+    {image: IMAGES.ShopPorductPng4, name:'Woman Top'},
 ];
 
 export default function SwiperTestimonial(){

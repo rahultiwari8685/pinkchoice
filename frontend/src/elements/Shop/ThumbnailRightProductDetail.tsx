@@ -33,13 +33,13 @@ export default function ThumbnailRightProductDetail(props : thumbnailCardtype){
                     <span className="price">$125.75 <del>$132.17</del></span>
                 </div>
                 <div className="product-num gap-md-2 gap-xl-0">
-                    <div className="btn-quantity light">
+                    <div className="btn-quantity light ">
                         <label className="form-label">Quantity</label>
                         <ProductInputButton />
                     </div>
                     <div className="d-block">
                         <label className="form-label">Size</label>
-                        <div className="btn-group product-size m-0">
+                        <div className="btn-group product-size grid-media m-0">
                             <input type="radio" className="btn-check" name="btnradio1" id="btnradio101" defaultChecked />
                             <label className="btn" htmlFor="btnradio101">S</label>
 
@@ -102,8 +102,8 @@ export default function ThumbnailRightProductDetail(props : thumbnailCardtype){
                             </Link>
                         </li>
                         <li>
-                            <Link href="/https://twitter.com/dexignzones" target="_blank">
-                                <i className="fa-brands fa-twitter"/>
+                            <Link href="https://www.behance.net/dexignzone" target="_blank">
+                                <i className="fa-brands fa-behance"/>
                             </Link>
                         </li>
                     </ul>

@@ -1,3 +1,4 @@
+"use client"
 import {Swiper, SwiperSlide } from "swiper/react";
 import IMAGES from "../../constant/theme";
 import { Autoplay, Pagination } from "swiper/modules";
@@ -19,7 +20,9 @@ export default function StatusSlider(){
                 el: ".status-pagination",
                 clickable: true,
             }}
-            modules={[Pagination, Autoplay]}
+            modules={[Pagination, 
+                Autoplay
+            ]}
         >
             <div className="swiper-wrapper">
                 <SwiperSlide>

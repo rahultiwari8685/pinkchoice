@@ -13,7 +13,7 @@ export default function BlogSidebar(){
                 <div className="search-bx">
                     <form role="search" method="post">
                         <div className="input-group">
-                            <input name="text" className="form-control" placeholder="Search" type="text" />
+                            <input name="text" className="form-control text-hide" placeholder="Search" type="text" />
                             <span className="input-group-btn">
                                     <button className="btn">
                                     <i className="icon feather icon-search"></i>

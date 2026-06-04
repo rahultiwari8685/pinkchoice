@@ -35,7 +35,7 @@ export default function MainBanner3({OpenVideo} : modelType){
 										<div className="dz-content">
 											<h5 className="dz-title"><Link href="/shop-standard">Collar Casual Shirt</Link></h5>
 											<span className="price">
-												$18
+												$19
 												<del className="ms-1">$27</del>
 											</span>
 										</div>
@@ -47,10 +47,10 @@ export default function MainBanner3({OpenVideo} : modelType){
 											<Image src={IMAGES.ShopSmallPic2} alt="shop"/>									
 										</div>
 										<div className="dz-content">
-											<h5 className="dz-title"><Link href="/shop-standard">Collar Casual Shirt</Link></h5>
+											<h5 className="dz-title"><Link href="/shop-standard">Collar Check Shirt</Link></h5>
 											<span className="price">
-												$18
-												<del className="ms-1">$27</del>
+												$20
+												<del className="ms-1">$28</del>
 											</span>
 										</div>
 									</div>

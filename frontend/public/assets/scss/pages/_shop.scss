@@ -1927,3 +1927,7 @@
 		}
 	}
 }
+
+.check-tbl  > :not(caption) > * > *{
+	background-color: transparent;
+}

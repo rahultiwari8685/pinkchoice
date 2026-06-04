@@ -15,7 +15,7 @@ const BannerCommanSection = () => {
                                 <Image src={IMAGES.MenPng} alt="men" />
                             </div>
                         </div>
-                        <div className="col-lg-6 col-md-12 col-sm-12">
+                        <div className="col-lg-6 col-md-12 col-sm-12 m-b30">
                             <div className="about-content">
                                 <div className="section-head style-1 d-block">
                                     <h3 className="title">About Pixio Our Story and Mission in Ecommerce</h3>

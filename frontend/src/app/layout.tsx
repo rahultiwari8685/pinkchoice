@@ -13,12 +13,47 @@ import '../../public/assets/vendor/swiper/swiper-bundle.min.css'
 import '../../public/assets/vendor/animate/animate.css'
 import '../../public/assets/css/style.css'
 import '../../public/assets/css/skin/skin-1.css'
+import { useEffect } from "react";
+import { usePathname } from "next/navigation";
+// import SubscribeModal from "@/constant/SubscribeModal";
+import ScrollToTopButton from "@/constant/ScrollToTopButton";
 
 
 export default function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) {
+  const path = usePathname();  
   
-  
-  
+  useEffect(() => {
+    setTimeout(() => {
+      const links = document.querySelectorAll('a[href="#"]');
+      const handleClick = (event : any) => {
+        event.preventDefault();
+      };
+      if (links) {
+        links.forEach((link) => {
+          link.addEventListener("click", handleClick);
+        });
+      }
+    }, 600);
+  }, [path]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      const { WOW } = require("wowjs");
+      const wow = new WOW({
+        boxClass: "wow",
+        animateClass: "animated",
+        offset: 0,
+        mobile: false,
+        once: true,
+        live: false,
+        callback: function (box : HTMLElement) {
+          box.classList.add("will-animate");
+          box.classList.add("animated");
+        },
+      });
+      wow.init();
+    }, 100);
+  }, [path]);
   return (
     <html lang="en">
       <head>
@@ -29,6 +64,7 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
       </head> 
       <body>
         {children}        
+        <ScrollToTopButton />
       </body>
     </html>
   );

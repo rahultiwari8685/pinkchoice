@@ -25,8 +25,7 @@ export default function ShopProductRightContent(){
                 </p>
                 <div className="meta-content m-b20 d-flex align-items-end">
                     <div className="btn-quantity quantity-sm light d-xl-none d-blcok d-sm-block">
-                        <label className="form-label">Quantity</label>
-                        <input  type="text" defaultValue="1" name="demo_vertical2" />
+                        <label className="form-label">Quantity</label>                        
                         <ProductInputButton />
                     </div>
                 </div>
@@ -91,8 +90,8 @@ export default function ShopProductRightContent(){
                             </Link>
                         </li>
                         <li>
-                            <Link href="https://twitter.com/dexignzones" target="_blank">
-                                <i className="fa-brands fa-twitter"/>
+                            <Link href="https://www.behance.net/dexignzone" target="_blank">
+                                <i className="fa-brands fa-behance"/>
                             </Link>
                         </li>
                     </ul>

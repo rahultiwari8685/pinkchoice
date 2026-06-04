@@ -239,7 +239,7 @@
 		border: 0;
 		margin-#{$dz-pos-left}: 0px!important;
 		border-radius: 0!important;
-		height: 45px;
+		height: 45px;		
 	}
 	.bootstrap-select.default-select{
 		width: auto!important;
@@ -286,6 +286,8 @@
 			border-radius: 0;
 			min-width: 185px!important;
 			max-height: 350px !important;
+			overflow-y: scroll;
+
 		}
 	}
 	.btn{
@@ -328,6 +330,12 @@
 	}
 }
 
+
+.form-control {
+	&.text-hide{
+		padding-right: 10rem;
+	}
+}
 .dzdrop-menu{
 	.nav > li.has-mega-menu{
 		position: relative;
@@ -539,3 +547,9 @@
 // 		}
 // 	}
 // }
+
+.form-control {
+	&.text-hide{
+		padding-right: 4rem;
+	}
+}

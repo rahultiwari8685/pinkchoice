@@ -15,13 +15,13 @@ export default function ProductInputButton(){
         }
     }
     return(
-        <div className="input-group bootstrap-touchspin">
-            <span className="input-group-addon bootstrap-touchspin-prefix" style={{display: "none"}}></span>
+        <div className="input-group bootstrap-touchspin gird-media">
+            <span className="input-group-addon bootstrap-touchspin-prefix " style={{display: "none"}}></span>
             <input type="text" value={inputValue} name="demo_vertical2" className="form-control" style={{display: "block"}} 
                 onChange={handleChange}
             />
             <span className="input-group-addon bootstrap-touchspin-postfix" style={{display: "none"}}></span>
-            <span className="input-group-btn-vertical">
+            <span className="input-group-btn-vertical mobile-quantity">
                 <button className="btn btn-default bootstrap-touchspin-up" type="button"
                     onClick={handleIncrease}
                 >

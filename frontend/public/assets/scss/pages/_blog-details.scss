@@ -804,6 +804,7 @@ blockquote{
 .wp-block-gallery.columns-3 .blocks-gallery-item{
 	margin-#{$dz-pos-right}: 0.5rem;
 }
+
 .content-full .wp-block-gallery {
     margin-#{$dz-pos-left}: calc(-12.5rem - (0.313rem/2));
     margin-#{$dz-pos-right}: calc(-12.5rem - (0.313rem/2));
@@ -2191,14 +2192,14 @@ pre {
 	}
 }
 .post-audio{
-	iframe{
-		height:510px;
+	border: 2px solid #000;
+	overflow: hidden;
+	iframe{		
 		width:100%;
-		@include respond('phone-land'){
-			height:350px;
-		}@include respond('phone'){
-			height:250px;
-		}
+		height: 120px;
+		margin-bottom: -5px;
+		
+		
 	}
 }
 
@@ -2335,3 +2336,10 @@ pre {
 		}
 	}
 }
+// .no-sidebar{
+// 	.wp-block-gallery{
+// 		margin-#{$dz-pos-left}: 0;
+// 		margin-#{$dz-pos-right}: 0;
+// 		width:100%;
+// 	}
+// }

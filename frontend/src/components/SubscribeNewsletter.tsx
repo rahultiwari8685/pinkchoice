@@ -45,8 +45,7 @@ export default function SubscribeNewsletter(){
     return(
         <form className="dzSubscribe style-1" onSubmit={handleSubscribe}>
             <ToastContainer />
-            <div className="dzSubscribeMsg">
-                {/* {message && <p className={`message ${message.type}`}>{message.text}</p>} */}                
+            <div className="dzSubscribeMsg">                     
             </div>
             <div className="form-group" >
                 <div className="input-group mb-0">

@@ -255,8 +255,8 @@ const ProductSection = () => {
                                                 <li><Link target="_blank" className="text-dark" href="https://www.facebook.com/dexignzone">
                                                     <i className="fab fa-facebook-f"/>
                                                 </Link></li>
-                                                <li><Link target="_blank" className="text-dark" href="https://twitter.com/dexignzones">	
-                                                    <i className="fab fa-twitter"/>
+                                                <li><Link target="_blank" className="text-dark" href="https://www.behance.net/dexignzone">	
+                                                    <i className="fa-brands fa-behance"/>
                                                 </Link></li>
                                                 <li><Link target="_blank" className="text-dark" href="https://www.youtube.com/@dexignzone1723">
                                                     <i className="fa-brands fa-youtube"/>

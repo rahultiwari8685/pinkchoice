@@ -26,7 +26,7 @@ export default function PostTitleWithImage(props: postimage){
             </div>
             {props.image?
                 <div className="dz-media rounded">
-                    <Image src={IMAGES.BlogDetailPic1} alt="/" />
+                    <Image src={IMAGES.BlogDetailPic1} alt="/"  className="w-100"/>
                 </div>
                 :
                 ""

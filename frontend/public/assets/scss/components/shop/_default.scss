@@ -18,3 +18,37 @@
 		display:inline-block;
 	}
 }
+
+.select-dropdown {
+	.dropdown-menu {
+		min-width: 135px;
+	}
+}
+.value-select {
+	.form-select {
+		background-color: #fff;
+	}
+}
+
+@include respond('phone'){
+	// .mobile-quantity {
+	// 	.btn{
+	// 		min-width: 34px !important;
+	// 		height: 34px;		
+	// 	}
+	// }
+	// .gird-media {
+	// 	input{
+	// 		width: 34px !important;
+	// 		height: 34px !important;
+	// 	}
+	// }
+	.grid-media {
+		.btn{
+			height: 40px !important;
+			width: 40px !important;
+		}
+	}
+
+
+}

@@ -882,19 +882,21 @@ a{
 					}
 				}
 			}
-			&.open{
-				.mega-menu,
-				.sub-menu{
-					display:block;
-					opacity:1;
-					@include transitionNone;	
-				}
-				.open{
+			@include respond('tab-port'){	
+				&.open{
 					.mega-menu,
 					.sub-menu{
 						display:block;
 						opacity:1;
-						@include transitionNone;
+						@include transitionNone;	
+					}
+					.open{
+						.mega-menu,
+						.sub-menu{
+							display:block;
+							opacity:1;
+							@include transitionNone;
+						}
 					}
 				}
 			}

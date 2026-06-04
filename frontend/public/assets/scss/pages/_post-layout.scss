@@ -195,9 +195,11 @@
 				margin: 0;
 			}
 		}
-		
+		.modal-dialog {
+			margin-top: 0;
+		}
 		.btn-close{
-			position: absolute;
+			position: fixed;
 			top: 0;
 			right: 0;
 			width: 44px;

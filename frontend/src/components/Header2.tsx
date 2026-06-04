@@ -91,10 +91,8 @@ export default function Header2() {
                 const currentScroll = window.scrollY;
                 const bodyHeight = document.body.scrollHeight;
                 const windowHeight = window.innerHeight;
-
                 dispatch({ type: 'FIX_BOTTOM', payload: currentScroll + windowHeight >= bodyHeight });
                 dispatch({ type: 'SET_IS_ACTIVE', payload: currentScroll > state.previousScroll });
-
                 dispatch({ type: 'SET_PREVIOUS_SCROLL', payload: currentScroll });
             }
         };
@@ -103,7 +101,6 @@ export default function Header2() {
             scrollHandler();
             handleScroll();
         };
-
         window.addEventListener("scroll", combinedHandler);
         return () => {
             window.removeEventListener("scroll", combinedHandler);
@@ -144,7 +141,7 @@ export default function Header2() {
                             <form className="header-item-search">
                                 <div className="input-group search-input">
                                     <Categorydropdown />  
-                                    <input type="text" className="form-control" aria-label="Text input with dropdown button" placeholder="Search for products" />
+                                    <input type="text" className="form-control text-hide me-1" aria-label="Text input with dropdown button" placeholder="Search for products" />
                                     <button className="btn" type="button">
                                         <i className="iconly-Light-Search text-secondary"/>
                                     </button>
@@ -165,8 +162,7 @@ export default function Header2() {
                             </div>
 
                             {/* <!-- Nav Toggle Button --> */}
-                            <button className={`navbar-toggler collapsed navicon justify-content-end ${state.openSidebar ? "open" : ""}` }
-                                // onClick={()=>setOpenSidebar(!openSidebar)}
+                            <button className={`navbar-toggler collapsed navicon justify-content-end ${state.openSidebar ? "open" : ""}` }                                
                                 onClick={()=>dispatch({type : "TOGGLE_SIDEBAR"})}
                             >
                                 <span></span>
