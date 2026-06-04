@@ -1,0 +1,15 @@
+const CHUNK_PUBLIC_PATH = "server/app/(home)/index-3/page.js";
+const runtime = require("../../../chunks/ssr/[turbopack]_runtime.js");
+runtime.loadChunk("server/chunks/ssr/node_modules_next_dist_c336f25b._.js");
+runtime.loadChunk("server/chunks/ssr/[root-of-the-server]__4c58c055._.js");
+runtime.loadChunk("server/chunks/ssr/src_app_a4430781._.js");
+runtime.loadChunk("server/chunks/ssr/src_app_layout_tsx_41fb020b._.js");
+runtime.loadChunk("server/chunks/ssr/_4e6206c0._.js");
+runtime.loadChunk("server/chunks/ssr/node_modules_a839f882._.js");
+runtime.loadChunk("server/chunks/ssr/node_modules_next_dist_client_components_67ccf2ab._.js");
+runtime.loadChunk("server/chunks/ssr/node_modules_next_dist_client_components_unauthorized-error_c8949b27.js");
+runtime.loadChunk("server/chunks/ssr/_b47800a6._.js");
+runtime.loadChunk("server/chunks/ssr/node_modules_d982e8d5._.js");
+runtime.getOrInstantiateRuntimeModule("[project]/.next-internal/server/app/(home)/index-3/page/actions.js [app-rsc] (server actions loader, ecmascript)", CHUNK_PUBLIC_PATH);
+runtime.getOrInstantiateRuntimeModule("[project]/node_modules/next/dist/esm/build/templates/app-page.js?page=/(home)/index-3/page { METADATA_0 => \"[project]/src/app/favicon.ico.mjs { IMAGE => \\\"[project]/src/app/favicon.ico (static in ecmascript)\\\" } [app-rsc] (structured image object, ecmascript, Next.js server component)\", MODULE_1 => \"[project]/src/app/layout.tsx [app-rsc] (ecmascript, Next.js server component)\", MODULE_2 => \"[project]/src/app/not-found.tsx [app-rsc] (ecmascript, Next.js server component)\", MODULE_3 => \"[project]/node_modules/next/dist/client/components/forbidden-error.js [app-rsc] (ecmascript, Next.js server component)\", MODULE_4 => \"[project]/node_modules/next/dist/client/components/unauthorized-error.js [app-rsc] (ecmascript, Next.js server component)\", MODULE_5 => \"[project]/src/app/(home)/index-3/page.tsx [app-rsc] (ecmascript, Next.js server component)\" } [app-rsc] (ecmascript)", CHUNK_PUBLIC_PATH);
+module.exports = runtime.getOrInstantiateRuntimeModule("[project]/node_modules/next/dist/esm/build/templates/app-page.js?page=/(home)/index-3/page { METADATA_0 => \"[project]/src/app/favicon.ico.mjs { IMAGE => \\\"[project]/src/app/favicon.ico (static in ecmascript)\\\" } [app-rsc] (structured image object, ecmascript, Next.js server component)\", MODULE_1 => \"[project]/src/app/layout.tsx [app-rsc] (ecmascript, Next.js server component)\", MODULE_2 => \"[project]/src/app/not-found.tsx [app-rsc] (ecmascript, Next.js server component)\", MODULE_3 => \"[project]/node_modules/next/dist/client/components/forbidden-error.js [app-rsc] (ecmascript, Next.js server component)\", MODULE_4 => \"[project]/node_modules/next/dist/client/components/unauthorized-error.js [app-rsc] (ecmascript, Next.js server component)\", MODULE_5 => \"[project]/src/app/(home)/index-3/page.tsx [app-rsc] (ecmascript, Next.js server component)\" } [app-rsc] (ecmascript)", CHUNK_PUBLIC_PATH).exports;

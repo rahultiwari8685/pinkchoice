@@ -1,0 +1,12 @@
+{
+  "app": {
+    "[project]/src/app/(account)/account-dashboard/page": [],
+    "[project]/src/app/(home)/index-2/page": [],
+    "[project]/src/app/(home)/index-3/page": [],
+    "[project]/src/app/(portfolio-details)/masonry-grid/page": [],
+    "[project]/src/app/page": []
+  },
+  "appUsingSizeAdjust": true,
+  "pages": {},
+  "pagesUsingSizeAdjust": false
+}

@@ -1,0 +1,28 @@
+/* [project]/public/assets/css/skin/skin-1.css [app-client] (css) */
+:root {
+  --primary: #cc0d39;
+  --primary-hover: #ad0b30;
+  --primary-dark: #ad0b30;
+  --secondary: #000;
+  --secondary-hover: #000;
+  --secondary-light: #a7bffe;
+  --title: #000;
+  --bg-light: #fffaf3;
+  --light-dark: #feeb9d;
+  --theme-text-color: #000;
+  --dark: #151f37;
+  --dark-light: #f9f9f9;
+  --rgba-primary-1: #cc0d391a;
+  --rgba-primary-2: #cc0d3933;
+  --rgba-primary-3: #cc0d394d;
+  --rgba-primary-4: #cc0d3966;
+  --rgba-primary-5: #cc0d3980;
+  --rgba-primary-6: #cc0d3999;
+  --rgba-primary-7: #cc0d39b3;
+  --rgba-primary-8: #cc0d39cc;
+  --rgba-primary-9: #cc0d39e6;
+  --gradient1: linear-gradient(307deg, #feeb9d 1.9%, #ffdfe7 67.57%);
+  --gradient2: linear-gradient(307deg, #ffea96 1.9%, #ffb0b0 85.96%);
+}
+
+/*# sourceMappingURL=public_assets_css_skin_skin-1_css_f9ee138c._.single.css.map*/

@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/public/assets/css/skin/skin-1.css"],"sourcesContent":[":root{\r\n\t\r\n\t/* Primary */\r\n\t--primary: #CC0D39;\r\n\t--primary-hover: #ad0b30;\r\n\t--primary-dark: #ad0b30;\r\n\t\r\n\t--secondary: #000;\r\n\t--secondary-hover: #000;\r\n\t--secondary-light: #A7BFFE;\r\n\t--title: #000;\r\n\t--bg-light: #FFFAF3;\r\n\t--light-dark: #FEEB9D;\r\n\t--theme-text-color: #000000;\r\n\t--dark: #151F37;\r\n    --dark-light: #F9F9F9;\r\n\t\r\n\t/* Primary RGBA */\r\n\t--rgba-primary-1: rgba(204, 13, 57, 0.1);\r\n\t--rgba-primary-2: rgba(204, 13, 57, 0.2);\r\n\t--rgba-primary-3: rgba(204, 13, 57, 0.3);\r\n\t--rgba-primary-4: rgba(204, 13, 57, 0.4);\r\n\t--rgba-primary-5: rgba(204, 13, 57, 0.5);\r\n\t--rgba-primary-6: rgba(204, 13, 57, 0.6);\r\n\t--rgba-primary-7: rgba(204, 13, 57, 0.7);\r\n\t--rgba-primary-8: rgba(204, 13, 57, 0.8);\r\n\t--rgba-primary-9: rgba(204, 13, 57, 0.9);\r\n\t\r\n\t/* Gradient */\r\n\t--gradient1: linear-gradient(307deg, #FEEB9D 1.9%, #FFDFE7 67.57%);\r\n\t--gradient2: linear-gradient(307deg, #FFEA96 1.9%, #FFB0B0 85.96%);\r\n\t\r\n}"],"names":[],"mappings":"AAAA"}}]
+}

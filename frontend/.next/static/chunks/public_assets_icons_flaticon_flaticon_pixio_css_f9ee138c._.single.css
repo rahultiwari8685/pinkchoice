@@ -1,0 +1,530 @@
+/* [project]/public/assets/icons/flaticon/flaticon_pixio.css [app-client] (css) */
+@font-face {
+  font-family: flaticon_pixio;
+  src: url("../media/flaticon_pixio.113a8e0c.woff") format("woff"), url("../media/flaticon_pixio.0f56d104.woff2") format("woff2"), url("../media/flaticon_pixio.98fe2c61.eot") format("embedded-opentype"), url("../media/flaticon_pixio.3ce41fcb.svg") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  display: block;
+  font-family: flaticon_pixio !important;
+  font-weight: normal !important;
+}
+
+.flaticon-cart:before {
+  content: "";
+}
+
+.flaticon-heart:before {
+  content: "";
+}
+
+.flaticon-left-chevron:before {
+  content: "";
+}
+
+.flaticon-left-chevron-1:before {
+  content: "";
+}
+
+.flaticon-chevron:before {
+  content: "";
+}
+
+.flaticon-right-arrow:before {
+  content: "";
+}
+
+.flaticon-magnifying-glass:before {
+  content: "";
+}
+
+.flaticon-heart-1:before {
+  content: "";
+}
+
+.flaticon-love:before {
+  content: "";
+}
+
+.flaticon-ship:before {
+  content: "";
+}
+
+.flaticon-call-center:before {
+  content: "";
+}
+
+.flaticon-free-delivery:before {
+  content: "";
+}
+
+.flaticon-delivery-status:before {
+  content: "";
+}
+
+.flaticon-fast-delivery:before {
+  content: "";
+}
+
+.flaticon-message:before {
+  content: "";
+}
+
+.flaticon-money-back:before {
+  content: "";
+}
+
+.flaticon-cashback:before {
+  content: "";
+}
+
+.flaticon-money-back-guarantee:before {
+  content: "";
+}
+
+.flaticon-store:before {
+  content: "";
+}
+
+.flaticon-delivery-truck:before {
+  content: "";
+}
+
+.flaticon-cardboard-box:before {
+  content: "";
+}
+
+.flaticon-online-shop:before {
+  content: "";
+}
+
+.flaticon-shopping-bag:before {
+  content: "";
+}
+
+.flaticon-delivery-truck-1:before {
+  content: "";
+}
+
+.flaticon-online-shop-1:before {
+  content: "";
+}
+
+.flaticon-tshirt:before {
+  content: "";
+}
+
+.flaticon-pants:before {
+  content: "";
+}
+
+.flaticon-shopping-bag-1:before {
+  content: "";
+}
+
+.flaticon-tshirt-1:before {
+  content: "";
+}
+
+.flaticon-wallet:before {
+  content: "";
+}
+
+.flaticon-box:before {
+  content: "";
+}
+
+.flaticon-gift-box:before {
+  content: "";
+}
+
+.flaticon-calculator:before {
+  content: "";
+}
+
+.flaticon-calendar:before {
+  content: "";
+}
+
+.flaticon-shopping-basket:before {
+  content: "";
+}
+
+.flaticon-tshirt-2:before {
+  content: "";
+}
+
+.flaticon-backpack:before {
+  content: "";
+}
+
+.flaticon-alarm-clock:before {
+  content: "";
+}
+
+.flaticon-chat:before {
+  content: "";
+}
+
+.flaticon-shopping-bag-2:before {
+  content: "";
+}
+
+.flaticon-medal:before {
+  content: "";
+}
+
+.flaticon-megaphone:before {
+  content: "";
+}
+
+.flaticon-money-transfer:before {
+  content: "";
+}
+
+.flaticon-delivery:before {
+  content: "";
+}
+
+.flaticon-call-center-1:before {
+  content: "";
+}
+
+.flaticon-chat-1:before {
+  content: "";
+}
+
+.flaticon-wallet-1:before {
+  content: "";
+}
+
+.flaticon-headset:before {
+  content: "";
+}
+
+.flaticon-percentage:before {
+  content: "";
+}
+
+.flaticon-shopping-store:before {
+  content: "";
+}
+
+.flaticon-parcel:before {
+  content: "";
+}
+
+.flaticon-paper:before {
+  content: "";
+}
+
+.flaticon-percentage-1:before {
+  content: "";
+}
+
+.flaticon-price:before {
+  content: "";
+}
+
+.flaticon-global:before {
+  content: "";
+}
+
+.flaticon-percentage-2:before {
+  content: "";
+}
+
+.flaticon-pie-graph:before {
+  content: "";
+}
+
+.flaticon-dollar:before {
+  content: "";
+}
+
+.flaticon-delivery-truck-2:before {
+  content: "";
+}
+
+.flaticon-delivery-truck-3:before {
+  content: "";
+}
+
+.flaticon-house:before {
+  content: "";
+}
+
+.flaticon-star:before {
+  content: "";
+}
+
+.flaticon-setting:before {
+  content: "";
+}
+
+.flaticon-monitor:before {
+  content: "";
+}
+
+.flaticon-t-shirt:before {
+  content: "";
+}
+
+.flaticon-bar-chart:before {
+  content: "";
+}
+
+.flaticon-calendar-1:before {
+  content: "";
+}
+
+.flaticon-award:before {
+  content: "";
+}
+
+.flaticon-gift:before {
+  content: "";
+}
+
+.flaticon-t-shirt-1:before {
+  content: "";
+}
+
+.flaticon-shorts:before {
+  content: "";
+}
+
+.flaticon-megaphone-1:before {
+  content: "";
+}
+
+.flaticon-setting-1:before {
+  content: "";
+}
+
+.flaticon-user:before {
+  content: "";
+}
+
+.flaticon-list:before {
+  content: "";
+}
+
+.flaticon-trolley:before {
+  content: "";
+}
+
+.flaticon-sections:before {
+  content: "";
+}
+
+.flaticon-house-1:before {
+  content: "";
+}
+
+.flaticon-blocks:before {
+  content: "";
+}
+
+.flaticon-qr-code-scan:before {
+  content: "";
+}
+
+.flaticon-menu:before {
+  content: "";
+}
+
+.flaticon-qr-code-scan-1:before {
+  content: "";
+}
+
+.flaticon-discount:before {
+  content: "";
+}
+
+.flaticon-shopping-store-1:before {
+  content: "";
+}
+
+.flaticon-fast-delivery-1:before {
+  content: "";
+}
+
+.flaticon-weight-scale:before {
+  content: "";
+}
+
+.flaticon-baby-girl:before {
+  content: "";
+}
+
+.flaticon-feeding-bottle:before {
+  content: "";
+}
+
+.flaticon-grid:before {
+  content: "";
+}
+
+.flaticon-layout:before {
+  content: "";
+}
+
+.flaticon-design:before {
+  content: "";
+}
+
+.flaticon-chat-2:before {
+  content: "";
+}
+
+.flaticon-chat-3:before {
+  content: "";
+}
+
+.flaticon-chat-4:before {
+  content: "";
+}
+
+.flaticon-chat-5:before {
+  content: "";
+}
+
+.flaticon-chat-6:before {
+  content: "";
+}
+
+.flaticon-chat-7:before {
+  content: "";
+}
+
+.flaticon-chat-8:before {
+  content: "";
+}
+
+.flaticon-star-1:before {
+  content: "";
+}
+
+.flaticon-star-2:before {
+  content: "";
+}
+
+.flaticon-star-3:before {
+  content: "";
+}
+
+.flaticon-search:before {
+  content: "";
+}
+
+.flaticon-filter:before {
+  content: "";
+}
+
+.flaticon-checkmark:before {
+  content: "";
+}
+
+.flaticon-check-circle:before {
+  content: "";
+}
+
+.flaticon-loading:before {
+  content: "";
+}
+
+.flaticon-loader:before {
+  content: "";
+}
+
+.flaticon-loading-1:before {
+  content: "";
+}
+
+.flaticon-right-quote:before {
+  content: "";
+}
+
+.flaticon-left-quote:before {
+  content: "";
+}
+
+.flaticon-plus:before {
+  content: "";
+}
+
+.flaticon-minus:before {
+  content: "";
+}
+
+.flaticon-plus-1:before {
+  content: "";
+}
+
+.flaticon-minus-1:before {
+  content: "";
+}
+
+.flaticon-shopping-cart:before {
+  content: "";
+}
+
+.flaticon-copy:before {
+  content: "";
+}
+
+.flaticon-grid-1:before {
+  content: "";
+}
+
+.flaticon-cart-1:before {
+  content: "";
+}
+
+.flaticon-love-1:before {
+  content: "";
+}
+
+.flaticon-refresh:before {
+  content: "";
+}
+
+.flaticon-reload:before {
+  content: "";
+}
+
+.flaticon-refresh-1:before {
+  content: "";
+}
+
+.flaticon-visible:before {
+  content: "";
+}
+
+.flaticon-eye:before {
+  content: "";
+}
+
+.flaticon-heart-3:before {
+  content: "";
+}
+
+.flaticon-heart-4:before {
+  content: "";
+}
+
+.flaticon-basket:before {
+  content: "";
+}
+
+.flaticon-shopping-cart-1:before {
+  content: "";
+}
+
+/*# sourceMappingURL=public_assets_icons_flaticon_flaticon_pixio_css_f9ee138c._.single.css.map*/
