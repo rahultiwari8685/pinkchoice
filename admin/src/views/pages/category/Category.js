@@ -280,7 +280,7 @@ const Category = () => {
               <CCol md={12}>
                 <CFormSelect label="Parent Category" {...register('parentCategory')}>
                   <option>Select Category</option>
-                  <option value="">As Parent</option>
+                  {/* <option value="">As Parent</option> */}
 
                   {category && category.map((a, i) => <option value={a._id}>{a.name}</option>)}
                 </CFormSelect>

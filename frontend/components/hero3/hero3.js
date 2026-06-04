@@ -5,13 +5,13 @@ import "swiper/swiper-bundle.min.css";
 
 import Line from "/public/images/hero/line.png";
 import Bar from "/public/images/hero/bar.png";
-import Tshirt from "/public/images/hero/t-shirt.png";
-import Tshirt1 from "/public/images/hero/t-shirt-2.png";
-import Tshirt2 from "/public/images/hero/t-shirt-3.png";
-import Bucket from "/public/images/hero/bucket-front-color.png";
-import Mockup from "/public/images/hero/mockup-generator.png";
-import Mockup1 from "/public/images/hero/stiker.png";
-import Mockup2 from "/public/images/hero/cap.png";
+import Tshirt from "/public/images/hero/Slider_PinkChoice.png";
+import Tshirt1 from "/public/images/hero/Slider_PinkChoice.png";
+import Tshirt2 from "/public/images/hero/Slider_PinkChoice.png";
+import Bucket from "/public/images/hero/Slider_PinkChoice.png";
+import Mockup from "/public/images/hero/Slider_PinkChoice.png";
+import Mockup1 from "/public/images/hero/Slider_PinkChoice.png";
+import Mockup2 from "/public/images/hero/Slider_PinkChoice.png";
 import Image from "next/image";
 
 const Hero3 = () => {
@@ -61,17 +61,18 @@ const Hero3 = () => {
               <div className="row g-4 justify-content-between align-items-center">
                 <div className="col-xxl-6 col-xl-6 col-lg-6">
                   <div className="hero-content">
-                    <h6>Digital printing Service</h6>
+                    <h6>Pink Choice </h6>
                     <h1>
-                      Custom T-shirt,
+                      Beauty, Comfort & Confidence for
                       <span>
-                        simplified.. <Image src={Bar} alt="bar shape" />
+                        Every Woman. <Image src={Bar} alt="bar shape" />
                       </span>
                     </h1>
                     <p>
-                      Beautiful, customizable template, with a ton of web blocks{" "}
-                      <br />
-                      to create an amazing website that looks
+                      Pink Choice offers premium sanitary pads, comfortable
+                      bras, stylish panties, nail paints, and personal care
+                      essentials designed for modern women <br />
+                      Shop quality products that inspire confidence every day.
                     </p>
                   </div>
                   <div className="hero-button">
