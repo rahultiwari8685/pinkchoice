@@ -6,12 +6,12 @@ import "swiper/swiper-bundle.min.css";
 import Line from "/public/images/hero/line.png";
 import Bar from "/public/images/hero/bar.png";
 import Tshirt from "/public/images/hero/Slider_PinkChoice.png";
-import Tshirt1 from "/public/images/hero/Slider_PinkChoice.png";
-import Tshirt2 from "/public/images/hero/Slider_PinkChoice.png";
-import Bucket from "/public/images/hero/Slider_PinkChoice.png";
-import Mockup from "/public/images/hero/Slider_PinkChoice.png";
-import Mockup1 from "/public/images/hero/Slider_PinkChoice.png";
-import Mockup2 from "/public/images/hero/Slider_PinkChoice.png";
+import Tshirt1 from "/public/images/hero/t-shirt-2.png";
+import Tshirt2 from "/public/images/hero/t-shirt-3.png";
+import Bucket from "/public/images/hero/bucket-front-color.png";
+import Mockup from "/public/images/hero/mockup-generator.png";
+import Mockup1 from "/public/images/hero/stiker.png";
+import Mockup2 from "/public/images/hero/cap.png";
 import Image from "next/image";
 
 const Hero3 = () => {
