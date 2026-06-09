@@ -102,6 +102,15 @@ const ProductSection = () => {
   const toggleBasket = (index: number) => {
     dispatch({ type: "TOGGLE_BASKET", index });
   };
+
+  const renderContent = (content: any) => {
+    if (!content) return "";
+
+    const parsed = parser.parse(content);
+
+    return Array.isArray(parsed) ? parsed.join("") : String(parsed);
+  };
+
   return (
     <>
       <div className="row justify-content-md-between align-items-start">
@@ -220,9 +229,7 @@ const ProductSection = () => {
                   <div
                     className="para-text"
                     dangerouslySetInnerHTML={{
-                      __html: selectedProduct?.content
-                        ? parser.parse(selectedProduct.content).join("")
-                        : "",
+                      __html: renderContent(selectedProduct?.content),
                     }}
                   />
                   <div className="meta-content m-b20 d-flex align-items-end">
