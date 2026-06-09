@@ -31,7 +31,7 @@ const MainSection = () =>{
     return(
         <Fragment>
             <div className="page-content bg-light">    
-                <div className="main-slider-wrapper">
+                {/* <div className="main-slider-wrapper">
                     <div className="slider-inner">
                         <MainBannerSlider2 />
                         <div className="bottom-content align-items-end wow fadeInUp" data-wow-delay="1.0s">
@@ -73,14 +73,14 @@ const MainSection = () =>{
                     <div className="dz-features-wrapper overflow-hidden">
                         <DzTextSlider />
                     </div>
-                </section>
+                </section> */}
                 {/*  Products  Section Start */}
                 <section className="content-inner">
                     <div className="container">
                         <ProductSection />
                     </div>
                 </section>
-                <section className=" adv-area">
+                {/* <section className=" adv-area">
                     <div className="container-fluid px-0">
                         <SummerSaleBlog />  
                     </div>
@@ -212,7 +212,7 @@ const MainSection = () =>{
                 {/*  collection-bx */}
                 <section className=" collection-bx content-inner-3 overflow-hidden">
                     <CollectionBlog />
-                </section>
+                </section> */}
                 <Modal className="quick-view-modal" show={openVideo} onHide={()=>setOpenVideo(false)} centered>
                     <button type="button" className="btn-close" onClick={()=>setOpenVideo(false)}>
                         <i className="icon feather icon-x"/>
