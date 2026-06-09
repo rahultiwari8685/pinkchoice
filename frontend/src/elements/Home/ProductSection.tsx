@@ -63,7 +63,7 @@ function reducer(state: typeof initialState, action: any) {
       };
 
     default:
-      throw new Error();
+      return state;
   }
 }
 
@@ -94,42 +94,6 @@ const ProductSection = () => {
   const handleHide = () => {
     dispatch({ type: "SET_DETAIL_MODAL", value: false });
   };
-  const initialState = {
-    heartIcon: {} as HeartIconsState,
-    basketIcon: {} as HeartIconsState,
-    detailModal: false,
-  };
-
-  function reducer(state: typeof initialState, action: any) {
-    switch (action.type) {
-      case "TOGGLE_HEART":
-        return {
-          ...state,
-          heartIcon: {
-            ...state.heartIcon,
-            [action.index]: !state.heartIcon[action.index],
-          },
-        };
-
-      case "TOGGLE_BASKET":
-        return {
-          ...state,
-          basketIcon: {
-            ...state.basketIcon,
-            [action.index]: !state.basketIcon[action.index],
-          },
-        };
-
-      case "SET_DETAIL_MODAL":
-        return {
-          ...state,
-          detailModal: action.value,
-        };
-
-      default:
-        return state;
-    }
-  }
 
   const toggleHeart = (index: number) => {
     dispatch({ type: "TOGGLE_HEART", index });
