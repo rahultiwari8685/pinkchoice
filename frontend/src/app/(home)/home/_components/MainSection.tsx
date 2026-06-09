@@ -123,7 +123,7 @@ const MainSection = () => {
           </div>
         </section> */}
         {/*  Offer Section Start */}
-        <section className="content-inner-2">
+        {/* <section className="content-inner-2">
           <div className="container">
             <div
               className="section-head style-1 wow fadeInUp d-flex justify-content-between m-b30"
@@ -144,8 +144,8 @@ const MainSection = () => {
           <div className="container-fluid px-3">
             <OffersectionSlider />
           </div>
-        </section>
-        <section className="content-inner  overflow-hidden">
+        </section> */}
+        {/* <section className="content-inner  overflow-hidden">
           <div className="container">
             <div
               className="section-head style-1 wow fadeInUp d-flex justify-content-between"
@@ -164,9 +164,9 @@ const MainSection = () => {
             </div>
             <FeaturedNowSlider />
           </div>
-        </section>
+        </section> */}
         {/* Short List Slider --> */}
-        <section className="content-inner overflow-hidden p-b0">
+        {/* <section className="content-inner overflow-hidden p-b0">
           <div className="container">
             <div className="row">
               <div className="col-lg-6 col-md-12 m-b30">
@@ -197,9 +197,9 @@ const MainSection = () => {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
         {/*  company sponsored Start */}
-        <section className="content-inner-2">
+        {/* <section className="content-inner-2">
           <div className="container">
             <div
               className="section-head style-1 wow fadeInUp d-flex  justify-content-between"
@@ -218,9 +218,9 @@ const MainSection = () => {
             </div>
             <SponsoredSlider />
           </div>
-        </section>
+        </section> */}
         {/*  Trading Start  */}
-        <section className="content-inner-3 overflow-hidden p-b0">
+        {/* <section className="content-inner-3 overflow-hidden p-b0">
           <div className="container">
             <div className="row justify-content-between align-items-center">
               <div className="col-lg-6 col-md-8 col-sm-12">
@@ -262,11 +262,11 @@ const MainSection = () => {
             </div>
           </div>
           <TradingSliderBlog />
-        </section>
+        </section> */}
         {/*  collection-bx */}
-        <section className=" collection-bx content-inner-3 overflow-hidden">
+        {/* <section className=" collection-bx content-inner-3 overflow-hidden">
           <CollectionBlog />
-        </section>
+        </section> */}
         <Modal
           className="quick-view-modal"
           show={openVideo}
