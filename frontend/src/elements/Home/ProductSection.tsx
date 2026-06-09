@@ -30,13 +30,11 @@ interface Product {
 
 type HeartIconsState = { [key: number]: boolean };
 
-// Define the initial state
 const initialState = {
   heartIcon: {} as HeartIconsState,
   basketIcon: {} as HeartIconsState,
   detailModal: false,
   activeMenu: 0,
-  data: masonryData,
 };
 
 // Define the reducer function
@@ -63,16 +61,7 @@ function reducer(state: typeof initialState, action: any) {
         ...state,
         detailModal: action.value,
       };
-    case "SET_ACTIVE_MENU":
-      return {
-        ...state,
-        activeMenu: action.index,
-      };
-    case "SET_DATA":
-      return {
-        ...state,
-        data: action.data,
-      };
+
     default:
       throw new Error();
   }
@@ -105,23 +94,42 @@ const ProductSection = () => {
   const handleHide = () => {
     dispatch({ type: "SET_DETAIL_MODAL", value: false });
   };
-
-  const filterCategory = (name: string, ind: number) => {
-    document.querySelectorAll(".card-container").forEach((ell) => {
-      ell.setAttribute("style", "transform:scale(0);");
-    });
-    dispatch({ type: "SET_ACTIVE_MENU", index: ind });
-    const updateData = masonryData.filter((el) => el.category.includes(name));
-    dispatch({ type: "SET_DATA", data: updateData });
-    setTimeout(() => {
-      document.querySelectorAll(".card-container").forEach((ell) => {
-        ell.setAttribute(
-          "style",
-          "transform:scale(1);transition:all .5s linear",
-        );
-      });
-    }, 200);
+  const initialState = {
+    heartIcon: {} as HeartIconsState,
+    basketIcon: {} as HeartIconsState,
+    detailModal: false,
   };
+
+  function reducer(state: typeof initialState, action: any) {
+    switch (action.type) {
+      case "TOGGLE_HEART":
+        return {
+          ...state,
+          heartIcon: {
+            ...state.heartIcon,
+            [action.index]: !state.heartIcon[action.index],
+          },
+        };
+
+      case "TOGGLE_BASKET":
+        return {
+          ...state,
+          basketIcon: {
+            ...state.basketIcon,
+            [action.index]: !state.basketIcon[action.index],
+          },
+        };
+
+      case "SET_DETAIL_MODAL":
+        return {
+          ...state,
+          detailModal: action.value,
+        };
+
+      default:
+        return state;
+    }
+  }
 
   const toggleHeart = (index: number) => {
     dispatch({ type: "TOGGLE_HEART", index });
@@ -138,24 +146,6 @@ const ProductSection = () => {
             <div className="left-content">
               <h2 className="title">Most popular products</h2>
             </div>
-          </div>
-        </div>
-        <div className="col-lg-6 col-md-12">
-          <div className="site-filters clearfix style-1 align-items-center ms-lg-auto">
-            <ul className="filters">
-              {headfilterData.map((item, ind) => (
-                <li
-                  className={`btn ${state.activeMenu === ind ? "active" : ""}`}
-                  key={ind}
-                  onClick={() => {
-                    filterCategory(item.title, ind);
-                  }}
-                >
-                  <input type="radio" />
-                  <Link href={"#"}>{item.title}</Link>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </div>
