@@ -96,14 +96,14 @@ const MainSection = () =>{
                     </div>
                 </section>
                 {/*  Map Area Start*/}
-                <section className="content-inner-3 overflow-hidden " id="Maping">
+                {/* <section className="content-inner-3 overflow-hidden " id="Maping">
 			        <div className="container-fluid p-0">
                         <HottestBlog />
                     </div>
-                </section>    
+                </section>     */}
 
                 {/*  Blockbuster deal Start */}
-                <section className="content-inner-2 overflow-hidden">
+                {/* <section className="content-inner-2 overflow-hidden">
                     <div className="container">
                         <div className="section-head style-1 wow fadeInUp d-lg-flex justify-content-between" data-wow-delay="0.2s">
                             <div className="left-content">
@@ -115,7 +115,7 @@ const MainSection = () =>{
                         </div>
                        <BlockbusterDeal />
                     </div>
-                </section>
+                </section> */}
                 {/*  Offer Section Start */}
                 <section className="content-inner-2">
                     <div className="container">	
