@@ -76,7 +76,9 @@ const ProductSection = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch("https://api.pinkchoice.in/api/product");
+        const res = await fetch(
+          "https://pinkchoice.in/api/products/getAllProducts",
+        );
         const data = await res.json();
 
         if (data.success) {
