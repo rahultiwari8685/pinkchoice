@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
 import Link from "next/link";
-import { Fragment, useState } from "react"
+import { Fragment, useState } from "react";
 import { Modal } from "react-bootstrap";
 
 import IMAGES, { SVGICON } from "@/constant/theme";
@@ -25,13 +25,12 @@ import TradingSliderBlog from "@/elements/Home/TradingSliderBlog";
 import Image from "next/image";
 import MoreCollectionBlog from "@/elements/Home/MoreCollectionBlog";
 
-
-const MainSection = () =>{
-    const [openVideo, setOpenVideo] = useState(false);
-    return(
-        <Fragment>
-            <div className="page-content bg-light">    
-                {/* <div className="main-slider-wrapper">
+const MainSection = () => {
+  const [openVideo, setOpenVideo] = useState(false);
+  return (
+    <Fragment>
+      <div className="page-content bg-light">
+        {/* <div className="main-slider-wrapper">
                     <div className="slider-inner">
                         <MainBannerSlider2 />
                         <div className="bottom-content align-items-end wow fadeInUp" data-wow-delay="1.0s">
@@ -74,13 +73,13 @@ const MainSection = () =>{
                         <DzTextSlider />
                     </div>
                 </section> */}
-                {/*  Products  Section Start */}
-                <section className="content-inner">
-                    <div className="container">
-                        <ProductSection />
-                    </div>
-                </section>
-                {/* <section className=" adv-area">
+        {/*  Products  Section Start */}
+        <section className="content-inner">
+          <div className="container">
+            <ProductSection />
+          </div>
+        </section>
+        {/* <section className=" adv-area">
                     <div className="container-fluid px-0">
                         <SummerSaleBlog />  
                     </div>
@@ -96,135 +95,199 @@ const MainSection = () =>{
                     </div>
                 </section>
                 {/*  Map Area Start*/}
-                <section className="content-inner-3 overflow-hidden " id="Maping">
-			        <div className="container-fluid p-0">
-                        <HottestBlog />
-                    </div>
-                </section>    
+        <section className="content-inner-3 overflow-hidden " id="Maping">
+          <div className="container-fluid p-0">
+            <HottestBlog />
+          </div>
+        </section>
 
-                {/*  Blockbuster deal Start */}
-                <section className="content-inner-2 overflow-hidden">
-                    <div className="container">
-                        <div className="section-head style-1 wow fadeInUp d-lg-flex justify-content-between" data-wow-delay="0.2s">
-                            <div className="left-content">
-                                <h2 className="title">Blockbuster deals</h2>
-                            </div>
-                            <Link href="/shop-list" className="text-secondary font-14 d-flex align-items-center gap-1">See all deals 
-                                <i className="icon feather icon-chevron-right font-18" />
-                            </Link>
-                        </div>
-                       <BlockbusterDeal />
-                    </div>
-                </section>
-                {/*  Offer Section Start */}
-                <section className="content-inner-2">
-                    <div className="container">	
-                        <div className="section-head style-1 wow fadeInUp d-flex justify-content-between m-b30" data-wow-delay="0.2s">
-                            <div className="left-content">
-                                <h2 className="title">Featured offer for you</h2>
-                            </div>
-                            <Link href="/shop-list" className="text-secondary font-14 d-flex align-items-center gap-1">See All 
-                                <i className="icon feather icon-chevron-right font-18" />
-                            </Link>			
-                        </div>
-                    </div>                
-                    <div className="container-fluid px-3">
-                        <OffersectionSlider />
-                    </div>
-                </section>
-                <section className="content-inner  overflow-hidden">
-                    <div className="container">	
-                        <div className="section-head style-1 wow fadeInUp d-flex justify-content-between" data-wow-delay="0.2s">
-                            <div className="left-content">
-                                <h2 className="title">Featured now </h2>
-                            </div>
-                            <Link href="/shop-list" className="text-secondary font-14 d-flex align-items-center gap-1">See All 
-                                <i className="icon feather icon-chevron-right font-18" />
-                            </Link>			
-                        </div>
-                        <FeaturedNowSlider /> 
-                    </div>
-                </section>
-                {/* Short List Slider --> */}
-                <section className="content-inner overflow-hidden p-b0">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-lg-6 col-md-12 m-b30">
-                                <div className="about-box style-1 clearfix h-100">
-                                    <div className="dz-media h-100">
-                                        <Image src={IMAGES.AboutPic2} alt="" />
-                                        <div className="media-contant">
-                                            <h2 className="title">Recent Additions to Your Shortlist</h2> 
-                                            <Link href="/shop-list" className="btn btn-white">Shop Now</Link>
-                                        </div>
-                                        <svg className="title animation-text" viewBox="0 0 1320 300">
-                                            <text x="0" y="">Shortlist</text>
-                                        </svg>	
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-6 col-md-12 align-self-center">
-                               <ShortListBlog />
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                {/*  company sponsored Start */}
-                <section className="content-inner-2">
-                    <div className="container">	
-                        <div className="section-head style-1 wow fadeInUp d-flex  justify-content-between" data-wow-delay="0.2s">
-                            <div className="left-content">
-                                <h2 className="title">Sponsored</h2>
-                            </div>
-                            <Link href="/shop-list" className="text-secondary font-14 d-flex align-items-center gap-1">See All 
-                                <i className="icon feather icon-chevron-right font-18" />
-                            </Link>                            			
-                        </div>
-                        <SponsoredSlider />
-                    </div>
-                </section>
-                {/*  Trading Start  */}
-                <section className="content-inner-3 overflow-hidden p-b0">
-                    <div className="container">
-                        <div className="row justify-content-between align-items-center">
-                            <div className="col-lg-6 col-md-8 col-sm-12">
-                                <div className="section-head style-2 m-0 wow fadeInUp" data-wow-delay="0.1s" >
-                                    <div className="left-content">
-                                        <h2 className="title">Discover the most trending Post in Pixio.</h2>
-                                    </div>
-                                </div>	
-                            </div>
-                            <div className="col-lg-6 col-md-4 col-sm-12 text-md-end m-b30 wow fadeInUp" data-wow-delay="0.2s" >	
-                                <Link className="icon-button d-md-inline-block d-none" href="/shop-standard">
-                                    <div className="text-row word-rotate-box c-black">                                        
-                                        <LatestNewsRollup />                                        
-                                        <svg className="badge__emoji" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                            dangerouslySetInnerHTML={{__html :  SVGICON.ArrowRightSvg}}
-                                        >
-                                        </svg>                                        
-                                    </div>
-                                </Link>
-                            </div>	
-                        </div>
-                    </div>
-                    <TradingSliderBlog />
-                </section>
-                {/*  collection-bx */}
-                <section className=" collection-bx content-inner-3 overflow-hidden">
-                    <CollectionBlog />
-                </section> */}
-                <Modal className="quick-view-modal" show={openVideo} onHide={()=>setOpenVideo(false)} centered>
-                    <button type="button" className="btn-close" onClick={()=>setOpenVideo(false)}>
-                        <i className="icon feather icon-x"/>
-                    </button>
-                    <div className="modal-body">
-                        <video width="100%" height="100%" controls autoPlay>
-                            <source src="/assets/images/video.mp4" type="video/mp4"/>
-                        </video>                           
-                    </div>  
-                </Modal>
+        {/*  Blockbuster deal Start */}
+        <section className="content-inner-2 overflow-hidden">
+          <div className="container">
+            <div
+              className="section-head style-1 wow fadeInUp d-lg-flex justify-content-between"
+              data-wow-delay="0.2s"
+            >
+              <div className="left-content">
+                <h2 className="title">Blockbuster deals</h2>
+              </div>
+              <Link
+                href="/shop-list"
+                className="text-secondary font-14 d-flex align-items-center gap-1"
+              >
+                See all deals
+                <i className="icon feather icon-chevron-right font-18" />
+              </Link>
             </div>
-        </Fragment>
-    )
-}
+            <BlockbusterDeal />
+          </div>
+        </section>
+        {/*  Offer Section Start */}
+        <section className="content-inner-2">
+          <div className="container">
+            <div
+              className="section-head style-1 wow fadeInUp d-flex justify-content-between m-b30"
+              data-wow-delay="0.2s"
+            >
+              <div className="left-content">
+                <h2 className="title">Featured offer for you</h2>
+              </div>
+              <Link
+                href="/shop-list"
+                className="text-secondary font-14 d-flex align-items-center gap-1"
+              >
+                See All
+                <i className="icon feather icon-chevron-right font-18" />
+              </Link>
+            </div>
+          </div>
+          <div className="container-fluid px-3">
+            <OffersectionSlider />
+          </div>
+        </section>
+        <section className="content-inner  overflow-hidden">
+          <div className="container">
+            <div
+              className="section-head style-1 wow fadeInUp d-flex justify-content-between"
+              data-wow-delay="0.2s"
+            >
+              <div className="left-content">
+                <h2 className="title">Featured now </h2>
+              </div>
+              <Link
+                href="/shop-list"
+                className="text-secondary font-14 d-flex align-items-center gap-1"
+              >
+                See All
+                <i className="icon feather icon-chevron-right font-18" />
+              </Link>
+            </div>
+            <FeaturedNowSlider />
+          </div>
+        </section>
+        {/* Short List Slider --> */}
+        <section className="content-inner overflow-hidden p-b0">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-6 col-md-12 m-b30">
+                <div className="about-box style-1 clearfix h-100">
+                  <div className="dz-media h-100">
+                    <Image src={IMAGES.AboutPic2} alt="" />
+                    <div className="media-contant">
+                      <h2 className="title">
+                        Recent Additions to Your Shortlist
+                      </h2>
+                      <Link href="/shop-list" className="btn btn-white">
+                        Shop Now
+                      </Link>
+                    </div>
+                    <svg
+                      className="title animation-text"
+                      viewBox="0 0 1320 300"
+                    >
+                      <text x="0" y="">
+                        Shortlist
+                      </text>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-6 col-md-12 align-self-center">
+                <ShortListBlog />
+              </div>
+            </div>
+          </div>
+        </section>
+        {/*  company sponsored Start */}
+        <section className="content-inner-2">
+          <div className="container">
+            <div
+              className="section-head style-1 wow fadeInUp d-flex  justify-content-between"
+              data-wow-delay="0.2s"
+            >
+              <div className="left-content">
+                <h2 className="title">Sponsored</h2>
+              </div>
+              <Link
+                href="/shop-list"
+                className="text-secondary font-14 d-flex align-items-center gap-1"
+              >
+                See All
+                <i className="icon feather icon-chevron-right font-18" />
+              </Link>
+            </div>
+            <SponsoredSlider />
+          </div>
+        </section>
+        {/*  Trading Start  */}
+        <section className="content-inner-3 overflow-hidden p-b0">
+          <div className="container">
+            <div className="row justify-content-between align-items-center">
+              <div className="col-lg-6 col-md-8 col-sm-12">
+                <div
+                  className="section-head style-2 m-0 wow fadeInUp"
+                  data-wow-delay="0.1s"
+                >
+                  <div className="left-content">
+                    <h2 className="title">
+                      Discover the most trending Post in Pixio.
+                    </h2>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="col-lg-6 col-md-4 col-sm-12 text-md-end m-b30 wow fadeInUp"
+                data-wow-delay="0.2s"
+              >
+                <Link
+                  className="icon-button d-md-inline-block d-none"
+                  href="/shop-standard"
+                >
+                  <div className="text-row word-rotate-box c-black">
+                    <LatestNewsRollup />
+                    <svg
+                      className="badge__emoji"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                      fill="none"
+                      dangerouslySetInnerHTML={{
+                        __html: SVGICON.ArrowRightSvg,
+                      }}
+                    ></svg>
+                  </div>
+                </Link>
+              </div>
+            </div>
+          </div>
+          <TradingSliderBlog />
+        </section>
+        {/*  collection-bx */}
+        <section className=" collection-bx content-inner-3 overflow-hidden">
+          <CollectionBlog />
+        </section>
+        <Modal
+          className="quick-view-modal"
+          show={openVideo}
+          onHide={() => setOpenVideo(false)}
+          centered
+        >
+          <button
+            type="button"
+            className="btn-close"
+            onClick={() => setOpenVideo(false)}
+          >
+            <i className="icon feather icon-x" />
+          </button>
+          <div className="modal-body">
+            <video width="100%" height="100%" controls autoPlay>
+              <source src="/assets/images/video.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </Modal>
+      </div>
+    </Fragment>
+  );
+};
 export default MainSection;
