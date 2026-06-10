@@ -75,7 +75,7 @@ const ProductList = () => {
     try {
       const token = JSON.parse(secureLocalStorage.getItem('logininfo'))?.token
 
-      const response = await fetch(`${setting.api}/api/news/delete/${id}`, {
+      const response = await fetch(`${setting.api}/api/products/delete/${id}`, {
         method: 'POST',
         mode: 'cors',
         headers: {
