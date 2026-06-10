@@ -15,8 +15,8 @@ router.post("/saveProduct", upload.single("thumbnail"), createProduct);
 router.get("/getAllProducts", getProducts);
 // router.get("/:slug", getProduct);
 router.get("/:id", getProduct);
-router.put("/:id", upload.single("thumbnail"), updateProduct);
+router.put("/update/:id", upload.single("thumbnail"), updateProduct);
 
-router.delete("/:id", deleteProduct);
+router.delete("/delete/:id", deleteProduct);
 
 export default router;
