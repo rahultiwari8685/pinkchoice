@@ -76,22 +76,26 @@ const ProductList = () => {
       const token = JSON.parse(secureLocalStorage.getItem('logininfo'))?.token
 
       const response = await fetch(`${setting.api}/api/products/delete/${id}`, {
-        method: 'POST',
+        method: 'DELETE',
         mode: 'cors',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`, // ✅ send token
+          Authorization: `Bearer ${token}`,
         },
       })
 
+      const data = await response.json()
+
       if (!response.ok) {
-        console.error('Delete failed:', response.status)
+        console.error('Delete failed:', data)
       } else {
-        console.log('User deleted:', await response.json())
-        fetchNews() // ✅ refresh after delete
+        console.log('Product deleted:', data)
+
+        // Refresh list
+        getAllProduct()
       }
     } catch (err) {
-      console.error('Error deleting user:', err)
+      console.error('Error deleting product:', err)
     }
   }
 
