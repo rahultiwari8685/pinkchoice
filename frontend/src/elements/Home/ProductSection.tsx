@@ -134,7 +134,7 @@ const ProductSection = () => {
               <div className="shop-card">
                 <div className="dz-media">
                   <Image
-                    src={`https://pinkchoice.in/uploads/images/${item.thumbnail}`}
+                    src={`https://api.pinkchoice.in/uploads/images/${item.thumbnail}`}
                     alt={item.title}
                     width={300}
                     height={300}
