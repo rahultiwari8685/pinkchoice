@@ -219,7 +219,7 @@ const ProductSection = () => {
                         SALE 20% Off
                       </span>
                       <h4 className="title mb-1">
-                        <Link href="/shop-list">{selectedProduct?.title}</Link>
+                        <Link href="/">{selectedProduct?.title}</Link>
                       </h4>
                       <div className="review-num">
                         <ul className="dz-rating me-2">
@@ -254,15 +254,16 @@ const ProductSection = () => {
                     <div className="me-3">
                       <span className="form-label">Price</span>
                       <span className="price">
-                        ₹{selectedProduct?.price} <del>$132.17</del>
+                        ₹{selectedProduct?.price}
+                        {/* <del>$132.17</del> */}
                       </span>
                     </div>
-                    <div className="btn-quantity light me-0">
+                    {/* <div className="btn-quantity light me-0">
                       <label className="form-label">Quantity</label>
                       <ProductInputButton />
-                    </div>
+                    </div> */}
                   </div>
-                  <div className=" cart-btn">
+                  {/* <div className=" cart-btn">
                     <Link
                       href="/shop-cart"
                       className="btn btn-secondary text-uppercase"
@@ -389,7 +390,7 @@ const ProductSection = () => {
                         </li>
                       </ul>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

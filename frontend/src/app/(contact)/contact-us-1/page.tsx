@@ -1,16 +1,28 @@
-import WithoutFooterLayout from "@/components/WithoutFooterLayout"
-import ContactUs from "./_components/ContactUs"
+import WithoutFooterLayout from "@/components/WithoutFooterLayout";
+import ContactUs from "./_components/ContactUs";
 
 export const metadata = {
-    title: "Pixio: Shop & eCommerce NextJs Template | DexignZone",
-    description: "Elevate your online retail presence with Pixio Shop & eCommerce React Template. Crafted with precision, this responsive and feature-rich template provides a seamless and visually stunning shopping experience. Explore a world of possibilities with modern design elements, intuitive navigation, and customizable features. Transform your website into a dynamic online storefront with Pixio, where style meets functionality for a captivating and user-friendly eCommerce journey.",  
+  title: "PinkChoice | Premium Women's Hygiene & Wellness Store",
+  description:
+    "Shop premium women's hygiene and wellness products at PinkChoice. Discover sanitary pads, feminine care essentials, personal care products, and wellness solutions designed for comfort, confidence, and everyday care. Enjoy secure payments and fast delivery across India.",
+  keywords: [
+    "PinkChoice",
+    "Women's Hygiene",
+    "Sanitary Pads",
+    "Feminine Care",
+    "Women's Wellness",
+    "Personal Care",
+    "Online Shopping",
+    "Health Products",
+    "India",
+  ],
 };
 
-const ContactUsPage = () =>{
-    return(
-        <WithoutFooterLayout>
-            <ContactUs />
-        </WithoutFooterLayout>
-    )
-}
+const ContactUsPage = () => {
+  return (
+    <WithoutFooterLayout>
+      <ContactUs />
+    </WithoutFooterLayout>
+  );
+};
 export default ContactUsPage;
