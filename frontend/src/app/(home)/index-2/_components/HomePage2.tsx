@@ -165,12 +165,7 @@ const HomePage2 = () => {
             <div className="col-xl-6 col-md-6">
               <div className="dz-product-detail mb-0">
                 <div className="swiper-btn-center-lr">
-                  {/* <ModalSlider /> */}
-
-                  <ModalSlider
-                    thumbnail={product.thumbnail}
-                    gallery={product.gallery}
-                  />
+                  <ModalSlider />
                 </div>
               </div>
             </div>

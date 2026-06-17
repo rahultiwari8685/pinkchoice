@@ -10,14 +10,11 @@ import Link from "next/link";
 import Image from "next/image";
 
 interface Props {
-  thumbnail: string;
-  gallery: string[];
+  thumbnail?: string;
+  gallery?: string[];
 }
 
-export default function ModalSlider({
-  thumbnail,
-  gallery = [],
-}: Props) {
+export default function ModalSlider({ thumbnail = "", gallery = [] }: Props) {
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
 
   const images = useMemo(() => {
@@ -52,10 +49,7 @@ export default function ModalSlider({
 
   return (
     <>
-      <LightGallery
-        plugins={[lgThumbnail, lgZoom]}
-        selector=".DZoomImage"
-      >
+      <LightGallery plugins={[lgThumbnail, lgZoom]} selector=".DZoomImage">
         <Swiper
           className="quick-modal-swiper2"
           thumbs={{ swiper: thumbsSwiper }}
