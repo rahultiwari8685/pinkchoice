@@ -11,12 +11,45 @@ import {
 
 const router = express.Router();
 
-router.post("/saveProduct", upload.single("thumbnail"), createProduct);
-router.get("/getAllProducts", getProducts);
-// router.get("/:slug", getProduct);
-router.get("/:id", getProduct);
-router.put("/update/:id", upload.single("thumbnail"), updateProduct);
+// Create Product
+router.post(
+  "/saveProduct",
+  upload.fields([
+    {
+      name: "thumbnail",
+      maxCount: 1,
+    },
+    {
+      name: "gallery",
+      maxCount: 3,
+    },
+  ]),
+  createProduct,
+);
 
+// Get Products
+router.get("/getAllProducts", getProducts);
+
+// Get Single Product
+router.get("/:id", getProduct);
+
+// Update Product
+router.put(
+  "/update/:id",
+  upload.fields([
+    {
+      name: "thumbnail",
+      maxCount: 1,
+    },
+    {
+      name: "gallery",
+      maxCount: 3,
+    },
+  ]),
+  updateProduct,
+);
+
+// Delete Product
 router.delete("/delete/:id", deleteProduct);
 
 export default router;

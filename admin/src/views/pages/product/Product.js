@@ -51,6 +51,7 @@ const Product = () => {
       price: '',
       categories: [],
       thumbnail: null,
+      gallery: [],
     },
   })
 
@@ -96,8 +97,21 @@ const Product = () => {
     formData.append('price', data.price)
     formData.append('categories', JSON.stringify(data.categories))
     formData.append('content', JSON.stringify(content))
+    // Banner Image
     if (data.thumbnail?.[0]) {
       formData.append('thumbnail', data.thumbnail[0])
+    }
+
+    // Gallery Images
+    if (data.gallery && data.gallery.length > 0) {
+      Array.from(data.gallery).forEach((file) => {
+        formData.append('gallery', file)
+      })
+    }
+
+    if (data.gallery && data.gallery.length > 3) {
+      alert('Maximum 3 gallery images allowed.')
+      return
     }
 
     const endpoint = '/api/products/saveProduct'
@@ -210,9 +224,18 @@ const Product = () => {
                   <CCol md={12} className="mb-3">
                     <CFormInput
                       type="file"
-                      label="Preview Image"
+                      label="Banner Image"
                       accept="image/*"
                       {...register('thumbnail')}
+                    />
+
+                    <CFormInput
+                      className="mt-3"
+                      type="file"
+                      label="Gallery Images (Max 3)"
+                      accept="image/*"
+                      multiple
+                      {...register('gallery')}
                     />
                   </CCol>
                 </CCol>

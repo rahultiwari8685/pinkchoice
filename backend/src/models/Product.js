@@ -2,16 +2,43 @@ import mongoose from "mongoose";
 
 const productSchema = new mongoose.Schema(
   {
-    title: { type: String, required: true },
-    price: { type: Number, default: 0 },
+    title: {
+      type: String,
+      required: true,
+    },
 
-    categories: [{ type: mongoose.Schema.Types.ObjectId, ref: "Category" }],
+    price: {
+      type: Number,
+      default: 0,
+    },
 
-    content: { type: Object, default: {} },
+    categories: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Category",
+      },
+    ],
 
-    thumbnail: { type: String, default: "" },
+    content: {
+      type: Object,
+      default: {},
+    },
+
+    // Main Banner Image
+    thumbnail: {
+      type: String,
+      default: "",
+    },
+
+    // Product Gallery Images
+    gallery: {
+      type: [String],
+      default: [],
+    },
   },
-  { timestamps: true },
+  {
+    timestamps: true,
+  },
 );
 
 export default mongoose.model("Product", productSchema);
