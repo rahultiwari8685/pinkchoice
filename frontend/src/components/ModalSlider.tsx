@@ -18,18 +18,8 @@ export default function ModalSlider({ thumbnail = "", gallery = [] }: Props) {
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
 
   const images = useMemo(() => {
-    const arr = [];
-
-    if (thumbnail) {
-      arr.push(thumbnail);
-    }
-
-    if (gallery?.length) {
-      arr.push(...gallery);
-    }
-
-    return arr;
-  }, [thumbnail, gallery]);
+    return gallery.slice(0, 3); // Only first 3 gallery images
+  }, [gallery]);
 
   const hoverEffect = (e: any) => {
     const rect = e.target.getBoundingClientRect();
@@ -52,7 +42,10 @@ export default function ModalSlider({ thumbnail = "", gallery = [] }: Props) {
       <LightGallery plugins={[lgThumbnail, lgZoom]} selector=".DZoomImage">
         <Swiper
           className="quick-modal-swiper2"
-          thumbs={{ swiper: thumbsSwiper }}
+          thumbs={{
+            swiper:
+              thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
+          }}
           modules={[Thumbs]}
         >
           {images.map((img, index) => {
@@ -61,25 +54,24 @@ export default function ModalSlider({ thumbnail = "", gallery = [] }: Props) {
             return (
               <SwiperSlide key={index}>
                 <div className="dz-media">
-                  <Link
+                  <a
                     href={url}
                     data-src={url}
                     className="mfp-link lg-item DZoomImage"
                   >
                     <i className="feather icon-maximize dz-maximize top-right z-1" />
-                  </Link>
+                  </a>
 
                   <Image
                     src={url}
                     alt=""
-                    width={600}
-                    height={600}
-                    onMouseEnter={hoverEffect}
-                    onMouseLeave={removeHover}
+                    width={1500}
+                    height={1500}
+                    unoptimized
                     style={{
                       width: "100%",
-                      height: "auto",
-                      objectFit: "cover",
+                      height: "600px",
+                      objectFit: "contain",
                     }}
                   />
                 </div>
@@ -91,7 +83,7 @@ export default function ModalSlider({ thumbnail = "", gallery = [] }: Props) {
 
       <Swiper
         className="quick-modal-swiper thumb-swiper-lg thumb-sm swiper-vertical"
-        slidesPerView={4}
+        slidesPerView={3}
         spaceBetween={15}
         freeMode
         watchSlidesProgress
@@ -106,12 +98,14 @@ export default function ModalSlider({ thumbnail = "", gallery = [] }: Props) {
               <Image
                 src={url}
                 alt=""
-                width={120}
-                height={120}
+                width={150}
+                height={150}
+                unoptimized
                 style={{
                   width: "100%",
-                  height: "100px",
+                  height: "120px",
                   objectFit: "cover",
+                  borderRadius: "8px",
                 }}
               />
             </SwiperSlide>
