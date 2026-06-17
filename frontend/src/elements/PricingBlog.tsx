@@ -35,7 +35,7 @@ const PricingBlog = () => {
                             </div> */}
               <div className="pricingtable-button">
                 <Link
-                  href="/shop-registration"
+                  href="/registration"
                   className="btn btn-outline-secondary"
                 >
                   Connect Now

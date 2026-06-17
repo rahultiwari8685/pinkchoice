@@ -17,7 +17,7 @@ const PricingTablePage = () => {
         <CommanBanner
           mainText="Business With Us"
           parentText="Home"
-          currentText="Pricing Table"
+          currentText="Business With Us"
           image={IMAGES.BackBg1.src}
         />
         <section className="dz-pricingtable ">
