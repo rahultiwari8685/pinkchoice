@@ -312,13 +312,13 @@ export default function Menus() {
       </li>
 
       <li>
-        <Link href="/about-us">
+        <Link href="/about-me">
           <span>About</span>
         </Link>
       </li>
 
       <li>
-        <Link href="/contact/contact-us-1">
+        <Link href="contact-us-1">
           <span>Contact</span>
         </Link>
       </li>
