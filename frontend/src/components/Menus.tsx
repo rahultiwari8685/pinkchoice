@@ -312,7 +312,7 @@ export default function Menus() {
       </li>
 
       <li>
-        <Link href="/about-me">
+        <Link href="/about-us">
           <span>About</span>
         </Link>
       </li>
