@@ -157,7 +157,7 @@ const Header = ({ design }: DesignType) => {
               </button>
 
               {/*  Main Nav  */}
-              <div
+              {/* <div
                 className={`header-nav w3menu navbar-collapse collapse justify-content-start ${state.openSidebar ? "show" : ""}`}
                 id="navbarNavDropdown"
               >
@@ -201,8 +201,10 @@ const Header = ({ design }: DesignType) => {
                     </li>
                   </ul>
                 </div>
-              </div>
+              </div> */}
               {/* EXTRA NAV  */}
+
+                          
               <div
                 className={`extra-nav ${state.isBottom ? "bottom-end" : ""} ${state.isActive ? "active" : ""}`}
               >
