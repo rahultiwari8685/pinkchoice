@@ -157,7 +157,7 @@ const Header = ({ design }: DesignType) => {
               </button>
 
               {/*  Main Nav  */}
-              {/* <div
+              <div
                 className={`header-nav w3menu navbar-collapse collapse justify-content-start ${state.openSidebar ? "show" : ""}`}
                 id="navbarNavDropdown"
               >
@@ -166,9 +166,9 @@ const Header = ({ design }: DesignType) => {
                     <Image src={IMAGES.logo} alt="logo" />
                   </Link>
                 </div>
-              
+
                 <Menus />
-              
+
                 <div className="dz-social-icon">
                   <ul>
                     <li>
@@ -201,7 +201,7 @@ const Header = ({ design }: DesignType) => {
                     </li>
                   </ul>
                 </div>
-              </div> */}
+              </div>
               {/* EXTRA NAV  */}
 
               {/* <div

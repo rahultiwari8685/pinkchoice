@@ -304,6 +304,24 @@ export default function Menus() {
                     ))}                    
                 </ul>
             </li> */}
+
+      <li>
+        <Link href="/">
+          <span>Home</span>
+        </Link>
+      </li>
+
+      <li>
+        <Link href="/about-us">
+          <span>About</span>
+        </Link>
+      </li>
+
+      <li>
+        <Link href="/contact/contact-us-1">
+          <span>Contact</span>
+        </Link>
+      </li>
     </ul>
   );
 }
