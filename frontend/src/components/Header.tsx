@@ -204,7 +204,7 @@ const Header = ({ design }: DesignType) => {
               </div> */}
               {/* EXTRA NAV  */}
 
-              <div
+              {/* <div
                 className={`extra-nav ${state.isBottom ? "bottom-end" : ""} ${state.isActive ? "active" : ""}`}
               >
                 <div className="extra-cell">
@@ -272,7 +272,7 @@ const Header = ({ design }: DesignType) => {
                     </li>
                   </ul>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
