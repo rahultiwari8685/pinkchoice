@@ -51,7 +51,7 @@ const ContactUs = () => {
       <div className="content-inner-2 pt-0">
         <div className="map-iframe map">
           <iframe
-            src="https://www.google.com/maps/place/Uttar+Pradesh+Police+Recruitment+%26+Promotion+Board/@26.8405498,80.9403864,17z/data=!3m1!4b1!4m6!3m5!1s0x399bfdaa2cf29701:0x3c7ccfb5a775a9c2!8m2!3d26.8405498!4d80.9403864!16s%2Fg%2F1ptw8s18j?hl=en&entry=ttu&g_ep=EgoyMDI2MDYxMy4wIKXMDSoASAFQAw%3D%3D"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.9618098851743!2d80.93756877599952!3d26.841166963160468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfdaa2cf29701%3A0x3c7ccfb5a775a9c2!2sUttar%20Pradesh%20Police%20Recruitment%20%26%20Promotion%20Board!5e0!3m2!1sen!2sin!4v1747208354921!5m2!1sen!2sin"
             style={{
               border: "0",
               width: "100%",
