@@ -166,9 +166,9 @@ const Header = ({ design }: DesignType) => {
                     <Image src={IMAGES.logo} alt="logo" />
                   </Link>
                 </div>
-                {/* All menus item */}
+              
                 <Menus />
-                {/* All menus item end*/}
+              
                 <div className="dz-social-icon">
                   <ul>
                     <li>
@@ -204,7 +204,6 @@ const Header = ({ design }: DesignType) => {
               </div> */}
               {/* EXTRA NAV  */}
 
-                          
               <div
                 className={`extra-nav ${state.isBottom ? "bottom-end" : ""} ${state.isActive ? "active" : ""}`}
               >
