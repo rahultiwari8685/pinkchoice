@@ -65,7 +65,10 @@ const AboutUs = () => {
             high-quality, and affordable hygiene and wellness products. Our
             platform offers a carefully curated collection of sanitary care,
             personal care, and lifestyle essentials designed to support your
-            daily needs.
+            daily needs. With secure payments, fast nationwide delivery, and
+            exceptional customer service, PinkChoice is your trusted partner for
+            healthier, happier living. Experience shopping that's built around
+            quality, care, and convenience.
           </p>
         </div>
       </section>
