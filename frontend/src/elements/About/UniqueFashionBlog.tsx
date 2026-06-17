@@ -21,16 +21,14 @@ const UniqueFashionBlog = () => {
                 hygiene, wellness, and lifestyle products that inspire
                 confidence and comfort every day. Our carefully curated
                 collection includes high-quality sanitary care, personal care
-                essentials, and everyday lifestyle products designed to support
-                your health and well-being.
+                essentials.
               </p>
               <p>
                 At PinkChoice, we're committed to providing women with premium
                 hygiene, wellness, and lifestyle products that inspire
                 confidence and comfort every day. Our carefully curated
                 collection includes high-quality sanitary care, personal care
-                essentials, and everyday lifestyle products designed to support
-                your health and well-being..
+                essentials.
               </p>
             </div>
             <div className="about-bx-detail">
