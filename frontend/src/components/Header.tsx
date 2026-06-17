@@ -279,7 +279,7 @@ const Header = ({ design }: DesignType) => {
         {/*  Main Header End  */}
       </header>
       {/*  SearchBar  */}
-      <Offcanvas
+      {/* <Offcanvas
         className="dz-search-area dz-offcanvas offcanvas-top"
         show={state.openSearchBar}
         onHide={() => dispatch({ type: "TOGGLE_SEARCH_BAR" })}
@@ -295,12 +295,12 @@ const Header = ({ design }: DesignType) => {
         >
           &times;
         </button>
-        {/* <HeadSearchBar /> */}
-      </Offcanvas>
+        <HeadSearchBar />
+      </Offcanvas> */}
       {/*  SearchBar  */}
 
       {/* - Sidebar finter */}
-      <Offcanvas
+      {/* <Offcanvas
         className="dz-offcanvas offcanvas-end"
         placement="end"
         show={state.headSideBar}
@@ -315,10 +315,12 @@ const Header = ({ design }: DesignType) => {
         >
           &times;
         </button>
-        <div className="offcanvas-body">{/* <HeaderSidbar /> */}</div>
-      </Offcanvas>
+              <div className="offcanvas-body">
+                  <HeaderSidbar />
+              </div>
+      </Offcanvas> */}
       {/*  Sidebar cart  */}
-      <Offcanvas
+      {/* <Offcanvas
         className="dz-offcanvas offcanvas-end"
         placement="end"
         tabIndex={-1}
@@ -339,7 +341,7 @@ const Header = ({ design }: DesignType) => {
             <HeaderSideShoppingCard tabactive="Wishlist" />
           </div>
         </div>
-      </Offcanvas>
+      </Offcanvas> */}
 
       {/*  Shopping Sidebar Basket   */}
       {/* <Offcanvas className="dz-offcanvas offcanvas-end" placement="end" tabIndex={-1} show={state.basketShoppingCard} 
