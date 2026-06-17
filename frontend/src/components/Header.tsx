@@ -299,46 +299,46 @@ const Header = ({ design }: DesignType) => {
       {/*  SearchBar  */}
 
       {/* - Sidebar finter */}
-    //   <Offcanvas
-    //     className="dz-offcanvas offcanvas-end"
-    //     placement="end"
-    //     show={state.headSideBar}
-    //     // onHide={setHeadSideBar}
-    //     onHide={() => dispatch({ type: "TOGGLE_HEAD_SIDEBAR" })}
-    //   >
-    //     <button
-    //       type="button"
-    //       className="btn-close"
-    //       // onClick={()=>setHeadSideBar(false)}
-    //       onClick={() => dispatch({ type: "TOGGLE_HEAD_SIDEBAR" })}
-    //     >
-    //       &times;
-    //     </button>
-    //     <div className="offcanvas-body">{/* <HeaderSidbar /> */}</div>
-    //   </Offcanvas>
+      <Offcanvas
+        className="dz-offcanvas offcanvas-end"
+        placement="end"
+        show={state.headSideBar}
+        // onHide={setHeadSideBar}
+        onHide={() => dispatch({ type: "TOGGLE_HEAD_SIDEBAR" })}
+      >
+        <button
+          type="button"
+          className="btn-close"
+          // onClick={()=>setHeadSideBar(false)}
+          onClick={() => dispatch({ type: "TOGGLE_HEAD_SIDEBAR" })}
+        >
+          &times;
+        </button>
+        <div className="offcanvas-body">{/* <HeaderSidbar /> */}</div>
+      </Offcanvas>
       {/*  Sidebar cart  */}
-    //   <Offcanvas
-    //     className="dz-offcanvas offcanvas-end"
-    //     placement="end"
-    //     tabIndex={-1}
-    //     show={state.headShoppingSidebar}
-    //     // onHide={setHeadShoppingSidebar}
-    //     onHide={() => dispatch({ type: "TOGGLE_HEAD_SHOPPING_SIDEBAR" })}
-    //   >
-    //     <button
-    //       type="button"
-    //       className="btn-close"
-    //       // onClick={()=>setHeadShoppingSidebar(false)}
-    //       onClick={() => dispatch({ type: "TOGGLE_HEAD_SHOPPING_SIDEBAR" })}
-    //     >
-    //       &times;
-    //     </button>
-    //     <div className="offcanvas-body">
-    //       <div className="product-description">
-    //         <HeaderSideShoppingCard tabactive="Wishlist" />
-    //       </div>
-    //     </div>
-    //   </Offcanvas>
+      <Offcanvas
+        className="dz-offcanvas offcanvas-end"
+        placement="end"
+        tabIndex={-1}
+        show={state.headShoppingSidebar}
+        // onHide={setHeadShoppingSidebar}
+        onHide={() => dispatch({ type: "TOGGLE_HEAD_SHOPPING_SIDEBAR" })}
+      >
+        <button
+          type="button"
+          className="btn-close"
+          // onClick={()=>setHeadShoppingSidebar(false)}
+          onClick={() => dispatch({ type: "TOGGLE_HEAD_SHOPPING_SIDEBAR" })}
+        >
+          &times;
+        </button>
+        <div className="offcanvas-body">
+          <div className="product-description">
+            <HeaderSideShoppingCard tabactive="Wishlist" />
+          </div>
+        </div>
+      </Offcanvas>
 
       {/*  Shopping Sidebar Basket   */}
       {/* <Offcanvas className="dz-offcanvas offcanvas-end" placement="end" tabIndex={-1} show={state.basketShoppingCard} 
