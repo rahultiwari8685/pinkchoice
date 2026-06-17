@@ -278,7 +278,7 @@ const Header = ({ design }: DesignType) => {
         {/*  Main Header End  */}
       </header>
       {/*  SearchBar  */}
-      {/* <Offcanvas
+      <Offcanvas
         className="dz-search-area dz-offcanvas offcanvas-top"
         show={state.openSearchBar}
         onHide={() => dispatch({ type: "TOGGLE_SEARCH_BAR" })}
@@ -295,7 +295,7 @@ const Header = ({ design }: DesignType) => {
           &times;
         </button>
         {/* <HeadSearchBar /> */}
-      </Offcanvas> */}
+      </Offcanvas>
       {/*  SearchBar  */}
 
       {/* - Sidebar finter */}
