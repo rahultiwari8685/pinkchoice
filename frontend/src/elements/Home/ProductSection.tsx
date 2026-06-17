@@ -16,11 +16,24 @@ interface MenuItem {
   id: number;
 }
 
+// interface Product {
+//   _id: string;
+//   title: string;
+//   price: number;
+//   thumbnail: string;
+//   categories: {
+//     _id: string;
+//     name: string;
+//   }[];
+//   content: any;
+// }
+
 interface Product {
   _id: string;
   title: string;
   price: number;
   thumbnail: string;
+  gallery: string[];
   categories: {
     _id: string;
     name: string;
@@ -191,7 +204,10 @@ const ProductSection = () => {
           <div className="row g-xl-4 g-3">
             <div className="col-xl-6 col-md-6">
               <div className="dz-product-detail mb-0">
-                <ModalSlider />
+                <ModalSlider
+                  thumbnail={selectedProduct?.thumbnail || ""}
+                  gallery={selectedProduct?.gallery || []}
+                />
               </div>
             </div>
             <div className="col-xl-6 col-md-6">
