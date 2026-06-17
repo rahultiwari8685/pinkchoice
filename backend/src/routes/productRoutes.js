@@ -11,7 +11,6 @@ import {
 
 const router = express.Router();
 
-// Create Product
 router.post(
   "/saveProduct",
   upload.fields([
@@ -27,13 +26,10 @@ router.post(
   createProduct,
 );
 
-// Get Products
 router.get("/getAllProducts", getProducts);
 
-// Get Single Product
 router.get("/:id", getProduct);
 
-// Update Product
 router.put(
   "/update/:id",
   upload.fields([

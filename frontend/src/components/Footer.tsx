@@ -127,8 +127,8 @@ const Footer = (props: footertype) => {
             <div className="col-lg-6 col-md-12 text-start">
               <p className="copyright-text">
                 © <span className="current-year">{year}</span>{" "}
-                <a href="https://www.dexignzone.com/"> DexignZone</a> Theme. All
-                Rights Reserved.
+                <a href="https://www.pinkchoice.in/"> PinkChoice</a>. All Rights
+                Reserved.
               </p>
             </div>
             <div className="col-lg-6 col-md-12 text-end">
