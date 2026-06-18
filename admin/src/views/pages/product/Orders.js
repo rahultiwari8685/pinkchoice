@@ -3,11 +3,6 @@ import {
   CCard,
   CCardBody,
   CCardHeader,
-  CCol,
-  CRow,
-  CFormInput,
-  CFormLabel,
-  CForm,
   CTable,
   CTableBody,
   CTableDataCell,
@@ -15,24 +10,25 @@ import {
   CTableHeaderCell,
   CTableRow,
   CButton,
+  CFormInput,
 } from '@coreui/react'
-import { cilTrash, cilPencil } from '@coreui/icons'
+import { cilZoom } from '@coreui/icons'
 import CIcon from '@coreui/icons-react'
-import setting from '../../../setting.json'
-import secureLocalStorage from 'react-secure-storage'
 import { useNavigate } from 'react-router-dom'
+import secureLocalStorage from 'react-secure-storage'
+import setting from '../../../setting.json'
 
-const Orders = () => {
-  const [newsList, setNewsList] = useState([])
+const RegistrationList = () => {
   const navigate = useNavigate()
-  const [searchText, setSearchText] = useState('')
-  const [orders, setOrders] = useState([])
 
-  const getAllOrders = async () => {
+  const [registrations, setRegistrations] = useState([])
+  const [searchText, setSearchText] = useState('')
+
+  const getAllRegistrations = async () => {
     try {
       const token = JSON.parse(secureLocalStorage.getItem('logininfo'))?.token
 
-      const res = await fetch(`${setting.api}/api/orders`, {
+      const response = await fetch(`${setting.api}/api/business`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -40,143 +36,110 @@ const Orders = () => {
         },
       })
 
-      const data = await res.json()
+      const data = await response.json()
 
-      if (!data.success) {
-        navigate('/login')
+      if (data.success) {
+        setRegistrations(data.data)
       } else {
-        setOrders(data.data) // ✅ FIXED
+        navigate('/login')
       }
     } catch (error) {
-      console.error('Fetch orders error:', error)
+      console.log(error)
     }
   }
 
   useEffect(() => {
-    getAllOrders()
+    getAllRegistrations()
   }, [])
 
-  // const getUserName = (id) => {
-  //   console.log(id);
-  //   const user = userList.find(c => String(c.id) === String(id));
-  //   return user ? user.name : 'N/A';
-  // };
-
-  const handleEdit = (news) => {
-    navigate(`/UpdateNews/${news.id}`)
-  }
-
-  function handleDelete(id) {
-    var ans = confirm('Are you sure For Delete?')
-    console.log(ans)
-
-    if (ans == true) {
-      deleteNews(id)
-    }
-  }
-
-  const deleteNews = async (id) => {
-    try {
-      const token = JSON.parse(secureLocalStorage.getItem('logininfo'))?.token
-
-      const response = await fetch(`${setting.api}/api/news/delete/${id}`, {
-        method: 'POST',
-        mode: 'cors',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`, // ✅ send token
-        },
-      })
-
-      if (!response.ok) {
-        console.error('Delete failed:', response.status)
-      } else {
-        console.log('User deleted:', await response.json())
-        fetchNews() // ✅ refresh after delete
-      }
-    } catch (err) {
-      console.error('Error deleting user:', err)
-    }
-  }
-
-  // const filteredNews = orders.filter((news) =>
-  //   news.title.toLowerCase().includes(searchText.toLowerCase()),
-  // )
+  const filteredList = registrations.filter(
+    (item) =>
+      item.name.toLowerCase().includes(searchText.toLowerCase()) ||
+      item.email.toLowerCase().includes(searchText.toLowerCase()) ||
+      item.mobile.includes(searchText),
+  )
 
   return (
     <CCard className="shadow-sm border-0 rounded-4">
-      <CCardHeader className="bg-dark text-white fw-bold px-4 py-3 shadow-sm">
-        <div className="d-flex justify-content-between align-items-center">
-          <h5 className="mb-0">
-            <i className="bi bi-play-circle-fill me-2 text-danger"></i> Orders
-          </h5>
-        </div>
+      <CCardHeader className="bg-dark text-white">
+        <h5 className="mb-0">Business Registration List</h5>
       </CCardHeader>
 
       <CCardBody>
-        {/* 🔍 Filters (optional) */}
-        <CForm className="mb-4">
-          <CRow className="g-3">
-            {/* <CCol md={3}>
-              <CFormLabel htmlFor="fromDate">From Date</CFormLabel>
-              <CFormInput type="date" id="fromDate" />
-            </CCol>
-            <CCol md={3}>
-              <CFormLabel htmlFor="toDate">To Date</CFormLabel>
-              <CFormInput type="date" id="toDate" />
-            </CCol> */}
-            {/* <CCol md={12}>
-              <CFormInput
-                type="text"
-                id="searchText"
-                placeholder="Search by Title"
-                value={searchText} // bind state
-                onChange={(e) => setSearchText(e.target.value)} // update state
-              />
-            </CCol> */}
-          </CRow>
-        </CForm>
+        <div className="mb-3">
+          <CFormInput
+            placeholder="Search Name / Email / Mobile"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+          />
+        </div>
 
-        <CTable align="middle" hover responsive bordered>
+        <CTable hover bordered responsive align="middle">
           <CTableHead color="light">
             <CTableRow>
-              <CTableHeaderCell scope="col">#</CTableHeaderCell>
-              <CTableHeaderCell scope="col">Product Name</CTableHeaderCell>
-              <CTableHeaderCell scope="col">Size</CTableHeaderCell>
-              <CTableHeaderCell scope="col">Color</CTableHeaderCell>
-              <CTableHeaderCell scope="col">Phone</CTableHeaderCell>
-              <CTableHeaderCell scope="col">Action</CTableHeaderCell>
+              <CTableHeaderCell>#</CTableHeaderCell>
+              <CTableHeaderCell>Name</CTableHeaderCell>
+              <CTableHeaderCell>Company</CTableHeaderCell>
+              <CTableHeaderCell>Email</CTableHeaderCell>
+              <CTableHeaderCell>Mobile</CTableHeaderCell>
+              <CTableHeaderCell>Monthly Sales</CTableHeaderCell>
+              <CTableHeaderCell>Yearly Turnover</CTableHeaderCell>
+              <CTableHeaderCell>Experience</CTableHeaderCell>
+              <CTableHeaderCell>Business Address</CTableHeaderCell>
+              <CTableHeaderCell>Residential Address</CTableHeaderCell>
+              <CTableHeaderCell>Date</CTableHeaderCell>
+              <CTableHeaderCell>Action</CTableHeaderCell>
             </CTableRow>
           </CTableHead>
+
           <CTableBody>
-            {orders.map((news, index) => (
-              <CTableRow key={news.id}>
-                <CTableDataCell>{index + 1}</CTableDataCell>
-                <CTableDataCell>{news.productId.title}</CTableDataCell>
-                <CTableDataCell>{news.size}</CTableDataCell>
-                <CTableDataCell>{news.color}</CTableDataCell>
-                <CTableDataCell>{news.phone}</CTableDataCell>
-                <CTableDataCell>
-                  <CButton
-                    size="sm"
-                    color="warning"
-                    className="rounded-pill px-3 shadow-sm fw-semibold"
-                    onClick={() => handleEdit(news)}
-                  >
-                    <CIcon icon={cilPencil} /> Edit
-                  </CButton>
-                  {'   '}
-                  {/* <CButton
-                    size="sm"
-                    color="danger"
-                    className="rounded-pill px-3 shadow-sm fw-semibold"
-                    onClick={() => handleDelete(news.id)}
-                  >
-                    <CIcon icon={cilTrash} /> Delete
-                  </CButton> */}
+            {filteredList.length > 0 ? (
+              filteredList.map((item, index) => (
+                <CTableRow key={item._id}>
+                  <CTableDataCell>{index + 1}</CTableDataCell>
+
+                  <CTableDataCell>{item.name}</CTableDataCell>
+
+                  <CTableDataCell>{item.company_name || '-'}</CTableDataCell>
+
+                  <CTableDataCell>{item.email}</CTableDataCell>
+
+                  <CTableDataCell>{item.mobile}</CTableDataCell>
+
+                  <CTableDataCell>₹{item.monthly_sales}</CTableDataCell>
+
+                  <CTableDataCell>₹{item.yearly_turnover}</CTableDataCell>
+
+                  <CTableDataCell>{item.experience_years} Years</CTableDataCell>
+
+                  <CTableDataCell style={{ maxWidth: '180px' }}>
+                    {item.business_address}
+                  </CTableDataCell>
+
+                  <CTableDataCell style={{ maxWidth: '180px' }}>
+                    {item.residential_address}
+                  </CTableDataCell>
+
+                  <CTableDataCell>{new Date(item.createdAt).toLocaleDateString()}</CTableDataCell>
+
+                  <CTableDataCell>
+                    <CButton
+                      size="sm"
+                      color="info"
+                      onClick={() => navigate(`/BusinessDetails/${item._id}`)}
+                    >
+                      <CIcon icon={cilZoom} /> View
+                    </CButton>
+                  </CTableDataCell>
+                </CTableRow>
+              ))
+            ) : (
+              <CTableRow>
+                <CTableDataCell colSpan={12} className="text-center">
+                  No Registration Found
                 </CTableDataCell>
               </CTableRow>
-            ))}
+            )}
           </CTableBody>
         </CTable>
       </CCardBody>
@@ -184,4 +147,4 @@ const Orders = () => {
   )
 }
 
-export default Orders
+export default RegistrationList

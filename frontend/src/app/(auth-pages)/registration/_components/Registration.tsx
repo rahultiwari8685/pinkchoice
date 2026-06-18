@@ -134,7 +134,7 @@ export default function Registration() {
           confirm_password: "",
         });
 
-        router.push("/login");
+        router.push("/");
       } else {
         alert(data.message);
       }
