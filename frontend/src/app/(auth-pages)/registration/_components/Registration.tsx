@@ -58,6 +58,38 @@ export default function Registration() {
       return;
     }
 
+    if (!form.name.trim()) {
+      alert("Please enter your name.");
+      return;
+    }
+
+    if (!form.email.trim()) {
+      alert("Please enter your email.");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(form.email)) {
+      alert("Please enter a valid email.");
+      return;
+    }
+
+    if (!/^[6-9]\d{9}$/.test(form.mobile)) {
+      alert("Please enter a valid 10-digit mobile number.");
+      return;
+    }
+
+    if (form.password.length < 6) {
+      alert("Password must be at least 6 characters.");
+      return;
+    }
+
+    if (form.password !== form.confirm_password) {
+      alert("Passwords do not match.");
+      return;
+    }
+
     try {
       setLoading(true);
 
@@ -191,8 +223,10 @@ export default function Registration() {
                   <label>Mobile</label>
 
                   <input
+                    type="tel"
                     className="form-control"
                     name="mobile"
+                    maxLength={10}
                     value={form.mobile}
                     onChange={handleChange}
                     required
@@ -205,6 +239,7 @@ export default function Registration() {
 
                     <input
                       type="number"
+                      min={0}
                       className="form-control"
                       name="monthly_sales"
                       value={form.monthly_sales}
@@ -217,6 +252,7 @@ export default function Registration() {
 
                     <input
                       type="number"
+                      min={0}
                       className="form-control"
                       name="yearly_turnover"
                       value={form.yearly_turnover}
@@ -230,6 +266,7 @@ export default function Registration() {
 
                   <input
                     type="number"
+                    min={0}
                     className="form-control"
                     name="experience_years"
                     value={form.experience_years}
@@ -270,6 +307,7 @@ export default function Registration() {
                     placeholder="Password"
                     value={form.password}
                     onChange={handlePassword}
+                    name="password"
                   />
                 </div>
 
@@ -280,6 +318,7 @@ export default function Registration() {
                     placeholder="Confirm Password"
                     value={form.confirm_password}
                     onChange={handleConfirmPassword}
+                    name="confirm_password"
                   />
                 </div>
 
