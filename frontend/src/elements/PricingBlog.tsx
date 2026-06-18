@@ -31,7 +31,7 @@ const pricingTableData = [
     plane: "Virtual Store",
     description:
       "Launch your own online PinkChoice store without maintaining inventory. Start selling our trusted products directly to customers and earn attractive margins",
-   button: "Start Your Virtual Store",
+    button: "Start Your Virtual Store",
     features: [
       "No Inventory Required",
       "Easy Online Store Setup",
@@ -60,7 +60,7 @@ const pricingTableData = [
 const PricingBlog = () => {
   return (
     <Fragment>
-      {/* {pricingTableData.map((data, ind) => (
+      {pricingTableData.map((data, ind) => (
         <div
           className="col-lg-4 col-md-6 wow fadeInUp"
           data-wow-delay={`${(ind + 1) * 0.1}s`}
@@ -70,105 +70,32 @@ const PricingBlog = () => {
             <div className="pricingtable-inner">
               <div className="pricingtable-title">
                 <h3 className="title">{data.plane}</h3>
-                <p className="text">
-                  Become an authorized PinkChoice Distributor and grow your
-                  business by supplying premium women's wellness and hygiene
-                  products to retailers in your region.
-                </p>
+
+                <p className="text">{data.description}</p>
               </div>
-              {/* <div className="pricingtable-price"> 
-                                <h2 className="pricingtable-bx">${data.price}<small className="pricingtable-type">/{data.duration}</small></h2>
-                            </div> */}
+
               <div className="pricingtable-button">
                 <Link
                   href="/registration"
                   className="btn btn-outline-secondary"
                 >
-                  Become a Distributor
+                  {data.button}
                 </Link>
               </div>
+
               <div className="pricingtable-list">
                 <h4 className="list-title">Key Features:</h4>
-                {data.features === "starter" && (
-                  <ul className="pricingtable-features">
-                    <li>Exclusive Distributor Pricing</li>
-                    <li>Wide Range of PinkChoice Products</li>
-                    <li>Marketing & Promotional Support</li>
-                    <li>Fast & Reliable Deliveries</li>
-                    <li>Dedicated Business Relationship Manager</li>
-                    <li>Growth Opportunities Across Your Region</li>
-                    {/* <li className="disable">Program reviews 1x a month</li>
-                    <li className="disable">CPM Overage: Unlimited</li>
-                    <li className="disable">Assisted onboarding support</li>
-                    <li className="disable">CPM Overage: Unlimited</li> */}
-                  </ul>
-                )}
-                {data.features === "pro" && (
-                  <ul className="pricingtable-features">
-                    <li>No Inventory Required</li>
-                    <li>Easy Online Store Setup</li>
-                    <li>Nationwide Delivery Support</li>
-                    <li>Secure Online Payments</li>
-                    <li>Order & Sales Dashboard</li>
-                    <li>Attractive Profit Margins</li>
-                    {/* <li className="disable">Assisted onboarding support</li>
-                    <li className="disable">CPM Overage: Unlimited</li> */}
-                  </ul>
-                )}
-                {data.features === "enterprise" && (
-                  <ul className="pricingtable-features">
-                    <li>Official PinkChoice Brand Store</li>
-                    <li>Premium Product Collection</li>
-                    <li>Complete Store Setup Assistance</li>
-                    <li>Marketing & Branding Support</li>
-                    <li>Business Growth Opportunities</li>
-                    <li>Dedicated Customer & Partner Support</li>
-                  </ul>
-                )}
+
+                <ul className="pricingtable-features">
+                  {data.features.map((feature, index) => (
+                    <li key={index}>{feature}</li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
         </div>
-      ))} */}
-
-      {pricingTableData.map((data, ind) => (
-  <div
-    className="col-lg-4 col-md-6 wow fadeInUp"
-    data-wow-delay={`${(ind + 1) * 0.1}s`}
-    key={ind}
-  >
-    <div className="pricingtable-wrapper style-1 bg-light m-b30">
-      <div className="pricingtable-inner">
-        <div className="pricingtable-title">
-          <h3 className="title">{data.plane}</h3>
-
-          <p className="text">
-            {data.description}
-          </p>
-        </div>
-
-        <div className="pricingtable-button">
-          <Link
-            href="/registration"
-            className="btn btn-outline-secondary"
-          >
-            {data.button}
-          </Link>
-        </div>
-
-        <div className="pricingtable-list">
-          <h4 className="list-title">Key Features:</h4>
-
-          <ul className="pricingtable-features">
-            {data.features.map((feature, index) => (
-              <li key={index}>{feature}</li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-))}
+      ))}
     </Fragment>
   );
 };
