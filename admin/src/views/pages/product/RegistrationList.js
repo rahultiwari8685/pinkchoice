@@ -28,7 +28,7 @@ const RegistrationList = () => {
     try {
       const token = JSON.parse(secureLocalStorage.getItem('logininfo'))?.token
 
-      const response = await fetch(`${setting.api}/api/business`, {
+      const response = await fetch(`${setting.api}/api/business/list`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
