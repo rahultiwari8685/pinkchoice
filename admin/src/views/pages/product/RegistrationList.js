@@ -88,7 +88,7 @@ const RegistrationList = () => {
               <CTableHeaderCell>Business Address</CTableHeaderCell>
               <CTableHeaderCell>Residential Address</CTableHeaderCell>
               <CTableHeaderCell>Date</CTableHeaderCell>
-              <CTableHeaderCell>Action</CTableHeaderCell>
+              {/* <CTableHeaderCell>Action</CTableHeaderCell> */}
             </CTableRow>
           </CTableHead>
 
@@ -122,7 +122,7 @@ const RegistrationList = () => {
 
                   <CTableDataCell>{new Date(item.createdAt).toLocaleDateString()}</CTableDataCell>
 
-                  <CTableDataCell>
+                  {/* <CTableDataCell>
                     <CButton
                       size="sm"
                       color="info"
@@ -130,7 +130,7 @@ const RegistrationList = () => {
                     >
                       <CIcon icon={cilZoom} /> View
                     </CButton>
-                  </CTableDataCell>
+                  </CTableDataCell> */}
                 </CTableRow>
               ))
             ) : (

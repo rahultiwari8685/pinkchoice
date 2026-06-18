@@ -22,6 +22,8 @@ import liveRoutes from "./routes/liveRoutes.js";
 import rateLimit from "express-rate-limit";
 import orderRoutes from "./routes/orderRoutes.js";
 import businessRegistrationRoutes from "./routes/businessRegistrationRoutes.js";
+
+import contactRoutes from "./routes/contactRoutes.js";
 const app = express();
 
 const __filename = fileURLToPath(import.meta.url);
@@ -92,7 +94,7 @@ app.use("/api/live", liveRoutes);
 app.use("/api/orders", orderRoutes);
 
 app.use("/api/business", businessRegistrationRoutes);
-
+app.use("/api/contact", contactRoutes);
 const PORT = process.env.PORT || 5001;
 const MONGO_URI = process.env.MONGO_URI;
 

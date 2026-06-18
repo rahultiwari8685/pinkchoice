@@ -12,6 +12,7 @@ const RegistrationList = React.lazy(() => import('./views/pages/product/Registra
 const DraftBlog = React.lazy(() => import('./views/pages/product/DraftBlog'))
 const DeletedBlog = React.lazy(() => import('./views/pages/product/DeletedBlog'))
 const ChangePassword = React.lazy(() => import('./views/pages/changePassword/ChangePassword'))
+const ContactList = React.lazy(() => import('./views/pages/contact/ContactList'))
 
 const Users = React.lazy(() => import('./views/pages/users/Users'))
 const Category = React.lazy(() => import('./views/pages/category/Category'))
@@ -32,6 +33,7 @@ const routes = [
   { path: '/DeletedBlog', name: 'Deleted Blog', element: DeletedBlog },
 
   { path: '/ChangePassword', name: 'Change Password', element: ChangePassword },
+  { path: '/ContactList', name: 'Contact List', element: ContactList },
   { path: '/Users', name: 'Users', element: Users },
   { path: '/Category', name: 'Category', element: Category },
 ]
