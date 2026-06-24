@@ -279,8 +279,8 @@ const Category = () => {
             <CRow className="mb-3">
               <CCol md={12}>
                 <CFormSelect label="Parent Category" {...register('parentCategory')}>
-                  <option>Select Category</option>
-                  {/* <option value="">As Parent</option> */}
+                  <option value="0">Select Parent Category</option>
+                  <option value="65f2a1b3c4d5e6f789012345">As Parent</option>
 
                   {category && category.map((a, i) => <option value={a._id}>{a.name}</option>)}
                 </CFormSelect>

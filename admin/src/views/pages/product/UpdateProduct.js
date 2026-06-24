@@ -40,6 +40,8 @@ const UpdateProduct = () => {
   const [categoriesList, setCategoryList] = useState([])
   const [content, setContent] = useState({})
 
+  const [previewImage, setPreviewImage] = useState('')
+
   const {
     register,
     handleSubmit,
@@ -78,8 +80,13 @@ const UpdateProduct = () => {
           product.categories.map((c) => c._id),
         )
 
-        // 🔥 SET EDITOR CONTENT
-        setContent(product.content || {})
+        // Set Editor Content
+        setContent(
+          typeof product.content === 'string' ? JSON.parse(product.content) : product.content || {},
+        )
+
+        // Set Image Preview
+        setPreviewImage(product.thumbnail)
       }
     } catch (err) {
       console.error('Get product error:', err)
@@ -247,13 +254,22 @@ const UpdateProduct = () => {
                       label="Preview Image"
                       accept="image/*"
                       {...register('thumbnail')}
+                      onChange={(e) => {
+                        if (e.target.files[0]) {
+                          setPreviewImage(URL.createObjectURL(e.target.files[0]))
+                        }
+                      }}
                     />
 
-                    {formDataValues.thumbnail && typeof formDataValues.thumbnail === 'string' && (
-                      <img
-                        src={`${setting.api}/uploads/images/${formDataValues.thumbnail}`}
-                        width="100"
-                      />
+                    {previewImage && (
+                      <div className="mt-3">
+                        <img
+                          src={`${setting.api}/uploads/images/${previewImage}`}
+                          alt="Preview"
+                          width="150"
+                          className="img-thumbnail"
+                        />
+                      </div>
                     )}
                   </CCol>
                 </CCol>
