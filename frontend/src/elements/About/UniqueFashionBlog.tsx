@@ -36,7 +36,7 @@ const UniqueFashionBlog = () => {
                 <Image src={IMAGES.testimonial4} alt="testimonial" />
               </div>
               <div>
-                <h6 className="name">Mr. Dinesh Mishra</h6>
+                <h6 className="name">Mrs. Pratibha Mishra</h6>
                 <span className="position">Ceo and founder</span>
               </div>
             </div>

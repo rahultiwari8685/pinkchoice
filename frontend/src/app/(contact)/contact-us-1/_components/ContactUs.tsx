@@ -29,8 +29,8 @@ const ContactUs = () => {
                   <div className="contact-left">
                     <h3>Call Us</h3>
                     <ul>
+                      <li>+91-8005384284</li>
                       <li>+91-8795094927</li>
-                      <li>+91-8808540402</li>
                     </ul>
                   </div>
                 </div>

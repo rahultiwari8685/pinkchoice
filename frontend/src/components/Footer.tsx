@@ -36,8 +36,8 @@ const Footer = (props: footertype) => {
                 <ul className="widget-address">
                   <li>
                     <p>
-                      <span>Address</span> : 106. Group A wing, Boling, Vihar,
-                      Mumbai, Maharashtra(India)
+                      <span>Address</span> : 19 B, Vidhansabha Marg (Near
+                      Akashwani) Hazratganj Lucnkow, 226001
                     </p>
                   </li>
                   <li>
