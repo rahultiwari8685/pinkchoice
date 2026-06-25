@@ -173,7 +173,7 @@ import ProductSmall4 from '../../public/assets/images/shop/product/small/4.png'
 import FooterImg from '../../public/assets/images/footer-img.png'
 
 
-import BackBg1 from '../../public/assets/images/background/bg1.jpg'
+import BackBg1 from '../../public/assets/images/background/business_pink.png'
 import BackBg7 from '../../public/assets/images/background/bg7.jpg'
 import testimonial4 from '../../public/assets/images/testimonial/testimonial4.jpg'
 import testimoniaPic1 from '../../public/assets/images/testimonial/pic1.png'
