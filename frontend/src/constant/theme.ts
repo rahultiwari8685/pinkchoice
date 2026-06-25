@@ -180,7 +180,7 @@ import testimoniaPic1 from '../../public/assets/images/testimonial/pic1.png'
 import testimoniaPic2 from '../../public/assets/images/testimonial/pic2.png'
 import LineShape from '../../public/assets/images/line-shap.png'
 import GirlPng from '../../public/assets/images/girl.png'
-import MenPng from '../../public/assets/images/pink_about.jpg'
+import MenPng from '../../public/assets/images/pink_about.jpeg'
 import LadyPng from '../../public/assets/images/lady.png'
 import Lady3Png from '../../public/assets/images/lady3.png'
 
