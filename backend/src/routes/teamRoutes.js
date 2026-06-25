@@ -1,6 +1,6 @@
 import express from "express";
 
-import uploadTeam from "../middleware/uploadTeam.js";
+import upload from "../middleware/upload.js";
 
 import {
   createTeam,
@@ -14,7 +14,7 @@ import {
 
 const router = express.Router();
 
-router.post("/", uploadTeam.single("image"), createTeam);
+router.post("/", upload.single("image"), createTeam);
 
 router.get("/", getAllTeam);
 
@@ -22,7 +22,7 @@ router.get("/active", getActiveTeam);
 
 router.get("/:id", getTeamById);
 
-router.put("/:id", uploadTeam.single("image"), updateTeam);
+router.put("/:id", upload.single("image"), updateTeam);
 
 router.delete("/:id", deleteTeam);
 
