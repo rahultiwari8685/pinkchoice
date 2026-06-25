@@ -12,7 +12,6 @@ const UniqueFashionBlog = () => {
         </div>
         <div className="col-lg-6 col-md-7 col-sm-7">
           <div className="about-content">
-            ```jsx
             <div className="section-head style-2 d-block">
               <h3 className="title w-100">
                 Empowering Women with Care, Confidence & Wellness
@@ -35,11 +34,11 @@ const UniqueFashionBlog = () => {
                 accessible, and inspiring for everyone.
               </p>
             </div>
-            ```
+
             <div className="about-bx-detail">
-              <div className="about-bx-pic radius">
+              {/* <div className="about-bx-pic radius">
                 <Image src={IMAGES.testimonial4} alt="testimonial" />
-              </div>
+              </div> */}
               <div>
                 <h6 className="name">Mrs. Pratibha Mishra</h6>
                 <span className="position">Ceo and founder</span>
