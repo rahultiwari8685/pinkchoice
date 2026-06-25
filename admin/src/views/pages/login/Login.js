@@ -20,7 +20,7 @@ import CIcon from '@coreui/icons-react'
 import { cilUser, cilLockLocked } from '@coreui/icons'
 import setting from '../../../setting.json'
 import secureLocalStorage from 'react-secure-storage'
-
+import logo from '../../../assets/images/Pink_Choice.jpg'
 const schema = yup.object().shape({
   email: yup.string().email().required('Enter your valid email'),
   password: yup.string().required('Password is required'),
@@ -77,18 +77,40 @@ const Login = () => {
 
         <CCol lg={4} md={5} className="d-none d-md-flex" style={styles.leftPane}>
           <div style={styles.leftContent}>
+            {/* Logo */}
+            <img src={logo} alt="Pink Choice" style={styles.logo} />
+
             <h1 style={styles.title}>Pink Choice</h1>
 
             <p style={styles.subtitle}>
-              Data-driven political insights, leader performance analysis, sentiment tracking and
-              dashboard analytics.
+              Manage your products, orders, customers and inventory from one powerful e-commerce
+              dashboard.
             </p>
 
             <div style={styles.highlights}>
-              <p>✓ AI Powered Reports</p>
-              <p>✓ Real-time Dashboard</p>
-              <p>✓ Analytics & Insights</p>
-              <p>✓ Secure Login</p>
+              <div style={styles.featureCard}>
+                📦 <span>Product Management</span>
+              </div>
+
+              <div style={styles.featureCard}>
+                🛒 <span>Order Tracking</span>
+              </div>
+
+              <div style={styles.featureCard}>
+                👥 <span>Customer Management</span>
+              </div>
+
+              <div style={styles.featureCard}>
+                📊 <span>Sales Analytics</span>
+              </div>
+
+              <div style={styles.featureCard}>
+                🚚 <span>Inventory & Shipping</span>
+              </div>
+
+              <div style={styles.featureCard}>
+                💳 <span>Secure Payments</span>
+              </div>
             </div>
           </div>
         </CCol>
