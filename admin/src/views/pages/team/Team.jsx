@@ -99,7 +99,7 @@ const Team = () => {
       })
 
       if (editingTeam.image) {
-        setPreviewImage(`${setting.api}/uploads/team/${editingTeam.image}`)
+        setPreviewImage(`${setting.api}/uploads/images/${editingTeam.image}`)
       }
     }
   }, [editingTeam, reset])
