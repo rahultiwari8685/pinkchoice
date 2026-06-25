@@ -61,7 +61,7 @@ const TeamCreators = async () => {
           key={item._id}
         >
           <TeamImageCard
-            image={`https://api.pinkchoice.in/uploads/team/${item.image}`}
+            image={`https://api.pinkchoice.in/uploads/images/${item.image}`}
             name={item.name}
             post={item.designation}
             facebook={item.facebook}
