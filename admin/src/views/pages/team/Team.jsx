@@ -366,7 +366,7 @@ const Team = () => {
                       <CTableDataCell>
                         {item.image ? (
                           <img
-                            src={`${setting.api}/uploads/team/${item.image}`}
+                            src={`${setting.api}/uploads/images/${item.image}`}
                             width="60"
                             height="60"
                             className="rounded-circle border"
