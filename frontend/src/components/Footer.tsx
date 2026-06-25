@@ -1,146 +1,94 @@
-// import {motion} from 'framer-motion'
 import IMAGES from "../constant/theme";
-import {
-  FooterMenu,
-  OurStores,
-  UsefulLinks,
-  WidgetData,
-} from "../constant/Alldata";
 import SubscribeNewsletter from "./SubscribeNewsletter";
 import Image from "next/image";
 import Link from "next/link";
 
-interface footertype {
+interface FooterProps {
   footerStyle?: string;
 }
 
-const Footer = (props: footertype) => {
-  let year = new Date().getFullYear();
+const Footer = ({ footerStyle }: FooterProps) => {
+  const year = new Date().getFullYear();
+
   return (
-    <footer className={`site-footer ${props.footerStyle || "style-1"}`}>
-      {/* <!-- Footer Top --> */}
-      <div className="footer-top">
+    <footer className={`site-footer ${footerStyle || "style-1"}`}>
+      {/* Footer Top */}
+
+      <div className="footer-top py-5">
         <div className="container">
-          <div className="row">
-            <div className="col-xl-3 col-md-4 col-sm-6">
-              <div className="widget widget_about me-2">
-                <div className="footer-logo logo-white">
-                  <Link href={"/"}>
-                    {props.footerStyle === "footer-dark" ? (
-                      <Image src={IMAGES.LogoWhite} alt="" />
-                    ) : (
-                      <Image src={IMAGES.logo} alt="" />
-                    )}
-                  </Link>
-                </div>
-                <ul className="widget-address">
-                  <li>
-                    <p>
-                      <span>Address</span> : 19 B, Vidhansabha Marg (Near
-                      Akashwani) Hazratganj Lucnkow, 226001
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      <span>E-mail</span> : business@pinkchoice.in
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      <span>Phone</span> : 8005384284
-                    </p>
-                  </li>
-                </ul>
-                <div className="subscribe_widget">
-                  <h6 className="title fw-medium text-capitalize">
-                    subscribe to our newsletter
-                  </h6>
-                  <SubscribeNewsletter />
-                </div>
+          <div className="row align-items-center">
+            {/* Left */}
+
+            <div className="col-lg-6 mb-4 mb-lg-0">
+              <div className="footer-logo mb-4">
+                <Link href="/">
+                  {footerStyle === "footer-dark" ? (
+                    <Image src={IMAGES.LogoWhite} alt="PinkChoice" />
+                  ) : (
+                    <Image src={IMAGES.logo} alt="PinkChoice" />
+                  )}
+                </Link>
               </div>
+
+              <ul className="widget-address list-unstyled">
+                <li className="mb-3">
+                  <strong>Address</strong>
+                  <br />
+                  19 B, Vidhansabha Marg (Near Akashwani), Hazratganj, Lucknow -
+                  226001
+                </li>
+
+                <li className="mb-3">
+                  <strong>Email</strong>
+                  <br />
+                  business@pinkchoice.in
+                </li>
+
+                <li>
+                  <strong>Phone</strong>
+                  <br />
+                  +91 8005384284
+                </li>
+              </ul>
             </div>
-            <div className="col-xl-3 col-md-4 col-sm-6">
-              <div className="widget widget_post">
-                <h5 className="footer-title">Recent Posts</h5>
-                <ul>
-                  {WidgetData.map((item, ind) => (
-                    <li key={ind}>
-                      <div className="dz-media">
-                        <Image src={item.image} alt="" />
-                      </div>
-                      <div className="dz-content">
-                        <h6 className="name">
-                          <Link href="/post-standard">{item.name}</Link>
-                        </h6>
-                        <span className="time">Jan 23, 2025</span>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            <div className="col-xl-2 col-md-4 col-sm-4 col-6">
-              <div className="widget widget_services">
-                <h5 className="footer-title">Our Stores</h5>
-                <ul>
-                  {OurStores.map((item, ind) => (
-                    <li key={ind}>
-                      <Link href={"#"}>{item.name}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            <div className="col-xl-2 col-md-4 col-sm-4 col-6">
-              <div className="widget widget_services">
-                <h5 className="footer-title">Useful Links</h5>
-                <ul>
-                  {UsefulLinks.map((item, i) => (
-                    <li key={i}>
-                      <Link href="#">{item.name}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            <div className="col-xl-2 col-md-4 col-sm-4">
-              <div className="widget widget_services">
-                <h5 className="footer-title">Footer Menu</h5>
-                <ul>
-                  {FooterMenu.map((item, ind) => (
-                    <li key={ind}>
-                      <Link href={"#"}>{item.name}</Link>
-                    </li>
-                  ))}
-                </ul>
+
+            {/* Right */}
+
+            <div className="col-lg-6">
+              <div
+                className="p-5 rounded-4"
+                style={{
+                  background: "#fff5f8",
+                  border: "1px solid #f3d4df",
+                }}
+              >
+                <h3 className="mb-3">Subscribe Newsletter</h3>
+
+                <p className="mb-4">
+                  Subscribe to receive the latest product updates, business
+                  opportunities, offers and news from PinkChoice.
+                </p>
+
+                <SubscribeNewsletter />
               </div>
             </div>
           </div>
         </div>
       </div>
-      {/*  Footer Top End  */}
 
-      {/*  Footer Bottom  */}
+      {/* Footer Bottom */}
+
       <div className="footer-bottom">
         <div className="container">
-          <div className="row fb-inner">
-            <div className="col-lg-6 col-md-12 text-start">
-              <p className="copyright-text">
-                © <span className="current-year">{year}</span>{" "}
-                <a href="https://www.pinkchoice.in/"> PinkChoice</a>. All Rights
-                Reserved.
+          <div className="row align-items-center">
+            <div className="col-md-12 text-center">
+              <p className="copyright-text mb-0">
+                © {year} <Link href="/">PinkChoice</Link> All Rights Reserved.
               </p>
-            </div>
-            <div className="col-lg-6 col-md-12 text-end">
-              <div className="d-flex align-items-center justify-content-center justify-content-md-center justify-content-xl-end">
-                <span className="me-3">We Accept: </span>
-                <Image src={IMAGES.FooterImg} alt="" />
-              </div>
             </div>
           </div>
         </div>
       </div>
-      {/*  Footer Bottom End  */}
     </footer>
   );
 };
