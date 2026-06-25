@@ -206,7 +206,7 @@ const Team = () => {
     setEditingTeam(item)
 
     if (item.image) {
-      setPreviewImage(`${setting.api}/uploads/team/${item.image}`)
+      setPreviewImage(`${setting.api}/uploads/images/${item.image}`)
     }
 
     setVisible(true)
