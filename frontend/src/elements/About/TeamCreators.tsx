@@ -54,22 +54,23 @@ const TeamCreators = async () => {
           </Link>
         </div>
       </div>
-    teams.map((item: any) => (
+
+      {teams.map((item: any) => (
         <div
           className="col-xl-3 col-lg-4 col-md-4 col-sm-4 col-6"
           key={item._id}
         >
-      <TeamImageCard
-  image={`https://api.pinkchoice.in/uploads/team/${item.image}`}
-  name={item.name}
-  post={item.designation}
-  facebook={item.facebook}
-  instagram={item.instagram}
-  twitter={item.twitter}
-  linkedin={item.linkedin}
-  youtube={item.youtube}
-  website={item.website}
-/>
+          <TeamImageCard
+            image={`https://api.pinkchoice.in/uploads/team/${item.image}`}
+            name={item.name}
+            post={item.designation}
+            facebook={item.facebook}
+            instagram={item.instagram}
+            twitter={item.twitter}
+            linkedin={item.linkedin}
+            youtube={item.youtube}
+            website={item.website}
+          />
         </div>
       ))}
     </div>
