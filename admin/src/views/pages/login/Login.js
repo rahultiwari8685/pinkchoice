@@ -20,7 +20,7 @@ import CIcon from '@coreui/icons-react'
 import { cilUser, cilLockLocked } from '@coreui/icons'
 import setting from '../../../setting.json'
 import secureLocalStorage from 'react-secure-storage'
-import logo from '../../../assets/images/Pink_Choice.jpg'
+
 const schema = yup.object().shape({
   email: yup.string().email().required('Enter your valid email'),
   password: yup.string().required('Password is required'),
@@ -78,7 +78,6 @@ const Login = () => {
         <CCol lg={4} md={5} className="d-none d-md-flex" style={styles.leftPane}>
           <div style={styles.leftContent}>
             {/* Logo */}
-            <img src={logo} alt="Pink Choice" style={styles.logo} />
 
             <h1 style={styles.title}>Pink Choice</h1>
 
