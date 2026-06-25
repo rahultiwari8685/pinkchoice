@@ -66,74 +66,90 @@ const Login = () => {
   }
 
   return (
-    <div style={styles.wrapper}>
-      {/* Background Abstract Illustration */}
-      <div style={styles.leftPane}>
-        <div style={styles.leftContent}>
-          <h1 style={styles.title}>Pink Choice</h1>
-          {/* <p style={styles.subtitle}>
-            Data-driven political insights, leader performance analysis, sentiment tracking, and
-            detailed survey intelligence — all on one platform.
-          </p> */}
+    <CContainer fluid className="p-0">
+      <CRow
+        className="g-0 min-vh-100"
+        style={{
+          background: 'linear-gradient(135deg,#0a0f24,#101426)',
+        }}
+      >
+        {/* LEFT PANEL */}
 
-          {/* <div style={styles.highlights}>
-            <p>✓ AI-powered Survey Reports</p>
-            <p>✓ Leader Rating & Popularity Graphs</p>
-            <p>✓ Real-time Public Sentiment</p>
-            <p>✓ Political Data Analytics Dashboard</p>
-          </div> */}
-        </div>
-      </div>
+        <CCol lg={4} md={5} className="d-none d-md-flex" style={styles.leftPane}>
+          <div style={styles.leftContent}>
+            <h1 style={styles.title}>Pink Choice</h1>
 
-      {/* Right Login Card */}
-      <div style={styles.rightPane}>
-        <CCard style={styles.card}>
-          <CCardBody>
-            <h2 className="text-center mb-4" style={styles.loginTitle}>
-              Login to Your Dashboard
-            </h2>
-
-            <CForm onSubmit={handleSubmit(login)}>
-              {/* Email */}
-              <CInputGroup className="mb-3">
-                <CInputGroupText style={styles.iconBox}>
-                  <CIcon icon={cilUser} />
-                </CInputGroupText>
-                <CFormInput
-                  type="email"
-                  placeholder="Email Address"
-                  style={styles.input}
-                  {...register('email')}
-                />
-              </CInputGroup>
-              {errors.email && <p style={styles.error}>{errors.email.message}</p>}
-
-              {/* Password */}
-              <CInputGroup className="mb-3">
-                <CInputGroupText style={styles.iconBox}>
-                  <CIcon icon={cilLockLocked} />
-                </CInputGroupText>
-                <CFormInput
-                  type="password"
-                  placeholder="Password"
-                  style={styles.input}
-                  {...register('password')}
-                />
-              </CInputGroup>
-              {errors.password && <p style={styles.error}>{errors.password.message}</p>}
-
-              <CButton type="submit" className="w-100 py-2 mt-2" style={styles.button}>
-                Sign In
-              </CButton>
-            </CForm>
-
-            <p className="text-center mt-3" style={styles.signupText}>
-              Don't have an account? <span style={styles.signupLink}>Contact Admin</span>
+            <p style={styles.subtitle}>
+              Data-driven political insights, leader performance analysis, sentiment tracking and
+              dashboard analytics.
             </p>
-          </CCardBody>
-        </CCard>
-      </div>
-    </div>
+
+            <div style={styles.highlights}>
+              <p>✓ AI Powered Reports</p>
+              <p>✓ Real-time Dashboard</p>
+              <p>✓ Analytics & Insights</p>
+              <p>✓ Secure Login</p>
+            </div>
+          </div>
+        </CCol>
+
+        {/* RIGHT PANEL */}
+
+        <CCol lg={8} md={7} xs={12} style={styles.rightPane}>
+          <CCard style={styles.card}>
+            <CCardBody>
+              <h2 className="text-center mb-4" style={styles.loginTitle}>
+                Login to Your Dashboard
+              </h2>
+
+              <CForm onSubmit={handleSubmit(login)}>
+                {/* Email */}
+
+                <CInputGroup className="mb-3">
+                  <CInputGroupText style={styles.iconBox}>
+                    <CIcon icon={cilUser} />
+                  </CInputGroupText>
+
+                  <CFormInput
+                    type="email"
+                    placeholder="Email Address"
+                    style={styles.input}
+                    {...register('email')}
+                  />
+                </CInputGroup>
+
+                {errors.email && <p style={styles.error}>{errors.email.message}</p>}
+
+                {/* Password */}
+
+                <CInputGroup className="mb-3">
+                  <CInputGroupText style={styles.iconBox}>
+                    <CIcon icon={cilLockLocked} />
+                  </CInputGroupText>
+
+                  <CFormInput
+                    type="password"
+                    placeholder="Password"
+                    style={styles.input}
+                    {...register('password')}
+                  />
+                </CInputGroup>
+
+                {errors.password && <p style={styles.error}>{errors.password.message}</p>}
+
+                <CButton type="submit" className="w-100 mt-3" style={styles.button}>
+                  Sign In
+                </CButton>
+              </CForm>
+
+              <p className="text-center mt-3" style={styles.signupText}>
+                Don't have an account? <span style={styles.signupLink}>Contact Admin</span>
+              </p>
+            </CCardBody>
+          </CCard>
+        </CCol>
+      </CRow>
+    </CContainer>
   )
 }
 
@@ -146,13 +162,21 @@ const styles = {
   },
 
   leftPane: {
-    width: '30%',
     background:
-      "url('https://cdn.dribbble.com/users/1355613/screenshots/15657654/media/2da52d3a3d55c97c2abb83378574b88e.png') center/cover no-repeat",
-    position: 'relative',
+      "url('https://cdn.dribbble.com/users/1355613/screenshots/15657654/media/2da52d3a3d55c97c2abb83378574b88e.png') center center / cover no-repeat",
     display: 'flex',
     alignItems: 'center',
+    justifyContent: 'center',
     padding: '60px',
+    minHeight: '100vh',
+  },
+
+  rightPane: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: '30px',
+    minHeight: '100vh',
   },
 
   leftContent: {
@@ -191,12 +215,12 @@ const styles = {
 
   card: {
     width: '100%',
-    maxWidth: '420px',
-    background: 'rgba(255, 255, 255, 0.05)',
-    backdropFilter: 'blur(10px)',
-    borderRadius: '15px',
+    maxWidth: '430px',
+    background: 'rgba(255,255,255,.06)',
+    backdropFilter: 'blur(15px)',
+    border: '1px solid rgba(255,255,255,.15)',
+    borderRadius: '18px',
     padding: '20px',
-    border: '1px solid rgba(255,255,255,0.1)',
   },
 
   loginTitle: {
@@ -205,10 +229,9 @@ const styles = {
   },
 
   input: {
-    borderRadius: '8px',
-    backgroundColor: 'rgba(255,255,255,0.15)',
-    border: 'none',
+    background: 'rgba(255,255,255,.12)',
     color: '#fff',
+    border: 'none',
   },
 
   iconBox: {
