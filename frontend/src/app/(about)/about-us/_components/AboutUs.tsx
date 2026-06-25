@@ -25,7 +25,7 @@ const AboutUs = () => {
                   </nav>
                 </div>
               </div>
-              <div className="col-lg-5 col-md-5 ">
+              {/* <div className="col-lg-5 col-md-5 ">
                 <div className="about-sale  text-start">
                   <div className="row">
                     <div className="col-lg-5 col-md-6 col-6">
@@ -44,7 +44,7 @@ const AboutUs = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

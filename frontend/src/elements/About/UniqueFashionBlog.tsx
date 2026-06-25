@@ -12,25 +12,30 @@ const UniqueFashionBlog = () => {
         </div>
         <div className="col-lg-6 col-md-7 col-sm-7">
           <div className="about-content">
+            ```jsx
             <div className="section-head style-2 d-block">
               <h3 className="title w-100">
-                Empower Every Day: Your Trusted Women's Wellness Destination
+                Empowering Women with Care, Confidence & Wellness
               </h3>
+
               <p>
-                At PinkChoice, we're committed to providing women with premium
-                hygiene, wellness, and lifestyle products that inspire
-                confidence and comfort every day. Our carefully curated
-                collection includes high-quality sanitary care, personal care
-                essentials.
+                At <strong>PinkChoice</strong>, we believe every woman deserves
+                access to premium hygiene, wellness, and personal care products
+                that promote confidence, comfort, and a healthier lifestyle. Our
+                thoughtfully curated range is designed to support women through
+                every stage of life with trusted quality, innovation, and care.
               </p>
+
               <p>
-                At PinkChoice, we're committed to providing women with premium
-                hygiene, wellness, and lifestyle products that inspire
-                confidence and comfort every day. Our carefully curated
-                collection includes high-quality sanitary care, personal care
-                essentials.
+                From everyday feminine hygiene essentials to wellness and
+                lifestyle solutions, PinkChoice is committed to delivering safe,
+                reliable, and affordable products that prioritize your
+                well-being. Our mission is to empower women by combining
+                quality, convenience, and compassion, making self-care simple,
+                accessible, and inspiring for everyone.
               </p>
             </div>
+            ```
             <div className="about-bx-detail">
               <div className="about-bx-pic radius">
                 <Image src={IMAGES.testimonial4} alt="testimonial" />
