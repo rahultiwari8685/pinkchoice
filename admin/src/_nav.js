@@ -82,6 +82,18 @@ const _nav = [
     to: '/ContactList',
     icon: <CIcon icon={cilPeople} customClassName="nav-icon" />,
   },
+  {
+    component: CNavItem,
+    name: 'Team',
+    to: '/Team',
+    icon: <CIcon icon={cilPeople} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: 'Team Section',
+    to: '/TeamSection',
+    icon: <CIcon icon={cilPeople} customClassName="nav-icon" />,
+  },
 
   // {
   //   component: CNavItem,

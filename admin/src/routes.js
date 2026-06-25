@@ -16,6 +16,8 @@ const ContactList = React.lazy(() => import('./views/pages/contact/ContactList')
 
 const Users = React.lazy(() => import('./views/pages/users/Users'))
 const Category = React.lazy(() => import('./views/pages/category/Category'))
+const Team = React.lazy(() => import('./views/pages/team/Team'))
+const TeamSection = React.lazy(() => import('./views/pages/team/TeamSection'))
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -36,5 +38,7 @@ const routes = [
   { path: '/ContactList', name: 'Contact List', element: ContactList },
   { path: '/Users', name: 'Users', element: Users },
   { path: '/Category', name: 'Category', element: Category },
+  { path: '/Team', name: 'Team', element: Team },
+  { path: '/TeamSection', name: 'Team Section', element: TeamSection },
 ]
 export default routes
