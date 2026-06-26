@@ -110,7 +110,14 @@ const Category = () => {
 
       if (result.success) {
         alert(result.message || 'Category saved successfully')
-        reset()
+        reset({
+          name: '',
+          parentCategory: '0',
+          showInMenu: '',
+        })
+
+        setEditingCategory(null)
+        setVisible(false)
         getAllCategory()
         setEditingCategory(null)
         setVisible(false)
@@ -124,10 +131,14 @@ const Category = () => {
 
   const handleEdit = (cat) => {
     setEditingCategory(cat)
-    setVisible(true)
 
-    setValue('name', cat.name)
-    setValue('parent', cat.parent)
+    reset({
+      name: cat.name,
+      parentCategory: cat.parentCategory?._id || '0',
+      showInMenu: cat.showInMenu ? '1' : '0',
+    })
+
+    setVisible(true)
   }
 
   function handleDelete(id) {
@@ -184,8 +195,15 @@ const Category = () => {
               variant="outline"
               className="fw-semibold px-3 shadow-sm rounded-pill"
               onClick={() => {
-                setVisible(true)
                 setEditingCategory(null)
+
+                reset({
+                  name: '',
+                  parentCategory: '0',
+                  showInMenu: '',
+                })
+
+                setVisible(true)
               }}
             >
               <i className="bi bi-plus-circle me-2"></i> Add Category
@@ -255,8 +273,17 @@ const Category = () => {
       <COffcanvas
         placement="end"
         visible={visible}
-        onHide={() => setVisible(false)}
-        backdrop={true}
+        onHide={() => {
+          setVisible(false)
+          setEditingCategory(null)
+
+          reset({
+            name: '',
+            parentCategory: '0',
+            showInMenu: '',
+          })
+        }}
+        backdrop
       >
         <COffcanvasHeader className="bg-dark text-white fw-bold" closeButton>
           {editingCategory ? 'Update Category' : 'Add Category'}
