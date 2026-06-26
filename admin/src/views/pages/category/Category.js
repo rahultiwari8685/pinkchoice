@@ -83,33 +83,32 @@ const Category = () => {
   }, [])
 
   const saveCategory = async (data) => {
-    const formData = new FormData()
-
-    formData.append('name', data.name)
-    formData.append('parentCategory', data.parentCategory)
-    formData.append('showInMenu', data.showInMenu)
-
-    // if (data.bannerImage?.[0]) {
-    //   formData.append('bannerImage', data.bannerImage[0])
-    // }
-
     let endpoint = '/api/categories/saveCategory'
+
+    const payload = {
+      name: data.name,
+      parentCategory: data.parentCategory === '0' ? null : data.parentCategory,
+      showInMenu: data.showInMenu === '1',
+    }
 
     if (editingCategory) {
       endpoint = '/api/categories/updateCategory'
-
-      formData.append('_id', editingCategory._id)
+      payload._id = editingCategory._id
     }
 
     try {
       const res = await fetch(setting.api + endpoint, {
         method: 'POST',
-        body: formData,
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer ' + JSON.parse(secureLocalStorage.getItem('logininfo')).token,
+        },
+        body: JSON.stringify(payload),
       })
 
       const result = await res.json()
 
-      if (result.success === true) {
+      if (result.success) {
         alert(result.message || 'Category saved successfully')
         reset()
         getAllCategory()
