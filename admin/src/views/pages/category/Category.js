@@ -143,13 +143,15 @@ const Category = () => {
     try {
       const token = JSON.parse(secureLocalStorage.getItem('logininfo'))?.token
 
-      const response = await fetch(`${setting.api}/api/categories/deleteCategory/${id}`, {
+      const response = await fetch(`${setting.api}/api/categories/deleteCategory`, {
         method: 'POST',
-        mode: 'cors',
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
         },
+        body: JSON.stringify({
+          _id: id,
+        }),
       })
 
       if (!response.ok) {
@@ -223,7 +225,7 @@ const Category = () => {
                         size="sm"
                         color="danger"
                         className="rounded-pill px-3 shadow-sm fw-semibold"
-                        onClick={() => handleDelete(cat.id)}
+                        onClick={() => handleDelete(cat._id)}
                       >
                         <CIcon icon={cilTrash} style={{ marginRight: '5px' }} /> Delete
                       </CButton>
