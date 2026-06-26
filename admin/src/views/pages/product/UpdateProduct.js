@@ -141,8 +141,8 @@ const UpdateProduct = () => {
       formData.append('thumbnail', data.thumbnail[0])
     }
 
-    const res = await fetch(`${setting.api}/api/products/${id}`, {
-      method: 'PUT', // 🔥 IMPORTANT
+    const res = await fetch(`${setting.api}/api/products/update/${id}`, {
+      method: 'PUT',
       body: formData,
       headers: {
         Authorization: 'Bearer ' + JSON.parse(secureLocalStorage.getItem('logininfo')).token,
