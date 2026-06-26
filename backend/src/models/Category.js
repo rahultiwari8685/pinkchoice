@@ -19,10 +19,10 @@ const categorySchema = new mongoose.Schema(
       default: false,
     },
 
-    bannerImage: {
-      type: String,
-      default: "",
-    },
+    // bannerImage: {
+    //   type: String,
+    //   default: "",
+    // },
   },
   {
     timestamps: true,

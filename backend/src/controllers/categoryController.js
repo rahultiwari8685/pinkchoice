@@ -16,13 +16,13 @@ export const createCategory = async (req, res) => {
       parentCategory = null;
     }
 
-    const bannerImage = req.file ? req.file.filename : "";
+    // const bannerImage = req.file ? req.file.filename : "";
 
     const category = await Category.create({
       name,
       parentCategory,
       showInMenu,
-      bannerImage,
+      // bannerImage,
     });
 
     res.status(201).json({
@@ -55,7 +55,7 @@ export const updateCategory = async (req, res) => {
   try {
     const { _id, name, parentCategory, showInMenu } = req.body;
 
-    const bannerImage = req.file ? req.file.filename : "";
+    // const bannerImage = req.file ? req.file.filename : "";
 
     if (!_id) {
       return res
@@ -66,7 +66,7 @@ export const updateCategory = async (req, res) => {
     const updateData = {
       parentCategory: parentCategory || null,
       showInMenu,
-      bannerImage,
+      // bannerImage,
     };
 
     if (name) {
