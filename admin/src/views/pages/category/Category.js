@@ -143,7 +143,7 @@ const Category = () => {
     try {
       const token = JSON.parse(secureLocalStorage.getItem('logininfo'))?.token
 
-      const response = await fetch(`${setting.api}/api/categories/delete/${id}`, {
+      const response = await fetch(`${setting.api}/api/categories/deleteCategory/${id}`, {
         method: 'POST',
         mode: 'cors',
         headers: {
