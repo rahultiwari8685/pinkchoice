@@ -37,7 +37,7 @@ const schema = yup.object().shape({
   // metaTitle: yup.string().required('Meta Title is required'),
   // metaDescription: yup.string().required('Meta Description is required'),
   showInMenu: yup.string().required('Show in Menu is required'),
-  bannerImage: yup.mixed().required('Banner Image is required'),
+  // bannerImage: yup.mixed().required('Banner Image is required'),
 })
 
 const Category = () => {
@@ -89,9 +89,9 @@ const Category = () => {
     formData.append('parentCategory', data.parentCategory)
     formData.append('showInMenu', data.showInMenu)
 
-    if (data.bannerImage?.[0]) {
-      formData.append('bannerImage', data.bannerImage[0])
-    }
+    // if (data.bannerImage?.[0]) {
+    //   formData.append('bannerImage', data.bannerImage[0])
+    // }
 
     let endpoint = '/api/categories/saveCategory'
 
@@ -304,7 +304,7 @@ const Category = () => {
                   <small className="text-danger">{errors.showInMenu.message}</small>
                 )}
               </CCol>
-              <CCol md={12}>
+              {/* <CCol md={12}>
                 <CFormInput
                   type="file"
                   placeholder="Banner Image"
@@ -316,7 +316,7 @@ const Category = () => {
                 {errors.bannerImage && (
                   <small className="text-danger">{errors.bannerImage.message}</small>
                 )}
-              </CCol>
+              </CCol> */}
             </CRow>
 
             <div className="d-flex justify-content-end">
