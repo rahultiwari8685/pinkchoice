@@ -216,7 +216,7 @@ const ProductSection = () => {
                   <div className="dz-content-footer">
                     <div className="dz-content-start">
                       <span className="badge bg-secondary mb-2">
-                        SALE 14% Off
+                        {Number(selectedProduct.discount).toFixed(1)}% OFF
                       </span>
                       <h4 className="title mb-1">
                         <Link href="/">{selectedProduct?.title}</Link>
@@ -254,7 +254,7 @@ const ProductSection = () => {
                     <div className="me-3">
                       <span className="form-label">Price</span>
                       <span className="price">
-                        ₹{selectedProduct?.price}
+                        ₹{selectedProduct?.final_price}
                         {/* <del>$132.17</del> */}
                       </span>
                     </div>
