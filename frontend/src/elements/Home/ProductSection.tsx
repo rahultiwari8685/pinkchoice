@@ -31,13 +31,19 @@ interface MenuItem {
 interface Product {
   _id: string;
   title: string;
+
   price: number;
+  discount: number;
+  final_price: number;
+
   thumbnail: string;
   gallery: string[];
+
   categories: {
     _id: string;
     name: string;
   }[];
+
   content: any;
 }
 
