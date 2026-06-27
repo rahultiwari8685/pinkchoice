@@ -27,7 +27,8 @@ import { useParams } from 'react-router-dom'
 
 const schema = yup.object().shape({
   title: yup.string().required('Title is required'),
-  price: yup.string().required('Price is required'),
+  price: yup.number().required('Price is required'),
+  discount: yup.number().min(0).max(100),
 })
 
 const UpdateProduct = () => {
@@ -77,6 +78,8 @@ const UpdateProduct = () => {
     defaultValues: {
       title: '',
       price: '',
+      discount: 0,
+      final_price: 0,
       categories: [],
       thumbnail: null,
       gallery1: null,
@@ -101,6 +104,8 @@ const UpdateProduct = () => {
         // 🔥 SET FORM VALUES
         setValue('title', product.title)
         setValue('price', product.price)
+        setValue('discount', product.discount || 0)
+        setValue('final_price', product.final_price || product.price)
         setValue(
           'categories',
           product.categories.map((c) => c._id),
@@ -125,6 +130,8 @@ const UpdateProduct = () => {
   }
 
   const formDataValues = watch()
+  const price = watch('price')
+  const discount = watch('discount')
 
   const toggleCategory = (id) => {
     const alreadySelected = formDataValues.categories.includes(id)
@@ -168,6 +175,8 @@ const UpdateProduct = () => {
 
       formData.append('title', data.title)
       formData.append('price', data.price)
+      formData.append('discount', data.discount)
+      formData.append('final_price', data.final_price)
       formData.append('categories', JSON.stringify(data.categories))
       formData.append('content', JSON.stringify(content))
 
@@ -214,6 +223,15 @@ const UpdateProduct = () => {
     }
   }
 
+  useEffect(() => {
+    const p = Number(price) || 0
+    const d = Number(discount) || 0
+
+    const finalPrice = p - (p * d) / 100
+
+    setValue('final_price', finalPrice.toFixed(2))
+  }, [price, discount, setValue])
+
   return (
     <div className="d-flex flex-column flex-lg-row gap-4">
       <CCol lg={12}>
@@ -225,7 +243,7 @@ const UpdateProduct = () => {
           <CCardBody>
             <CForm onSubmit={handleSubmit(updateProduct)}>
               <CRow className="mb-2">
-                <CCol md={6}>
+                <CCol md={12}>
                   <CFormInput
                     type="text"
                     label="Title"
@@ -238,18 +256,35 @@ const UpdateProduct = () => {
                   />
                   {errors.title && <small className="text-danger">{errors.title.message}</small>}
                 </CCol>
-                <CCol md={6}>
+              </CRow>
+              <CRow className="mb-3">
+                <CCol md={4}>
                   <CFormInput
                     type="number"
-                    label="Price"
-                    placeholder="Enter Price"
+                    label="Original Price"
+                    placeholder="1000"
                     {...register('price')}
-                    onChange={(e) => {
-                      setValue('price', e.target.value)
-                      setSlugEdited(false)
-                    }}
                   />
                   {errors.price && <small className="text-danger">{errors.price.message}</small>}
+                </CCol>
+
+                <CCol md={4}>
+                  <CFormInput
+                    type="number"
+                    label="Discount (%)"
+                    placeholder="10"
+                    {...register('discount')}
+                  />
+                </CCol>
+
+                <CCol md={4}>
+                  <CFormInput
+                    type="number"
+                    label="Final Price"
+                    readOnly
+                    className="bg-light fw-bold"
+                    {...register('final_price')}
+                  />
                 </CCol>
               </CRow>
 
