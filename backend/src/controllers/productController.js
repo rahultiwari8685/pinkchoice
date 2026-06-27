@@ -3,8 +3,13 @@ import Product from "../models/Product.js";
 // ================= Create Product =================
 export const createProduct = async (req, res) => {
   try {
-    const { title, price, discount, final_price, categories, content } =
-      req.body;
+    const { title, price, discount, categories, content } = req.body;
+
+    const productPrice = parseFloat(price) || 0;
+    const productDiscount = parseFloat(discount) || 0;
+
+    // Calculate Final Price
+    const finalPrice = productPrice - (productPrice * productDiscount) / 100;
 
     const thumbnail = req.files?.thumbnail
       ? req.files.thumbnail[0].filename
@@ -26,9 +31,9 @@ export const createProduct = async (req, res) => {
 
     const product = await Product.create({
       title,
-      price,
-      discount,
-      final_price,
+      price: productPrice,
+      discount: productDiscount,
+      final_price: Number(finalPrice.toFixed(2)),
       categories: categories ? JSON.parse(categories) : [],
       content: content ? JSON.parse(content) : {},
       thumbnail,
@@ -112,9 +117,15 @@ export const updateProduct = async (req, res) => {
 
     // Update Basic Details
     product.title = title;
-    product.price = Number(price);
-    product.discount = Number(discount) || 0;
-    product.final_price = Number(final_price) || Number(price);
+    const productPrice = parseFloat(price) || 0;
+    const productDiscount = parseFloat(discount) || 0;
+
+    // Calculate Final Price
+    const finalPrice = productPrice - (productPrice * productDiscount) / 100;
+
+    product.price = productPrice;
+    product.discount = productDiscount;
+    product.final_price = Number(finalPrice.toFixed(2));
     product.categories = categories ? JSON.parse(categories) : [];
     product.content = content ? JSON.parse(content) : {};
 

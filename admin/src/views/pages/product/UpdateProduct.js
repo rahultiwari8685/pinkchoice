@@ -28,7 +28,12 @@ import { useParams } from 'react-router-dom'
 const schema = yup.object().shape({
   title: yup.string().required('Title is required'),
   price: yup.number().required('Price is required'),
-  discount: yup.number().min(0).max(100),
+  discount: yup
+    .number()
+    .typeError('Discount must be a number')
+    .min(0, 'Discount cannot be negative')
+    .max(100, 'Discount cannot exceed 100%')
+    .required('Discount is required'),
 })
 
 const UpdateProduct = () => {

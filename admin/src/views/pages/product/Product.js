@@ -27,7 +27,12 @@ import toast from 'react-hot-toast'
 const schema = yup.object().shape({
   title: yup.string().required('Title is required'),
   price: yup.number().required('Price is required'),
-  discount: yup.number().min(0).max(100).default(0),
+  discount: yup
+    .number()
+    .typeError('Discount must be a number')
+    .min(0, 'Discount cannot be negative')
+    .max(100, 'Discount cannot exceed 100%')
+    .required('Discount is required'),
 })
 
 const Product = () => {
@@ -126,7 +131,7 @@ const Product = () => {
 
     const final = p - (p * d) / 100
 
-    setValue('final_price', final.toFixed(2))
+    setValue('final_price', Math.max(0, final).toFixed(2))
   }, [price, discount, setValue])
 
   const saveProduct = async (data) => {
@@ -243,9 +248,12 @@ const Product = () => {
 
                 <CCol md={4}>
                   <CFormInput
-                    label="Discount (%)"
                     type="number"
-                    placeholder="10"
+                    label="Discount (%)"
+                    placeholder="10.50"
+                    step="0.01"
+                    min="0"
+                    max="100"
                     {...register('discount')}
                   />
                 </CCol>
