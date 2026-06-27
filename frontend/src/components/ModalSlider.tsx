@@ -18,10 +18,8 @@ export default function ModalSlider({ thumbnail = "", gallery = [] }: Props) {
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
 
   const images = useMemo(() => {
-    return [thumbnail, ...gallery].filter((img): img is string =>
-      Boolean(img && img.trim()),
-    );
-  }, [thumbnail, gallery]);
+    return gallery.slice(0, 3); // Only first 3 gallery images
+  }, [gallery]);
 
   const hoverEffect = (e: any) => {
     const rect = e.target.getBoundingClientRect();
@@ -97,16 +95,18 @@ export default function ModalSlider({ thumbnail = "", gallery = [] }: Props) {
 
           return (
             <SwiperSlide key={index}>
-              <img
+              <Image
                 src={url}
                 alt=""
+                width={150}
+                height={150}
+                unoptimized
                 style={{
                   width: "100%",
                   height: "120px",
                   objectFit: "cover",
                   borderRadius: "8px",
                 }}
-                onError={() => console.log("Failed:", url)}
               />
             </SwiperSlide>
           );
