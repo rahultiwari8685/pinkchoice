@@ -26,7 +26,8 @@ import toast from 'react-hot-toast'
 
 const schema = yup.object().shape({
   title: yup.string().required('Title is required'),
-  price: yup.string().required('Price is required'),
+  price: yup.number().required('Price is required'),
+  discount: yup.number().min(0).max(100).default(0),
 })
 
 const Product = () => {
@@ -72,6 +73,8 @@ const Product = () => {
     defaultValues: {
       title: '',
       price: '',
+      discount: 0,
+      final_price: 0,
       categories: [],
       thumbnail: null,
       gallery1: null,
@@ -81,6 +84,8 @@ const Product = () => {
   })
 
   const formDataValues = watch()
+  const price = watch('price')
+  const discount = watch('discount')
 
   const toggleCategory = (id) => {
     const alreadySelected = formDataValues.categories.includes(id)
@@ -115,6 +120,15 @@ const Product = () => {
     getAllCategory()
   }, [])
 
+  useEffect(() => {
+    const p = Number(price) || 0
+    const d = Number(discount) || 0
+
+    const final = p - (p * d) / 100
+
+    setValue('final_price', final.toFixed(2))
+  }, [price, discount, setValue])
+
   const saveProduct = async (data) => {
     try {
       setLoading(true)
@@ -125,7 +139,8 @@ const Product = () => {
       formData.append('price', data.price)
       formData.append('categories', JSON.stringify(data.categories))
       formData.append('content', JSON.stringify(content))
-
+      formData.append('discount', data.discount)
+      formData.append('final_price', data.final_price)
       // Banner Image
       if (data.thumbnail?.[0]) {
         formData.append('thumbnail', data.thumbnail[0])
@@ -202,7 +217,7 @@ const Product = () => {
           <CCardBody>
             <CForm onSubmit={handleSubmit(saveProduct)}>
               <CRow className="mb-2">
-                <CCol md={6}>
+                <CCol md={12}>
                   <CFormInput
                     type="text"
                     label="Title"
@@ -215,18 +230,33 @@ const Product = () => {
                   />
                   {errors.title && <small className="text-danger">{errors.title.message}</small>}
                 </CCol>
-                <CCol md={6}>
+              </CRow>
+              <CRow className="mb-3">
+                <CCol md={4}>
                   <CFormInput
+                    label="Original Price"
                     type="number"
-                    label="Price"
-                    placeholder="Enter Price"
+                    placeholder="1000"
                     {...register('price')}
-                    onChange={(e) => {
-                      setValue('price', e.target.value)
-                      setSlugEdited(false)
-                    }}
                   />
-                  {errors.price && <small className="text-danger">{errors.price.message}</small>}
+                </CCol>
+
+                <CCol md={4}>
+                  <CFormInput
+                    label="Discount (%)"
+                    type="number"
+                    placeholder="10"
+                    {...register('discount')}
+                  />
+                </CCol>
+
+                <CCol md={4}>
+                  <CFormInput
+                    label="Final Price"
+                    readOnly
+                    className="fw-bold bg-light"
+                    {...register('final_price')}
+                  />
                 </CCol>
               </CRow>
 

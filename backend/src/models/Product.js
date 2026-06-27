@@ -12,6 +12,16 @@ const productSchema = new mongoose.Schema(
       default: 0,
     },
 
+    discount: {
+      type: Number,
+      default: 0,
+    },
+
+    final_price: {
+      type: Number,
+      default: 0,
+    },
+
     categories: [
       {
         type: mongoose.Schema.Types.ObjectId,

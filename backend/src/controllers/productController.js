@@ -3,7 +3,8 @@ import Product from "../models/Product.js";
 // ================= Create Product =================
 export const createProduct = async (req, res) => {
   try {
-    const { title, price, categories, content } = req.body;
+    const { title, price, discount, final_price, categories, content } =
+      req.body;
 
     const thumbnail = req.files?.thumbnail
       ? req.files.thumbnail[0].filename
@@ -26,6 +27,8 @@ export const createProduct = async (req, res) => {
     const product = await Product.create({
       title,
       price,
+      discount,
+      final_price,
       categories: categories ? JSON.parse(categories) : [],
       content: content ? JSON.parse(content) : {},
       thumbnail,
@@ -95,7 +98,8 @@ export const getProduct = async (req, res) => {
 // ================= Update Product =================
 export const updateProduct = async (req, res) => {
   try {
-    const { title, price, categories, content } = req.body;
+    const { title, price, discount, final_price, categories, content } =
+      req.body;
 
     const product = await Product.findById(req.params.id);
 
@@ -106,17 +110,20 @@ export const updateProduct = async (req, res) => {
       });
     }
 
+    // Update Basic Details
     product.title = title;
-    product.price = price;
+    product.price = Number(price);
+    product.discount = Number(discount) || 0;
+    product.final_price = Number(final_price) || Number(price);
     product.categories = categories ? JSON.parse(categories) : [];
     product.content = content ? JSON.parse(content) : {};
 
-    // Banner
+    // Update Banner
     if (req.files?.thumbnail) {
       product.thumbnail = req.files.thumbnail[0].filename;
     }
 
-    // Existing Gallery
+    // Update Gallery Images
     const gallery = [...product.gallery];
 
     if (req.files?.gallery1) {
@@ -135,8 +142,9 @@ export const updateProduct = async (req, res) => {
 
     await product.save();
 
-    return res.json({
+    return res.status(200).json({
       success: true,
+      message: "Product updated successfully",
       data: product,
     });
   } catch (error) {
