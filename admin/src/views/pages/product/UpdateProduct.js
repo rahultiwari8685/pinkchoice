@@ -30,9 +30,11 @@ const schema = yup.object().shape({
   price: yup.number().required('Price is required'),
   discount: yup
     .number()
-    .typeError('Discount must be a number')
-    .min(0, 'Discount cannot be negative')
-    .max(100, 'Discount cannot exceed 100%')
+    .transform((value, originalValue) =>
+      originalValue === '' ? undefined : parseFloat(originalValue),
+    )
+    .min(0)
+    .max(100)
     .required('Discount is required'),
 })
 
@@ -229,8 +231,8 @@ const UpdateProduct = () => {
   }
 
   useEffect(() => {
-    const p = Number(price) || 0
-    const d = Number(discount) || 0
+    const p = parseFloat(price) || 0
+    const d = parseFloat(discount) || 0
 
     const finalPrice = p - (p * d) / 100
 
@@ -277,8 +279,13 @@ const UpdateProduct = () => {
                   <CFormInput
                     type="number"
                     label="Discount (%)"
-                    placeholder="10"
-                    {...register('discount')}
+                    placeholder="10.50"
+                    step="0.01"
+                    min="0"
+                    max="100"
+                    {...register('discount', {
+                      valueAsNumber: true,
+                    })}
                   />
                 </CCol>
 
