@@ -215,9 +215,11 @@ const ProductSection = () => {
                 <div className="dz-content">
                   <div className="dz-content-footer">
                     <div className="dz-content-start">
-                      <span className="badge bg-secondary mb-2">
-                        {Number(selectedProduct.discount).toFixed(1)}% OFF
-                      </span>
+                      {selectedProduct && (
+                        <span className="badge bg-secondary mb-2">
+                          {Number(selectedProduct.discount).toFixed(1)}% OFF
+                        </span>
+                      )}
                       <h4 className="title mb-1">
                         <Link href="/">{selectedProduct?.title}</Link>
                       </h4>
