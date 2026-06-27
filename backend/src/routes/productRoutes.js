@@ -11,6 +11,7 @@ import {
 
 const router = express.Router();
 
+// Create Product
 router.post(
   "/saveProduct",
   upload.fields([
@@ -19,17 +20,28 @@ router.post(
       maxCount: 1,
     },
     {
-      name: "gallery",
-      maxCount: 3,
+      name: "gallery1",
+      maxCount: 1,
+    },
+    {
+      name: "gallery2",
+      maxCount: 1,
+    },
+    {
+      name: "gallery3",
+      maxCount: 1,
     },
   ]),
   createProduct,
 );
 
+// Get All Products
 router.get("/getAllProducts", getProducts);
 
+// Get Single Product
 router.get("/:id", getProduct);
 
+// Update Product
 router.put(
   "/update/:id",
   upload.fields([
@@ -38,8 +50,16 @@ router.put(
       maxCount: 1,
     },
     {
-      name: "gallery",
-      maxCount: 3,
+      name: "gallery1",
+      maxCount: 1,
+    },
+    {
+      name: "gallery2",
+      maxCount: 1,
+    },
+    {
+      name: "gallery3",
+      maxCount: 1,
     },
   ]),
   updateProduct,

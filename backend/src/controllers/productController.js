@@ -9,9 +9,19 @@ export const createProduct = async (req, res) => {
       ? req.files.thumbnail[0].filename
       : "";
 
-    const gallery = req.files?.gallery
-      ? req.files.gallery.map((file) => file.filename)
-      : [];
+    const gallery = [];
+
+    if (req.files?.gallery1) {
+      gallery[0] = req.files.gallery1[0].filename;
+    }
+
+    if (req.files?.gallery2) {
+      gallery[1] = req.files.gallery2[0].filename;
+    }
+
+    if (req.files?.gallery3) {
+      gallery[2] = req.files.gallery3[0].filename;
+    }
 
     const product = await Product.create({
       title,
@@ -87,30 +97,47 @@ export const updateProduct = async (req, res) => {
   try {
     const { title, price, categories, content } = req.body;
 
-    const updateData = {
-      title,
-      price,
-      categories: categories ? JSON.parse(categories) : [],
-      content: content ? JSON.parse(content) : {},
-    };
+    const product = await Product.findById(req.params.id);
 
-    // Update Banner Image
+    if (!product) {
+      return res.status(404).json({
+        success: false,
+        message: "Product not found",
+      });
+    }
+
+    product.title = title;
+    product.price = price;
+    product.categories = categories ? JSON.parse(categories) : [];
+    product.content = content ? JSON.parse(content) : {};
+
+    // Banner
     if (req.files?.thumbnail) {
-      updateData.thumbnail = req.files.thumbnail[0].filename;
+      product.thumbnail = req.files.thumbnail[0].filename;
     }
 
-    // Update Gallery Images
-    if (req.files?.gallery) {
-      updateData.gallery = req.files.gallery.map((file) => file.filename);
+    // Existing Gallery
+    const gallery = [...product.gallery];
+
+    if (req.files?.gallery1) {
+      gallery[0] = req.files.gallery1[0].filename;
     }
 
-    const updated = await Product.findByIdAndUpdate(req.params.id, updateData, {
-      new: true,
-    });
+    if (req.files?.gallery2) {
+      gallery[1] = req.files.gallery2[0].filename;
+    }
 
-    return res.status(200).json({
+    if (req.files?.gallery3) {
+      gallery[2] = req.files.gallery3[0].filename;
+    }
+
+    product.gallery = gallery;
+
+    await product.save();
+
+    return res.json({
       success: true,
-      data: updated,
+      data: product,
     });
   } catch (error) {
     return res.status(500).json({

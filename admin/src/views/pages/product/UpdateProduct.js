@@ -5,6 +5,7 @@ import * as yup from 'yup'
 import setting from '../../../setting.json'
 import EditorJSComponent from '../../../components/EditorJSComponent'
 import { useNavigate } from 'react-router-dom'
+import toast from 'react-hot-toast'
 import {
   CCard,
   CCardBody,
@@ -40,7 +41,29 @@ const UpdateProduct = () => {
   const [categoriesList, setCategoryList] = useState([])
   const [content, setContent] = useState({})
 
-  const [previewImage, setPreviewImage] = useState('')
+  const [bannerPreview, setBannerPreview] = useState(null)
+
+  const [galleryPreview, setGalleryPreview] = useState([null, null, null])
+
+  const [loading, setLoading] = useState(false)
+
+  const validateImage = (file) => {
+    if (!file) return false
+
+    const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp']
+
+    if (!allowedTypes.includes(file.type)) {
+      toast.error('Only JPG, PNG and WEBP images are allowed')
+      return false
+    }
+
+    if (file.size > 2 * 1024 * 1024) {
+      toast.error('Image size must be less than 2 MB')
+      return false
+    }
+
+    return true
+  }
 
   const {
     register,
@@ -56,6 +79,9 @@ const UpdateProduct = () => {
       price: '',
       categories: [],
       thumbnail: null,
+      gallery1: null,
+      gallery2: null,
+      gallery3: null,
     },
   })
 
@@ -85,8 +111,13 @@ const UpdateProduct = () => {
           typeof product.content === 'string' ? JSON.parse(product.content) : product.content || {},
         )
 
-        // Set Image Preview
-        setPreviewImage(product.thumbnail)
+        setBannerPreview(product.thumbnail)
+
+        setGalleryPreview([
+          product.gallery?.[0] || null,
+          product.gallery?.[1] || null,
+          product.gallery?.[2] || null,
+        ])
       }
     } catch (err) {
       console.error('Get product error:', err)
@@ -130,33 +161,57 @@ const UpdateProduct = () => {
   }, [])
 
   const updateProduct = async (data) => {
-    const formData = new FormData()
+    try {
+      setLoading(true)
 
-    formData.append('title', data.title)
-    formData.append('price', data.price)
-    formData.append('categories', JSON.stringify(data.categories))
-    formData.append('content', JSON.stringify(content))
+      const formData = new FormData()
 
-    if (data.thumbnail?.[0]) {
-      formData.append('thumbnail', data.thumbnail[0])
+      formData.append('title', data.title)
+      formData.append('price', data.price)
+      formData.append('categories', JSON.stringify(data.categories))
+      formData.append('content', JSON.stringify(content))
+
+      if (data.thumbnail?.[0]) {
+        formData.append('thumbnail', data.thumbnail[0])
+      }
+
+      if (data.gallery1?.[0]) {
+        formData.append('gallery1', data.gallery1[0])
+      }
+
+      if (data.gallery2?.[0]) {
+        formData.append('gallery2', data.gallery2[0])
+      }
+
+      if (data.gallery3?.[0]) {
+        formData.append('gallery3', data.gallery3[0])
+      }
+
+      const res = await fetch(`${setting.api}/api/products/update/${id}`, {
+        method: 'PUT',
+        headers: {
+          Authorization: 'Bearer ' + JSON.parse(secureLocalStorage.getItem('logininfo')).token,
+        },
+        body: formData,
+      })
+
+      const result = await res.json()
+
+      if (result.success) {
+        toast.success('Product updated successfully')
+
+        setTimeout(() => {
+          navigate('/ProductList')
+        }, 1000)
+      } else {
+        toast.error(result.message)
+      }
+    } catch (err) {
+      console.error(err)
+      toast.error('Something went wrong')
+    } finally {
+      setLoading(false)
     }
-
-    const res = await fetch(`${setting.api}/api/products/update/${id}`, {
-      method: 'PUT',
-      body: formData,
-      headers: {
-        Authorization: 'Bearer ' + JSON.parse(secureLocalStorage.getItem('logininfo')).token,
-      },
-    })
-
-    const result = await res.json()
-
-    if (result.success) {
-      reset({})
-      navigate('/ProductList')
-    }
-
-    console.log('API Response:', result)
   }
 
   return (
@@ -249,35 +304,157 @@ const UpdateProduct = () => {
                   </div>
 
                   <CCol md={12} className="mb-3">
-                    <CFormInput
-                      type="file"
-                      label="Preview Image"
-                      accept="image/*"
-                      {...register('thumbnail')}
-                      onChange={(e) => {
-                        if (e.target.files[0]) {
-                          setPreviewImage(URL.createObjectURL(e.target.files[0]))
-                        }
-                      }}
-                    />
+                    <label className="fw-bold mb-2">Banner Image</label>
 
-                    {previewImage && (
-                      <div className="mt-3">
+                    <div className="border rounded p-3 text-center">
+                      {bannerPreview ? (
                         <img
-                          src={`${setting.api}/uploads/images/${previewImage}`}
-                          alt="Preview"
-                          width="150"
-                          className="img-thumbnail"
+                          src={
+                            bannerPreview.startsWith('blob:')
+                              ? bannerPreview
+                              : `${setting.api}/uploads/images/${bannerPreview}`
+                          }
+                          style={{
+                            width: '100%',
+                            height: 220,
+                            objectFit: 'cover',
+                            borderRadius: 10,
+                          }}
                         />
-                      </div>
-                    )}
+                      ) : (
+                        <div
+                          style={{
+                            height: 220,
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                          }}
+                        >
+                          No Banner
+                        </div>
+                      )}
+
+                      <CFormInput
+                        className="mt-3"
+                        type="file"
+                        accept="image/*"
+                        {...register('thumbnail')}
+                        onChange={(e) => {
+                          const file = e.target.files[0]
+
+                          if (!validateImage(file)) {
+                            e.target.value = ''
+                            return
+                          }
+
+                          setBannerPreview(URL.createObjectURL(file))
+                        }}
+                      />
+                      {bannerPreview && (
+                        <button
+                          type="button"
+                          className="btn btn-danger mt-3 ms-2"
+                          onClick={() => {
+                            setBannerPreview(null)
+                            setValue('thumbnail', null)
+                          }}
+                        >
+                          Remove Banner
+                        </button>
+                      )}
+                    </div>
+
+                    <CRow className="mt-4">
+                      {[0, 1, 2].map((index) => (
+                        <CCol md={4} key={index}>
+                          <div className="border rounded p-3 shadow-sm text-center">
+                            <h6>Gallery {index + 1}</h6>
+
+                            {galleryPreview[index] ? (
+                              <img
+                                src={
+                                  galleryPreview[index].startsWith('blob:')
+                                    ? galleryPreview[index]
+                                    : `${setting.api}/uploads/images/${galleryPreview[index]}`
+                                }
+                                style={{
+                                  width: '100%',
+                                  height: 180,
+                                  objectFit: 'cover',
+                                  borderRadius: 10,
+                                }}
+                              />
+                            ) : (
+                              <div
+                                style={{
+                                  height: 180,
+                                  display: 'flex',
+                                  justifyContent: 'center',
+                                  alignItems: 'center',
+                                  background: '#f7f7f7',
+                                  borderRadius: 10,
+                                }}
+                              >
+                                No Image
+                              </div>
+                            )}
+
+                            <CFormInput
+                              className="mt-3"
+                              type="file"
+                              accept="image/*"
+                              {...register(`gallery${index + 1}`)}
+                              onChange={(e) => {
+                                const file = e.target.files[0]
+
+                                if (!validateImage(file)) {
+                                  e.target.value = ''
+                                  return
+                                }
+
+                                const temp = [...galleryPreview]
+
+                                temp[index] = URL.createObjectURL(file)
+
+                                setGalleryPreview(temp)
+                              }}
+                            />
+
+                            {galleryPreview[index] && (
+                              <button
+                                type="button"
+                                className="btn btn-outline-danger mt-2"
+                                onClick={() => {
+                                  const temp = [...galleryPreview]
+
+                                  temp[index] = null
+
+                                  setGalleryPreview(temp)
+
+                                  setValue(`gallery${index + 1}`, null)
+                                }}
+                              >
+                                Remove Image
+                              </button>
+                            )}
+                          </div>
+                        </CCol>
+                      ))}
+                    </CRow>
                   </CCol>
                 </CCol>
               </CRow>
 
               <div className="d-flex justify-content-end mt-4">
-                <CButton color="primary" type="submit">
-                  {editingNews ? 'Update' : 'Publish'}
+                <CButton color="primary" type="submit" disabled={loading}>
+                  {loading ? (
+                    <>
+                      <span className="spinner-border spinner-border-sm me-2" />
+                      Updating...
+                    </>
+                  ) : (
+                    'Update Product'
+                  )}
                 </CButton>
               </div>
             </CForm>

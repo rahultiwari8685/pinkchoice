@@ -22,6 +22,7 @@ import {
   CDropdownItem,
 } from '@coreui/react'
 import secureLocalStorage from 'react-secure-storage'
+import toast from 'react-hot-toast'
 
 const schema = yup.object().shape({
   title: yup.string().required('Title is required'),
@@ -31,11 +32,33 @@ const schema = yup.object().shape({
 const Product = () => {
   const navigate = useNavigate()
 
+  const validateImage = (file) => {
+    if (!file) return false
+
+    const allowedTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/jpg']
+
+    if (!allowedTypes.includes(file.type)) {
+      toast.error('Only JPG, PNG and WEBP images are allowed')
+      return false
+    }
+
+    if (file.size > 2 * 1024 * 1024) {
+      toast.error('Maximum image size is 2 MB')
+      return false
+    }
+
+    return true
+  }
+
   const [slugEdited, setSlugEdited] = useState(false)
   const [editingNews, setEditingNews] = useState(null)
   const [newsList, setNewsList] = useState([])
   const [categoriesList, setCategoryList] = useState([])
   const [content, setContent] = useState({})
+  const [loading, setLoading] = useState(false)
+  const [bannerPreview, setBannerPreview] = useState(null)
+
+  const [galleryPreview, setGalleryPreview] = useState([null, null, null])
 
   const {
     register,
@@ -51,7 +74,9 @@ const Product = () => {
       price: '',
       categories: [],
       thumbnail: null,
-      gallery: [],
+      gallery1: null,
+      gallery2: null,
+      gallery3: null,
     },
   })
 
@@ -91,45 +116,79 @@ const Product = () => {
   }, [])
 
   const saveProduct = async (data) => {
-    const formData = new FormData()
+    try {
+      setLoading(true)
 
-    formData.append('title', data.title)
-    formData.append('price', data.price)
-    formData.append('categories', JSON.stringify(data.categories))
-    formData.append('content', JSON.stringify(content))
-    // Banner Image
-    if (data.thumbnail?.[0]) {
-      formData.append('thumbnail', data.thumbnail[0])
-    }
+      const formData = new FormData()
 
-    // Gallery Images
-    if (data.gallery && data.gallery.length > 0) {
-      Array.from(data.gallery).forEach((file) => {
-        formData.append('gallery', file)
+      formData.append('title', data.title)
+      formData.append('price', data.price)
+      formData.append('categories', JSON.stringify(data.categories))
+      formData.append('content', JSON.stringify(content))
+
+      // Banner Image
+      if (data.thumbnail?.[0]) {
+        formData.append('thumbnail', data.thumbnail[0])
+      }
+
+      if (data.gallery1?.[0]) {
+        formData.append('gallery1', data.gallery1[0])
+      }
+
+      if (data.gallery2?.[0]) {
+        formData.append('gallery2', data.gallery2[0])
+      }
+
+      if (data.gallery3?.[0]) {
+        formData.append('gallery3', data.gallery3[0])
+      }
+
+      const response = await fetch(`${setting.api}/api/products/saveProduct`, {
+        method: 'POST',
+        headers: {
+          Authorization: 'Bearer ' + JSON.parse(secureLocalStorage.getItem('logininfo')).token,
+        },
+        body: formData,
       })
+
+      const result = await response.json()
+
+      if (!response.ok) {
+        throw new Error(result.message || 'Something went wrong')
+      }
+
+      if (result.success) {
+        toast.success('🎉 Product created successfully!')
+
+        reset({
+          title: '',
+          price: '',
+          categories: [],
+          thumbnail: null,
+          gallery1: null,
+          gallery2: null,
+          gallery3: null,
+        })
+
+        setContent({})
+
+        setBannerPreview(null)
+
+        setGalleryPreview([null, null, null])
+
+        setTimeout(() => {
+          navigate('/ProductList')
+        }, 1000)
+      } else {
+        toast.error(result.message || 'Failed to create product')
+      }
+    } catch (error) {
+      console.error(error)
+
+      toast.error(error.message || 'Server Error')
+    } finally {
+      setLoading(false)
     }
-
-    if (data.gallery && data.gallery.length > 3) {
-      alert('Maximum 3 gallery images allowed.')
-      return
-    }
-
-    const endpoint = '/api/products/saveProduct'
-
-    const res = await fetch(setting.api + endpoint, {
-      method: 'POST',
-      body: formData,
-      headers: {
-        Authorization: 'Bearer ' + JSON.parse(secureLocalStorage.getItem('logininfo')).token,
-      },
-    })
-
-    const result = await res.json()
-    if (result.success === true) {
-      reset({})
-      navigate('/ProductList')
-    }
-    console.log('API Response:', result)
   }
 
   return (
@@ -170,8 +229,6 @@ const Product = () => {
                   {errors.price && <small className="text-danger">{errors.price.message}</small>}
                 </CCol>
               </CRow>
-
-              <CRow></CRow>
 
               <CRow>
                 <CCol md={12} className="mb-2">
@@ -222,28 +279,192 @@ const Product = () => {
                   </div>
 
                   <CCol md={12} className="mb-3">
-                    <CFormInput
-                      type="file"
-                      label="Banner Image"
-                      accept="image/*"
-                      {...register('thumbnail')}
-                    />
+                    <label className="fw-bold mb-2">Banner Image</label>
 
-                    <CFormInput
-                      className="mt-3"
-                      type="file"
-                      label="Gallery Images (Max 3)"
-                      accept="image/*"
-                      multiple
-                      {...register('gallery')}
-                    />
+                    <div
+                      className="border rounded text-center p-3"
+                      style={{
+                        cursor: 'pointer',
+                        background: '#fafafa',
+                      }}
+                    >
+                      {bannerPreview ? (
+                        <img
+                          src={bannerPreview}
+                          style={{
+                            width: '100%',
+                            height: 220,
+                            objectFit: 'cover',
+                            borderRadius: 10,
+                          }}
+                        />
+                      ) : (
+                        <>
+                          <i
+                            className="fas fa-cloud-upload-alt"
+                            style={{
+                              fontSize: 45,
+                              color: '#0d6efd',
+                            }}
+                          />
+
+                          <h6 className="mt-3">Click to Upload Banner</h6>
+                        </>
+                      )}
+
+                      <CFormInput
+                        hidden
+                        id="banner"
+                        type="file"
+                        accept="image/*"
+                        {...register('thumbnail')}
+                        onChange={(e) => {
+                          const file = e.target.files[0]
+
+                          if (!file) return
+
+                          // Maximum 2MB
+                          if (file.size > 2 * 1024 * 1024) {
+                            toast.error('Banner image must be less than 2 MB')
+                            e.target.value = ''
+                            return
+                          }
+
+                          // Only Images
+                          if (!file.type.startsWith('image/')) {
+                            toast.error('Only image files are allowed')
+                            e.target.value = ''
+                            return
+                          }
+
+                          setBannerPreview(URL.createObjectURL(file))
+                        }}
+                      />
+
+                      <label htmlFor="banner" className="btn btn-primary mt-3">
+                        Choose Banner
+                      </label>
+                      {bannerPreview && (
+                        <button
+                          type="button"
+                          className="btn btn-danger ms-2 mt-3"
+                          onClick={() => {
+                            setBannerPreview(null)
+                            setValue('thumbnail', null)
+
+                            document.getElementById('banner').value = ''
+                          }}
+                        >
+                          Remove
+                        </button>
+                      )}
+                    </div>
+
+                    <CRow className="mt-4">
+                      {[0, 1, 2].map((index) => (
+                        <CCol md={4} key={index}>
+                          <div className="border rounded shadow-sm p-3 text-center">
+                            <h6>Gallery {index + 1}</h6>
+
+                            {galleryPreview[index] ? (
+                              <img
+                                src={galleryPreview[index]}
+                                style={{
+                                  width: '100%',
+                                  height: 180,
+                                  objectFit: 'cover',
+                                  borderRadius: 10,
+                                }}
+                              />
+                            ) : (
+                              <div
+                                style={{
+                                  height: 180,
+                                  display: 'flex',
+                                  justifyContent: 'center',
+                                  alignItems: 'center',
+                                  background: '#f5f5f5',
+                                  borderRadius: 10,
+                                }}
+                              >
+                                No Image
+                              </div>
+                            )}
+
+                            <CFormInput
+                              hidden
+                              id={`gallery${index + 1}`}
+                              type="file"
+                              accept="image/*"
+                              {...register(`gallery${index + 1}`)}
+                              onChange={(e) => {
+                                const file = e.target.files[0]
+
+                                if (!file) return
+
+                                if (file.size > 2 * 1024 * 1024) {
+                                  toast.error('Image size must be less than 2 MB')
+                                  e.target.value = ''
+                                  return
+                                }
+
+                                if (!file.type.startsWith('image/')) {
+                                  toast.error('Only image files are allowed')
+                                  e.target.value = ''
+                                  return
+                                }
+
+                                const preview = [...galleryPreview]
+
+                                preview[index] = URL.createObjectURL(file)
+
+                                setGalleryPreview(preview)
+                              }}
+                            />
+
+                            <label
+                              htmlFor={`gallery${index + 1}`}
+                              className="btn btn-outline-primary mt-3"
+                            >
+                              Choose Image
+                            </label>
+                            {galleryPreview[index] && (
+                              <button
+                                type="button"
+                                className="btn btn-outline-danger mt-2 ms-2"
+                                onClick={() => {
+                                  const preview = [...galleryPreview]
+
+                                  preview[index] = null
+
+                                  setGalleryPreview(preview)
+
+                                  setValue(`gallery${index + 1}`, null)
+
+                                  document.getElementById(`gallery${index + 1}`).value = ''
+                                }}
+                              >
+                                Remove
+                              </button>
+                            )}
+                          </div>
+                        </CCol>
+                      ))}
+                    </CRow>
                   </CCol>
                 </CCol>
               </CRow>
 
               <div className="d-flex justify-content-end mt-4">
-                <CButton color="primary" type="submit">
-                  {editingNews ? 'Update' : 'Publish'}
+                <CButton color="primary" type="submit" disabled={loading}>
+                  {loading ? (
+                    <>
+                      <span className="spinner-border spinner-border-sm me-2"></span>
+                      Uploading...
+                    </>
+                  ) : (
+                    'Publish Product'
+                  )}
                 </CButton>
               </div>
             </CForm>
