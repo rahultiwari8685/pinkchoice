@@ -216,7 +216,7 @@ const ProductSection = () => {
                   <div className="dz-content-footer">
                     <div className="dz-content-start">
                       <span className="badge bg-secondary mb-2">
-                        SALE 20% Off
+                        SALE 14% Off
                       </span>
                       <h4 className="title mb-1">
                         <Link href="/">{selectedProduct?.title}</Link>
